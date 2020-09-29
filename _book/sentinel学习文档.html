@@ -180,19 +180,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="ceshi.html">
-            
-                <a href="ceshi.html">
-            
-                    
-                    ceshi
-            
-                </a>
-            
-
-            
-        </li>
-    
 
     
 
@@ -265,19 +252,23 @@
 </ul>
 <h2 id="sentinel-dashboard&#x63A7;&#x5236;&#x53F0;&#x63A5;&#x5165;">sentinel-dashboard&#x63A7;&#x5236;&#x53F0;&#x63A5;&#x5165;</h2>
 <ul>
-<li>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
-  &lt;artifactId&gt;sentinel-transport-simple-http&lt;/artifactId&gt;
-  &lt;version&gt;1.7.2&lt;/version&gt;
+<li>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-transport-simple-http&lt;/artifactId&gt;
+    &lt;version&gt;1.7.2&lt;/version&gt;
 &lt;/dependency&gt;
-</code></pre></li>
-<li>&#x89E6;&#x53D1;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x63A7;&#x5236;&#x53F0;<pre><code>@Configuration
+</code></pre><ul>
+<li>&#x89E6;&#x53D1;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x63A7;&#x5236;&#x53F0;</li>
+</ul>
+<pre><code>@Configuration
 public  class  Env{
-  static{
-      InitExecutor.doInit();
-  }
+    static{
+        InitExecutor.doInit();
+    }
 }
-</code></pre></li>
+</code></pre><ul>
 <li>&#x589E;&#x52A0;JVM&#x542F;&#x52A8;&#x53C2;&#x6570;</li>
 </ul>
 <p><code>-Dproject.name=project -Dcsp.sentinel.dashboard.server=127.0.0.1:8080</code></p>
@@ -291,26 +282,28 @@ public  class  Env{
 <p>&#x5206;&#x6790;&#x539F;&#x56E0;&#xFF1A;&#x4F9D;&#x8D56;&#x5305;&#x7248;&#x672C;&#x51B2;&#x7A81;&#x95EE;&#x9898;</p>
 <p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;</p>
 <ul>
-<li>&#x9650;&#x6D41;&#x4F9D;&#x8D56;&#x5305;&#xFF0C;&#x7248;&#x672C;&#x9700;&#x5927;&#x4E8E;&#x89E6;&#x53D1;&#x63A7;&#x5236;&#x53F0;&#x4F9D;&#x8D56;&#x5305;<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
-  &lt;artifactId&gt;sentinel-annotation-aspectj&lt;/artifactId&gt;
-  &lt;version&gt;1.8.0&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></li>
-<li>&#x89E6;&#x53D1;&#x63A7;&#x5236;&#x53F0;&#x4F9D;&#x8D56;&#x5305;<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
-  &lt;artifactId&gt;sentinel-transport-simple-http&lt;/artifactId&gt;
-  &lt;version&gt;1.7.2&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></li>
+<li>&#x9650;&#x6D41;&#x4F9D;&#x8D56;&#x5305;&#xFF0C;&#x7248;&#x672C;&#x9700;&#x5927;&#x4E8E;&#x89E6;&#x53D1;&#x63A7;&#x5236;&#x53F0;&#x4F9D;&#x8D56;&#x5305;</li>
 </ul>
-<h3 id="&#x516C;&#x53F8;sentinel&#x63A5;&#x5165;&#x8BF4;&#x660E;">&#x516C;&#x53F8;sentinel&#x63A5;&#x5165;&#x8BF4;&#x660E;</h3>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-annotation-aspectj&lt;/artifactId&gt;
+    &lt;version&gt;1.8.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>&#x89E6;&#x53D1;&#x63A7;&#x5236;&#x53F0;&#x4F9D;&#x8D56;&#x5305;</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-transport-simple-http&lt;/artifactId&gt;
+    &lt;version&gt;1.7.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="sentinel&#x63A5;&#x5165;&#x8BF4;&#x660E;">sentinel&#x63A5;&#x5165;&#x8BF4;&#x660E;</h3>
 <ul>
 <li>&#x5F15;&#x5165;&#x4F9D;&#x8D56;&#x5305;</li>
 </ul>
 <p>&#x8BE5;sdk&#x5DF2;&#x7ECF;&#x5C06;&#x4E0A;&#x8FF0;&#x63A5;&#x5165;&#x65B9;&#x5F0F;&#x5168;&#x90E8;&#x5C01;&#x88C5;</p>
 <pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;com.wosai&lt;/groupId&gt;
+    &lt;groupId&gt;***&lt;/groupId&gt;
     &lt;artifactId&gt;sentinel-sdk-starter&lt;/artifactId&gt;
     &lt;version&gt;1.0.9-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;
@@ -318,7 +311,7 @@ public  class  Env{
 <li>&#x5347;&#x7EA7;jsonrpc&#x7248;&#x672C;&#x4E3A;1.5.4</li>
 </ul>
 <pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;com.wosai.middleware&lt;/groupId&gt;
+    &lt;groupId&gt;***&lt;/groupId&gt;
     &lt;artifactId&gt;jsonrpc4j&lt;/artifactId&gt;
     &lt;version&gt;1.5.4&lt;/version&gt;
 &lt;/dependency&gt;
@@ -333,8 +326,8 @@ public  class  Env{
 </code></pre><ul>
 <li>&#x9650;&#x6D41;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x914D;&#x7F6E;</li>
 </ul>
-<pre><code>`-Dcsp.sentinel.log.dir=/app/log/xx`
-</code></pre><p>&#x5177;&#x4F53;&#x53EF;&#x53C2;&#x8003;&#xFF1A;<a href="https://confluence.wosai-inc.com/pages/viewpage.action?pageId=213352508" target="_blank">wiki</a></p>
+<p><code>-Dcsp.sentinel.log.dir=/app/log/xx</code></p>
+<p>&#x5177;&#x4F53;&#x53EF;&#x53C2;&#x8003;&#xFF1A;<a href="https://confluence.wosai-inc.com/pages/viewpage.action?pageId=213352508" target="_blank">wiki</a></p>
 <h2 id="sentinel-core&#x9879;&#x76EE;&#x5B66;&#x4E60;">sentinel-core&#x9879;&#x76EE;&#x5B66;&#x4E60;</h2>
 <pre><code>&#x6839;&#x672C;&#x627E;&#x4E0D;&#x5230;&#x9879;&#x76EE;&#x8D77;&#x70B9;&#xFF0C;&#x4E00;&#x56E2;&#x4E71;&#x9EBB;&#x7684;&#x8D76;&#x811A;&#xFF0C;&#x4E0D;&#x77E5;&#x4ECE;&#x4F55;&#x770B;&#x8D77;&#x3002;&#x5148;&#x4ECE;&#x6587;&#x6863;&#x770B;&#x8D77;&#x5427;&#x3002;&#x3002;&#x3002;
 2020-08-31
@@ -439,7 +432,7 @@ public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; &#x51B7;&#x54
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sentinel","level":"1.6","depth":1,"next":{"title":"GitHub","level":"1.7","depth":1,"path":"关联github.md","ref":"关联github.md","articles":[]},"previous":{"title":"sentinel博客","level":"1.5","depth":1,"path":"sentinel博客.md","ref":"sentinel博客.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel学习文档.md","mtime":"2020-09-29T09:07:21.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-29T10:12:40.913Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sentinel","level":"1.6","depth":1,"next":{"title":"GitHub","level":"1.7","depth":1,"path":"关联github.md","ref":"关联github.md","articles":[]},"previous":{"title":"sentinel博客","level":"1.5","depth":1,"path":"sentinel博客.md","ref":"sentinel博客.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel学习文档.md","mtime":"2020-09-29T10:31:08.618Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-29T10:32:10.898Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -447,10 +440,6 @@ public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; &#x51B7;&#x54
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -11,5 +11,3 @@
 * [sentinel](sentinel学习文档.md)
 
 * [GitHub](关联github.md)
-
-* [ceshi](ceshi.md)

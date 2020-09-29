@@ -1,7 +1,11 @@
 # sentinel学习文档
+
 [sentinel]:https://github.com/alibaba/Sentinel
+
 [sentinel]：(面向云原生微服务的高可用流控防护组件)
+
 ## sentinel项目结构
+
 1. sentinel-core 核心模块，限流、降级、系统保护等都在这里实现
 1. sentinel-dashboard 控制台模块，可以对连接上的sentinel客户端实现可视化的管理
 1. sentinel-transport 传输模块，提供了基本的监控服务端和客户端的API接口以及一些基于不同库的实现
@@ -25,6 +29,7 @@
 ## sentinel-dashboard控制台接入
 
 * 添加依赖
+
 ```
 <dependency>
 	<groupId>com.alibaba.csp</groupId>
@@ -32,7 +37,9 @@
 	<version>1.7.2</version>
 </dependency>
 ```
+
 * 触发客户端连接控制台
+
 ```
 @Configuration
 public  class  Env{
@@ -41,10 +48,13 @@ public  class  Env{
 	}
 }
 ```
+
 * 增加JVM启动参数
 
 `-Dproject.name=project -Dcsp.sentinel.dashboard.server=127.0.0.1:8080`
+
 ### 相关问题
+
 1. 项目启动报错，内容如下：
 
 > `Circular view path [again]: would dispatch back to the current handler URL [/again] again. Check you. .....`
@@ -52,7 +62,9 @@ public  class  Env{
 分析原因：依赖包版本冲突问题
 
 解决办法：
+
 * 限流依赖包，版本需大于触发控制台依赖包
+
 ```
 <dependency>
 	<groupId>com.alibaba.csp</groupId>
@@ -60,7 +72,9 @@ public  class  Env{
 	<version>1.8.0</version>
 </dependency>
 ```
+
 * 触发控制台依赖包
+
 ```
 <dependency>
 	<groupId>com.alibaba.csp</groupId>
@@ -69,22 +83,25 @@ public  class  Env{
 </dependency>
 ```
 
-### 公司sentinel接入说明
+### sentinel接入说明
+
 * 引入依赖包
 
 该sdk已经将上述接入方式全部封装
+
 ```
 <dependency>
-    <groupId>com.wosai</groupId>
+    <groupId>***</groupId>
     <artifactId>sentinel-sdk-starter</artifactId>
     <version>1.0.9-SNAPSHOT</version>
 </dependency>
 ```
+
 * 升级jsonrpc版本为1.5.4
 
 ```
 <dependency>
-    <groupId>com.wosai.middleware</groupId>
+    <groupId>***</groupId>
     <artifactId>jsonrpc4j</artifactId>
     <version>1.5.4</version>
 </dependency>
@@ -102,14 +119,12 @@ public  class  Env{
 
 * 限流日志文件配置
 
-
-	`-Dcsp.sentinel.log.dir=/app/log/xx`
-
+`-Dcsp.sentinel.log.dir=/app/log/xx`
 
 具体可参考：[wiki](https://confluence.wosai-inc.com/pages/viewpage.action?pageId=213352508)
 
-
 ## sentinel-core项目学习
+
 ```
 根本找不到项目起点，一团乱麻的赶脚，不知从何看起。先从文档看起吧。。。
 2020-08-31
@@ -138,23 +153,29 @@ hashCode方法作用：计算resource、limitApp的哈希值
 流控主要由3个因素组成：grade、strategy、controlBehavior
 
 grade默认取值：1
+
 ```
 public static final int FLOW_GRADE_THREAD = 0; 线程数
 public static final int FLOW_GRADE_QPS = 1; QPS
 ```
+
 strategy默认取值：0
+
 ```
 public static final int STRATEGY_DIRECT = 0; 直接流控
 public static final int STRATEGY_RELATE = 1; 相关流控
 public static final int STRATEGY_CHAIN = 2; 链流控制
 ```
+
 controlBehavior默认取值：0
+
 ```
 public static final int CONTROL_BEHAVIOR_DEFAULT = 0; 直接拒绝
 public static final int CONTROL_BEHAVIOR_WARM_UP = 1; 冷启动
 public static final int CONTROL_BEHAVIOR_RATE_LIMITER = 2; 均匀等待
 public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; 冷启动+均匀等待
 ```
+
 count：阈值
 
 warmUpPeriodSec默认取值： 10，配合冷启动策略使用
@@ -176,11 +197,10 @@ com.alibaba.csp.sentinel.init文件作为客户端接入
 | 日志大小    | 默认50M，可以通过csp.sentinel.metric.file.single.size设置 |
 | 日志数量    | 默认最多6个文件，可以通过csp.sentinel.metric.file.total.count设置 |
 
-
-
-
 # sentinel-extension扩展模块
+
 ## sentinel-datasource-apollo提供与Apollo之间的适配
+
 限流规则可在Apollo进行配置，当值发生修改时，可以立马被读取到
 
 
