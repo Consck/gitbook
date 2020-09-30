@@ -8,6 +8,8 @@
 
 * [Lambda](Lambda表达式.md)
 
+* [单元测试编写示例](test.md)
+
 * [sentinel博客](sentinel博客.md)
 
 * [sentinel](sentinel学习文档.md)
