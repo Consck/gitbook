@@ -1,10 +1,14 @@
 gitbook build
 git add .
-git commit -m $1
+git commit -m 'update gitbook'
 git push -u origin master
 git checkout gh-pages
-cp -r _book/* .
+rm -rf *
+git checkout master -- _book
+mv _book/* ./
+rm -rf _book
+rm -rf publish.sh
 git add .
-git commit -m $1
-git push -u origin gh-pages
+git commit -m 'publish gh-pages'
+git push origin gh-pages
 git checkout master
