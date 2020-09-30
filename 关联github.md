@@ -22,3 +22,7 @@ git push origin master
 git init
 git remote add origin https://github.com/Consck/gitbook.git
 ```
+
+## 以脚本的方式执行上传动作
+
+脚本文件为gitbook.sh文件，在cmd中执行：`./gitbook.sh "commit msg"`即可
