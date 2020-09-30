@@ -25,4 +25,26 @@ git remote add origin https://github.com/Consck/gitbook.git
 
 ## 以脚本的方式执行上传动作
 
-脚本文件为gitbook.sh文件，在cmd中执行：`./gitbook.sh "commit msg"`即可
+gitbook.sh文件内容：
+
+```
+cd /Users/macuser/Desktop/gitbook-study
+gitbook build
+git add .
+git commit -m 'update gitbook'
+git push -u origin master
+git checkout gh-pages
+rm -rf *
+git checkout master -- _book
+mv _book/* ./
+rm -rf _book
+rm -rf publish.sh
+git add .
+git commit -m 'publish gh-pages'
+git push origin gh-pages
+git checkout master
+```
+
+脚本文件为gitbook.sh文件，在cmd中执行：`./gitbook.sh`即可
+
+**注意**：使用时不能将脚本放在仓库里，不然在切换分支时容易出错，最好与仓库文件夹同级。
