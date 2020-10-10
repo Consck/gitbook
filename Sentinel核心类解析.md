@@ -2,6 +2,12 @@
 
 Sentinel的核心骨架，将不同的Slot按照顺序串在一起(责任链模式)，从而将不同的功能(限流、降级、系统保护)组合在一起。slot chain其实可以分为两部分：统计数据构建部分(statistic)和判断部分(rule checking)。
 
+
+[picture]: https://github.com/Consck/gitbook/raw/master/sentinel-slot-chain-architecture.png
+
+![picture]
+
+
 ## context
 
 Context代表调用链路上下文，贯穿一次调用链中的所有Entry。Context维持着入口节点(entranceNode)、本次调用链路的curNode、调用来源(origin)等信息。Context名称即为调用链路入口名称。
