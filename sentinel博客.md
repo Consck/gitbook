@@ -33,13 +33,3 @@ Sentinel-adapter文件夹下提供各种相关适配依赖，[sentinel-apache-du
 抽象处理者（Handler）角色：定义出一个处理请求的接口。如果需要，接口可以定义出一个方法以设定和返回对下家的引用。这个角色通常由一个Java抽象类或者Java接口实现。上图中Handler类的聚合关系给出了具体子类对下家的引用，抽象方法handleRequest()规范了子类处理请求的操作。
 
 具体处理者（ConcreteHandler）角色：具体处理者接到请求后，可以选择将请求处理掉，或者将请求传给下家。由于具体处理者持有对下家的引用，因此，如果需要，具体处理者可以访问下家。
-
-### FlowQpsDemo
-
-- NodeSelectorSlot 负责收集资源的路径，并将这些资源的调用路径，以树状结构存储起来，用于根据调用路径来限流降级；
-- ClusterBuilderSlot 则用于存储资源的统计信息以及调用者信息，例如该资源的 RT, QPS, thread count 等等，这些信息将用作为多维度限流，降级的依据；
-- StatistcSlot 则用于记录，统计不同纬度的 runtime 信息；
-- FlowSlot 则用于根据预设的限流规则，以及前面 slot 统计的状态，来进行限流；
-- AuthorizationSlot 则根据黑白名单，来做黑白名单控制；
-- DegradeSlot 则通过统计信息，以及预设的规则，来做熔断降级；
-- SystemSlot 则通过系统的状态，例如 load1 等，来控制总的入口流量；
