@@ -2,6 +2,8 @@
 
 [sentinel]:https://github.com/alibaba/Sentinel
 
+[gitee](https://gitee.com/nilera/Sentinel/wikis/Home)
+
 [sentinel]：(面向云原生微服务的高可用流控防护组件)
 
 ## sentinel项目结构
