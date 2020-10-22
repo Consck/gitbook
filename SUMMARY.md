@@ -15,3 +15,5 @@
 * [sentinel](sentinel学习文档.md)
 
 * [Sentinel核心类解析](Sentinel核心类解析.md)
+
+* [Sentinel总结篇](sentinel汇报高质量文章.md)
