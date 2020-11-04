@@ -359,17 +359,17 @@ public Object advice(ProceedingJoinPoint joinPoint, KthLog logger){
 }
 </code></pre><p>}</p>
 <pre><code>
-&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;
-</code></pre><p>&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;0&#x8FDB;&#x884C;&#x64CD;&#x4F5C;
-&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;
-&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; get
-&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: Sentinel
-&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: class com.project.controller.Sentinel
-&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: public
-before &#x8FD9;&#x662F;&#x6CE8;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7; &#x6D4B;&#x8BD5; &#xFF01;
-&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;
-&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;
-```</p>
+*&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;*
+</code></pre><p>&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;0&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
+<p>&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;</p>
+<p>&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; get</p>
+<p>&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: Sentinel</p>
+<p>&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: class com.project.controller.Sentinel</p>
+<p>&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: public</p>
+<p>before &#x8FD9;&#x662F;&#x6CE8;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7; &#x6D4B;&#x8BD5; &#xFF01;</p>
+<p>&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;</p>
+<p>&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
+<p>```</p>
 <p>&#x5176;&#x4E2D;<code>@Pointcut</code>&#x58F0;&#x660E;&#x4E86;&#x5207;&#x70B9;&#xFF08;&#x8FD9;&#x91CC;&#x7684;&#x5207;&#x70B9;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x7C7B;&#xFF09;&#xFF0C;<code>@Before</code>&#x58F0;&#x660E;&#x4E86;&#x901A;&#x77E5;&#x5185;&#x5BB9;&#xFF0C;&#x5728;&#x5177;&#x4F53;&#x7684;&#x901A;&#x77E5;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;<code>@annotation(logger)</code>&#x62FF;&#x5230;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x65F6;&#x8D4B;&#x4E88;&#x7684;&#x503C;&#x4E86;&#x3002;</p>
 <p><code>@Around</code>&#x73AF;&#x7ED5;&#x6CE8;&#x89E3;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x793A;&#x4F8B;&#x770B;&#x51FA;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x3002;</p>
 
@@ -415,7 +415,7 @@ before &#x8FD9;&#x662F;&#x6CE8;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7; 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"自定义注解","level":"1.8","depth":1,"next":{"title":"sentinel","level":"1.9","depth":1,"path":"sentinel学习文档.md","ref":"sentinel学习文档.md","articles":[]},"previous":{"title":"QLExpress规则引擎","level":"1.7","depth":1,"path":"QLExpress规则引擎.md","ref":"QLExpress规则引擎.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"自定义注解.md","mtime":"2020-11-04T02:50:05.449Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T02:50:23.341Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"自定义注解","level":"1.8","depth":1,"next":{"title":"sentinel","level":"1.9","depth":1,"path":"sentinel学习文档.md","ref":"sentinel学习文档.md","articles":[]},"previous":{"title":"QLExpress规则引擎","level":"1.7","depth":1,"path":"QLExpress规则引擎.md","ref":"QLExpress规则引擎.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"自定义注解.md","mtime":"2020-11-04T02:55:53.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T02:56:06.335Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
