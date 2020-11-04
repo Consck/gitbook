@@ -309,68 +309,77 @@ public Map&lt;String,Object&gt; get(@PathVariable(&quot;id&quot;) int id) {
 }
 </code></pre><p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;&#x662F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4F5C;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x662F;&#x5BF9;&#x6CE8;&#x89E3;&#x8FDB;&#x884C;&#x4E86;&#x58F0;&#x660E;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x6765;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;&#xFF0C;&#x6CE8;&#x89E3;&#x7684;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x79CD;&#x5E7F;&#x4E49;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x6700;&#x7EC8;&#x8FD8;&#x662F;&#x8981;&#x5229;&#x7528;Java&#x7684;&#x53CD;&#x5C04;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
 <ol>
-<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5207;&#x9762;&#x7C7B;&#xFF0C;&#x793A;&#x4F8B;&#xFF1A;
-```
-package com.project.adapter.annotation;</li>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5207;&#x9762;&#x7C7B;&#xFF0C;&#x793A;&#x4F8B;&#xFF1A;</li>
 </ol>
-<p>import org.aspectj.lang.JoinPoint;
+<pre><code>package com.project.adapter.annotation;
+
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;</p>
-<p>import javax.persistence.criteria.CriteriaBuilder;
-import java.lang.reflect.Modifier;</p>
-<p>@Component
+import org.springframework.stereotype.Component;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import java.lang.reflect.Modifier;
+
+@Component
 @Aspect
 public class KthLogAspect {
     @Pointcut(&quot;@annotation(com.project.adapter.annotation.KthLog)&quot;)
-    private void pointcut(){}</p>
-<pre><code>@Before(&quot;pointcut() &amp;&amp; @annotation(logger)&quot;)
-public void advice(JoinPoint joinPoint, KthLog logger){
-    System.out.println(&quot;&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; &quot; + joinPoint.getSignature().getName());
-    System.out.println(&quot;&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: &quot; + joinPoint.getSignature().getDeclaringType().getSimpleName());
-    System.out.println(&quot;&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: &quot; + joinPoint.getSignature().getDeclaringType());
-    System.out.println(&quot;&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: &quot; + Modifier.toString(joinPoint.getSignature().getModifiers()));
-    System.out.println(&quot;before &quot; + logger.value() + &quot; &#x6D4B;&#x8BD5; &#xFF01;&quot;);
-}
+    private void pointcut(){}
 
-@Around(&quot;pointcut() &amp;&amp; @annotation(logger)&quot;)
-public Object advice(ProceedingJoinPoint joinPoint, KthLog logger){
-    Object result = null;
-    Object[] args = joinPoint.getArgs();
-    for(int i = 0;i&lt;args.length;i++){
-        args[i] = (int)args[i] - 1;
-        System.out.println(&quot;&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;&quot; + i + &quot;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&quot;);
+    @Before(&quot;pointcut() &amp;&amp; @annotation(logger)&quot;)
+    public void advice(JoinPoint joinPoint, KthLog logger){
+        System.out.println(&quot;&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; &quot; + joinPoint.getSignature().getName());
+        System.out.println(&quot;&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: &quot; + joinPoint.getSignature().getDeclaringType().getSimpleName());
+        System.out.println(&quot;&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: &quot; + joinPoint.getSignature().getDeclaringType());
+        System.out.println(&quot;&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: &quot; + Modifier.toString(joinPoint.getSignature().getModifiers()));
+        System.out.println(&quot;before &quot; + logger.value() + &quot; &#x6D4B;&#x8BD5; &#xFF01;&quot;);
     }
-    try{
-        System.out.println(&quot;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;&quot;);
-        result = joinPoint.proceed(args);
-        System.out.println(&quot;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;&quot;);
-    }catch (Throwable throwable){
-        /**
-         * &#x4F7F;&#x7528;proceed&#x9700;&#x8981;&#x6355;&#x83B7;Throwable&#x5F02;&#x5E38;
-         */
-        throwable.printStackTrace();
+
+    @Around(&quot;pointcut() &amp;&amp; @annotation(logger)&quot;)
+    public Object advice(ProceedingJoinPoint joinPoint, KthLog logger){
+        Object result = null;
+        Object[] args = joinPoint.getArgs();
+        for(int i = 0;i&lt;args.length;i++){
+            args[i] = (int)args[i] - 1;
+            System.out.println(&quot;&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;&quot; + i + &quot;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&quot;);
+        }
+        try{
+            System.out.println(&quot;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;&quot;);
+            result = joinPoint.proceed(args);
+            System.out.println(&quot;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;&quot;);
+        }catch (Throwable throwable){
+            /**
+             * &#x4F7F;&#x7528;proceed&#x9700;&#x8981;&#x6355;&#x83B7;Throwable&#x5F02;&#x5E38;
+             */
+            throwable.printStackTrace();
+        }
+        System.out.println(&quot;&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&quot;);
+        return result;
     }
-    System.out.println(&quot;&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&quot;);
-    return result;
 }
-</code></pre><p>}</p>
-<pre><code>
-*&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;*
-</code></pre><p>&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;0&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
-<p>&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;</p>
-<p>&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; get</p>
-<p>&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: Sentinel</p>
-<p>&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: class com.project.controller.Sentinel</p>
-<p>&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: public</p>
-<p>before &#x8FD9;&#x662F;&#x6CE8;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7; &#x6D4B;&#x8BD5; &#xFF01;</p>
-<p>&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;</p>
-<p>&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
-<p>```</p>
-<p>&#x5176;&#x4E2D;<code>@Pointcut</code>&#x58F0;&#x660E;&#x4E86;&#x5207;&#x70B9;&#xFF08;&#x8FD9;&#x91CC;&#x7684;&#x5207;&#x70B9;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x7C7B;&#xFF09;&#xFF0C;<code>@Before</code>&#x58F0;&#x660E;&#x4E86;&#x901A;&#x77E5;&#x5185;&#x5BB9;&#xFF0C;&#x5728;&#x5177;&#x4F53;&#x7684;&#x901A;&#x77E5;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;<code>@annotation(logger)</code>&#x62FF;&#x5230;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x65F6;&#x8D4B;&#x4E88;&#x7684;&#x503C;&#x4E86;&#x3002;</p>
+</code></pre><p><em>&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</em></p>
+<pre><code>&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;0&#x8FDB;&#x884C;&#x64CD;&#x4F5C;
+
+&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;
+
+&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; get
+
+&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: Sentinel
+
+&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: class com.project.controller.Sentinel
+
+&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: public
+
+before &#x8FD9;&#x662F;&#x6CE8;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7; &#x6D4B;&#x8BD5; &#xFF01;
+
+&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;
+
+&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;
+</code></pre><p>&#x5176;&#x4E2D;<code>@Pointcut</code>&#x58F0;&#x660E;&#x4E86;&#x5207;&#x70B9;&#xFF08;&#x8FD9;&#x91CC;&#x7684;&#x5207;&#x70B9;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x7C7B;&#xFF09;&#xFF0C;<code>@Before</code>&#x58F0;&#x660E;&#x4E86;&#x901A;&#x77E5;&#x5185;&#x5BB9;&#xFF0C;&#x5728;&#x5177;&#x4F53;&#x7684;&#x901A;&#x77E5;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;<code>@annotation(logger)</code>&#x62FF;&#x5230;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x65F6;&#x8D4B;&#x4E88;&#x7684;&#x503C;&#x4E86;&#x3002;</p>
 <p><code>@Around</code>&#x73AF;&#x7ED5;&#x6CE8;&#x89E3;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x793A;&#x4F8B;&#x770B;&#x51FA;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x3002;</p>
 
                                 
@@ -415,7 +424,7 @@ public Object advice(ProceedingJoinPoint joinPoint, KthLog logger){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"自定义注解","level":"1.8","depth":1,"next":{"title":"sentinel","level":"1.9","depth":1,"path":"sentinel学习文档.md","ref":"sentinel学习文档.md","articles":[]},"previous":{"title":"QLExpress规则引擎","level":"1.7","depth":1,"path":"QLExpress规则引擎.md","ref":"QLExpress规则引擎.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"自定义注解.md","mtime":"2020-11-04T02:55:53.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T02:56:06.335Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"自定义注解","level":"1.8","depth":1,"next":{"title":"sentinel","level":"1.9","depth":1,"path":"sentinel学习文档.md","ref":"sentinel学习文档.md","articles":[]},"previous":{"title":"QLExpress规则引擎","level":"1.7","depth":1,"path":"QLExpress规则引擎.md","ref":"QLExpress规则引擎.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"自定义注解.md","mtime":"2020-11-04T03:00:44.079Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T03:01:13.102Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
