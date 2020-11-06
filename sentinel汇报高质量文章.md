@@ -62,6 +62,12 @@
 1. 获取注解信息，包含资源名、流量方向、资源类型。资源名若为空，则默认为方法名。
 1. 判断达到被限流条件，执行对应的处理逻辑。
 
+流程如下：
+
+[picture]: https://github.com/Consck/gitbook/raw/master/picture/%E6%B3%A8%E8%A7%A3%E9%99%90%E6%B5%81%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91.png
+
+![picture]
+
 ## entryWithPriority方法详解
 ### 校验全局上下文
 从`ThreadLocal<Context>`实例中`contextHolder.get()`校验以下几点：
