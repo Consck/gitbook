@@ -2,7 +2,7 @@
 
 [源码](https://github.com/alibaba/Sentinel)
 
-## 源码结构简介
+## 一、源码结构简介
 
 1. sentinel-core 
 1. sentinel-dashboard 
@@ -12,13 +12,13 @@
 1. sentinel-demo 
 1. sentinel-benchmark 
 
-# Sentinel使用篇
+# 二、Sentinel使用篇
 
-# Sentinel核心篇
+# 三、Sentinel核心篇
 
 通过注解的方法接入限流服务
 
-## SentinelResource注解
+## 1. SentinelResource注解
 
 该注解可作用于方法和接口、类、枚举;会在class字节码文件中存在，在运行时可以通过反射获取到。共包含以下字段信息，可赋值：
 
@@ -54,7 +54,7 @@
 
        排除的异常不会计入异常统计，也不会进入fallback逻辑，而是原样抛出。
 
-## SentinelResource注解执行逻辑
+## 2. SentinelResource注解执行逻辑
 
 通过`SentinelResourceAspect`类定义注解运行逻辑。`@Pointcut`注解定义切入点，匹配当前执行方法持有指定注解的方法；`@Around`注解定义在调用具体方法前和调用后来完成一些具体的任务。具体执行逻辑如下：
 
@@ -68,8 +68,8 @@
 
 ![picture]
 
-## entryWithPriority方法详解
-### 校验全局上下文
+## 3. entryWithPriority方法详解
+### 3.1 校验全局上下文
 从`ThreadLocal<Context>`实例中`contextHolder.get()`校验以下几点：
 - 若为NullContext，则表示上下文的数量已经超过了阈值。不执行任何规则检查。
 - 若为null，则进行调用链初始化。
@@ -78,10 +78,10 @@
 
 - 若全局开关关闭，不进行规则检查。一般情况下均设定为true。
 
-### 构造ProcessorSlot链
+### 3.2 构造ProcessorSlot链
 
 
 
 
-# Sentinel扩展篇
+# 四、Sentinel扩展篇
 
