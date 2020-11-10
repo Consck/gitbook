@@ -60,7 +60,7 @@
     <link rel="next" href="Sentinel核心类解析.html" />
     
     
-    <link rel="prev" href="自定义注解.html" />
+    <link rel="prev" href="源码阅读方法.html" />
     
 
     </head>
@@ -193,7 +193,20 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9" data-path="sentinel学习文档.html">
+        <li class="chapter " data-level="1.9" data-path="源码阅读方法.html">
+            
+                <a href="源码阅读方法.html">
+            
+                    
+                    源码解读方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="sentinel学习文档.html">
             
                 <a href="sentinel学习文档.html">
             
@@ -206,7 +219,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="Sentinel核心类解析.html">
+        <li class="chapter " data-level="1.11" data-path="Sentinel核心类解析.html">
             
                 <a href="Sentinel核心类解析.html">
             
@@ -219,7 +232,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="sentinel汇报高质量文章.html">
+        <li class="chapter " data-level="1.12" data-path="sentinel汇报高质量文章.html">
             
                 <a href="sentinel汇报高质量文章.html">
             
@@ -411,37 +424,9 @@ public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; &#x51B7;&#x54
 <p>warmUpPeriodSec&#x9ED8;&#x8BA4;&#x53D6;&#x503C;&#xFF1A; 10&#xFF0C;&#x914D;&#x5408;&#x51B7;&#x542F;&#x52A8;&#x7B56;&#x7565;&#x4F7F;&#x7528;</p>
 <p>maxQueueingTimeMs&#x9ED8;&#x8BA4;&#x53D6;&#x503C;&#xFF1A; 500&#xFF0C;&#x914D;&#x5408;&#x5747;&#x5300;&#x7B49;&#x5F85;&#x7B56;&#x7565;&#x4F7F;&#x7528;</p>
 <p>&#x7C7B;&#x4E2D;&#x8FD8;&#x5305;&#x542B;equals&#x3001;hashCode&#x3001;toString&#x65B9;&#x6CD5;</p>
-<hr>
 <blockquote>
-<p>2020-08-31 &#x8BB0;</p>
-</blockquote>
-<h1 id="sentinel-core&#x6587;&#x4EF6;&#x89E3;&#x6790;">sentinel-core&#x6587;&#x4EF6;&#x89E3;&#x6790;</h1>
-<p>com.alibaba.csp.sentinel.init&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x5165;</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">&#x65E5;&#x5FD7;&#x76EE;&#x5F55;</th>
-<th style="text-align:left">&#x9ED8;&#x8BA4;&#x65E5;&#x5FD7;&#x76EE;&#x5F55;&#x4E3A;&#xFF1A;user.home/logs/csp&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;csp.sentinel.log.dir&#x53C2;&#x6570;&#x8BBE;&#x7F6E;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">&#x65E5;&#x5FD7;&#x540D;&#x79F0;</td>
-<td style="text-align:left">appName-metrics.log.yyyy-MM-dd.n&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;csp.sentinel.app.name&#x6307;&#x5B9A;&#x6BCF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;n&#x4F1A;&#x9012;&#x589E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;logNameUsePid&#x5C06;pid&#x52A0;&#x5165;&#x5230;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x540D;&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;false&#x3002;&#x4F8B;&#x5982;&#xFF1A;com-alibaba-csp-sentinel-dashboard-DashboardApplication-metrics.log.2020-08-25.5</td>
-</tr>
-<tr>
-<td style="text-align:left">&#x65E5;&#x5FD7;&#x5927;&#x5C0F;</td>
-<td style="text-align:left">&#x9ED8;&#x8BA4;50M&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;csp.sentinel.metric.file.single.size&#x8BBE;&#x7F6E;</td>
-</tr>
-<tr>
-<td style="text-align:left">&#x65E5;&#x5FD7;&#x6570;&#x91CF;</td>
-<td style="text-align:left">&#x9ED8;&#x8BA4;&#x6700;&#x591A;6&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;csp.sentinel.metric.file.total.count&#x8BBE;&#x7F6E;</td>
-</tr>
-</tbody>
-</table>
-<h1 id="sentinel-extension&#x6269;&#x5C55;&#x6A21;&#x5757;">sentinel-extension&#x6269;&#x5C55;&#x6A21;&#x5757;</h1>
-<h2 id="sentinel-datasource-apollo&#x63D0;&#x4F9B;&#x4E0E;apollo&#x4E4B;&#x95F4;&#x7684;&#x9002;&#x914D;">sentinel-datasource-apollo&#x63D0;&#x4F9B;&#x4E0E;Apollo&#x4E4B;&#x95F4;&#x7684;&#x9002;&#x914D;</h2>
 <p>&#x9650;&#x6D41;&#x89C4;&#x5219;&#x53EF;&#x5728;Apollo&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF0C;&#x5F53;&#x503C;&#x53D1;&#x751F;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7ACB;&#x9A6C;&#x88AB;&#x8BFB;&#x53D6;&#x5230;</p>
+</blockquote>
 
                                 
                                 </section>
@@ -469,7 +454,7 @@ public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; &#x51B7;&#x54
 
             
                 
-                <a href="自定义注解.html" class="navigation navigation-prev " aria-label="Previous page: 自定义注解">
+                <a href="源码阅读方法.html" class="navigation navigation-prev " aria-label="Previous page: 源码解读方法">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -485,7 +470,7 @@ public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; &#x51B7;&#x54
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sentinel","level":"1.9","depth":1,"next":{"title":"Sentinel核心类解析","level":"1.10","depth":1,"path":"Sentinel核心类解析.md","ref":"Sentinel核心类解析.md","articles":[]},"previous":{"title":"自定义注解","level":"1.8","depth":1,"path":"自定义注解.md","ref":"自定义注解.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel学习文档.md","mtime":"2020-11-10T07:48:36.352Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T07:50:39.423Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"sentinel","level":"1.10","depth":1,"next":{"title":"Sentinel核心类解析","level":"1.11","depth":1,"path":"Sentinel核心类解析.md","ref":"Sentinel核心类解析.md","articles":[]},"previous":{"title":"源码解读方法","level":"1.9","depth":1,"path":"源码阅读方法.md","ref":"源码阅读方法.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel学习文档.md","mtime":"2020-11-10T07:59:34.437Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T07:59:49.119Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
