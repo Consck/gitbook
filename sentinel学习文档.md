@@ -186,24 +186,7 @@ maxQueueingTimeMs默认取值： 500，配合均匀等待策略使用
 
 类中还包含equals、hashCode、toString方法
 
-***
-> 2020-08-31 记
-
-# sentinel-core文件解析
-
-com.alibaba.csp.sentinel.init文件作为客户端接入
-
-| 日志目录    | 默认日志目录为：user.home/logs/csp，可以通过csp.sentinel.log.dir参数设置 | 
-|:------------|:----------|
-| 日志名称    | appName-metrics.log.yyyy-MM-dd.n，可以通过csp.sentinel.app.name指定每创建一个日志文件n会递增，可以通过logNameUsePid将pid加入到日志文件名中，默认false。例如：com-alibaba-csp-sentinel-dashboard-DashboardApplication-metrics.log.2020-08-25.5 | 
-| 日志大小    | 默认50M，可以通过csp.sentinel.metric.file.single.size设置 |
-| 日志数量    | 默认最多6个文件，可以通过csp.sentinel.metric.file.total.count设置 |
-
-# sentinel-extension扩展模块
-
-## sentinel-datasource-apollo提供与Apollo之间的适配
-
-限流规则可在Apollo进行配置，当值发生修改时，可以立马被读取到
+> 限流规则可在Apollo进行配置，当值发生修改时，可以立马被读取到
 
 
 

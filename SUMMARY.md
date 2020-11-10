@@ -14,6 +14,8 @@
 
 * [自定义注解](自定义注解.md)
 
+* [源码解读方法](源码阅读方法.md)
+
 * [sentinel](sentinel学习文档.md)
 
 * [Sentinel核心类解析](Sentinel核心类解析.md)
