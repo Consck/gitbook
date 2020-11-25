@@ -128,7 +128,7 @@ public class AopConfiguration implements InitializingBean {
 
 - 若全局开关关闭，不进行规则检查。一般情况下均设定为true。
 
-### 3.2 构造ProcessorSlot链
+### 3.2 构造ProcessorSlot链及slot结构
 
 `ResourceWrapper r1 = new StringResourceWrapper("firstRes", EntryType.IN);`
 
@@ -138,8 +138,13 @@ public class AopConfiguration implements InitializingBean {
 
 ![picture1]
 
+责任链包含多个节点，整体结构如下。每个slot分别执行不同的功能，进行不同的规则校验。
 
-## 3.3 限流规则
+[picture2]: https://github.com/Consck/gitbook/raw/master/picture/slot.jpg
+
+![picture2]
+
+## 4.限流规则
 
 所有规则的基本接口，仅包含getResource方法待实现，获取此规则的目标资源
 
