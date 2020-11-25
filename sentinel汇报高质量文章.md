@@ -4,15 +4,69 @@
 
 ## 一、源码结构简介
 
-1. sentinel-core 
-1. sentinel-dashboard 
-1. sentinel-transport 
-1. sentinel-extension 
-1. sentinel-adapter 
-1. sentinel-demo 
-1. sentinel-benchmark 
+1. sentinel-core 核心模块，限流、降级、系统保护等都在这里实现
+1. sentinel-dashboard 控制台模块，可以对连接上的sentinel客户端实现可视化的管理
+1. sentinel-transport 传输模块，提供了基本的监控服务端和客户端的API接口以及一些基于不同库的实现
+1. sentinel-extension 扩展模块，主要对DataSource进行了部分扩展实现
+1. sentinel-adapter 适配器模块，主要实现了对一些常见框架的适配
+1. sentinel-demo 样例模块，可参考怎么使用sentinel进行限流、降级等
+1. sentinel-benchmark 基准测试模块，对核心代码的精确性提供基准测试
 
 # 二、Sentinel使用篇
+
+一条限流规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：
+
+- resource：资源名，即限流规则的作用对象
+- count: 限流阈值
+- grade: 限流阈值类型：0 代表根据并发数量来限流，1 代表根据 QPS 来进行流量控制
+- limitApp: 流控针对的调用来源，若为 default 则不区分调用来源
+- strategy: 调用关系限流策略
+- controlBehavior: 流量控制效果（直接拒绝、Warm Up、匀速排队）
+> 注意：匀速排队模式暂时不支持 QPS > 1000 的场景。
+
+添加依赖：
+
+```
+<dependency>
+    <groupId>com.alibaba.csp</groupId>
+    <artifactId>sentinel-annotation-aspectj</artifactId>
+    <version>1.8.0</version>
+</dependency>
+```
+
+创建限流规则代码示例(也可将数据持久化到Apollo或数据库)：
+
+```
+@Configuration
+public class AopConfiguration implements InitializingBean {
+    @Bean
+    public SentinelResourceAspect sentinelResourceAspect(){
+        return new SentinelResourceAspect();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception{
+        List<FlowRule> rules = new ArrayList<>();
+        FlowRule rule = new FlowRule();
+        rule.setResource("Query");
+        rule.setStrategy(0);
+        rule.setGrade(RuleConstant.FLOW_GRADE_QPS);
+        rule.setCount(5);
+        rule.setControlBehavior(2);
+        rules.add(rule);
+        /**
+         *GatewayRuleManager.loadRules(rules)手动加载网关规则，
+         *GatewayRuleManager.register2Property(property)注册动态规则源动态推送（推荐方式）
+         *FlowRuleManager.register2Property();
+         */
+        FlowRuleManager.loadRules(rules);
+    }
+}
+```
+
+通过注解的方式进行限流：
+`@SentinelResource(value="Query", blockHandler = "blockHandlerMethod", blockHandlerClass = BlockHandler.class)`
+
 
 # 三、Sentinel核心篇
 
@@ -80,6 +134,13 @@
 
 ### 3.2 构造ProcessorSlot链
 
+`ResourceWrapper r1 = new StringResourceWrapper("firstRes", EntryType.IN);`
+
+调用方法`ctSph.lookProcessChain(r1)`获取责任链，结果如下：
+
+[picture]: https://github.com/Consck/gitbook/raw/master/picture/%E6%B3%A8%E8%A7%A3%E9%99%90%E6%B5%81%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91.png
+
+![picture]
 
 
 
