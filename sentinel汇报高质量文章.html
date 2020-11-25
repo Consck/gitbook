@@ -401,7 +401,23 @@ public class AopConfiguration implements InitializingBean {
 <p><code>ResourceWrapper r1 = new StringResourceWrapper(&quot;firstRes&quot;, EntryType.IN);</code></p>
 <p>&#x8C03;&#x7528;&#x65B9;&#x6CD5;<code>ctSph.lookProcessChain(r1)</code>&#x83B7;&#x53D6;&#x8D23;&#x4EFB;&#x94FE;&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <p><img src="https://github.com/Consck/gitbook/raw/master/picture/slot.jpg" alt="picture1"></p>
-<p>&#x8D23;&#x4EFB;&#x94FE;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x6574;&#x4F53;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x3002;&#x6BCF;&#x4E2A;slot&#x5206;&#x522B;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8FDB;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x89C4;&#x5219;&#x6821;&#x9A8C;&#x3002;</p>
+<p>&#x8D23;&#x4EFB;&#x94FE;&#x521D;&#x59CB;&#x5316;&#x4E3A;DefaultProcessorSlotChain&#x5B9E;&#x4F8B;&#xFF0C;&#x5305;&#x542B;first&#x8282;&#x70B9;&#x548C;end&#x8282;&#x70B9;&#xFF0C;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;&#x901A;&#x8FC7;<code>SpiLoader.loadPrototypeInstanceListSorted(ProcessorSlot.class)</code>&#x52A0;&#x8F7D;&#x51FA;&#x6240;&#x6709;&#x7684;slot&#x7C7B;&#xFF0C;&#x5E76;&#x4F9D;&#x6B21;&#x52A0;&#x5165;&#x94FE;&#x5C3E;&#xFF0C;&#x6784;&#x9020;&#x51FA;&#x5B8C;&#x6574;&#x7684;&#x8D23;&#x4EFB;&#x94FE;&#x3002;</p>
+<pre><code>AbstractLinkedProcessorSlot&lt;?&gt; first = new AbstractLinkedProcessorSlot&lt;Object&gt;() {
+
+        @Override
+        public void entry(Context context, ResourceWrapper resourceWrapper, Object t, int count, boolean prioritized, Object... args)
+            throws Throwable {
+            super.fireEntry(context, resourceWrapper, t, count, prioritized, args);
+        }
+
+        @Override
+        public void exit(Context context, ResourceWrapper resourceWrapper, int count, Object... args) {
+            super.fireExit(context, resourceWrapper, count, args);
+        }
+
+    };
+    AbstractLinkedProcessorSlot&lt;?&gt; end = first;
+</code></pre><p>&#x8D23;&#x4EFB;&#x94FE;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x6574;&#x4F53;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x3002;&#x6BCF;&#x4E2A;slot&#x5206;&#x522B;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8FDB;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x89C4;&#x5219;&#x6821;&#x9A8C;&#x3002;</p>
 <p><img src="https://github.com/Consck/gitbook/raw/master/picture/slot%E7%BB%93%E6%9E%84.jpg" alt="picture2"></p>
 <h2 id="4&#x9650;&#x6D41;&#x89C4;&#x5219;">4.&#x9650;&#x6D41;&#x89C4;&#x5219;</h2>
 <p>&#x6240;&#x6709;&#x89C4;&#x5219;&#x7684;&#x57FA;&#x672C;&#x63A5;&#x53E3;&#xFF0C;&#x4EC5;&#x5305;&#x542B;getResource&#x65B9;&#x6CD5;&#x5F85;&#x5B9E;&#x73B0;&#xFF0C;&#x83B7;&#x53D6;&#x6B64;&#x89C4;&#x5219;&#x7684;&#x76EE;&#x6807;&#x8D44;&#x6E90;</p>
@@ -473,7 +489,7 @@ public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; &#x51B7;&#x54
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sentinel知识点汇总","level":"1.12","depth":1,"previous":{"title":"Sentinel核心类解析","level":"1.11","depth":1,"path":"Sentinel核心类解析.md","ref":"Sentinel核心类解析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel汇报高质量文章.md","mtime":"2020-11-25T10:17:05.736Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-25T10:17:28.540Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sentinel知识点汇总","level":"1.12","depth":1,"previous":{"title":"Sentinel核心类解析","level":"1.11","depth":1,"path":"Sentinel核心类解析.md","ref":"Sentinel核心类解析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel汇报高质量文章.md","mtime":"2020-11-25T10:30:36.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-25T10:31:03.205Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
