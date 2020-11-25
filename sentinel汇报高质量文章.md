@@ -138,7 +138,7 @@ public class AopConfiguration implements InitializingBean {
 
 调用方法`ctSph.lookProcessChain(r1)`获取责任链，结果如下：
 
-[picture]: https://github.com/Consck/gitbook/raw/master/picture/%E6%B3%A8%E8%A7%A3%E9%99%90%E6%B5%81%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91.png
+[picture]: https://github.com/Consck/gitbook/raw/master/picture/slot.jpg
 
 ![picture]
 
