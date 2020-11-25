@@ -138,6 +138,26 @@ public class AopConfiguration implements InitializingBean {
 
 ![picture1]
 
+责任链初始化为DefaultProcessorSlotChain实例，包含first节点和end节点，指向同一个节点。通过`SpiLoader.loadPrototypeInstanceListSorted(ProcessorSlot.class)`加载出所有的slot类，并依次加入链尾，构造出完整的责任链。
+
+```
+AbstractLinkedProcessorSlot<?> first = new AbstractLinkedProcessorSlot<Object>() {
+
+        @Override
+        public void entry(Context context, ResourceWrapper resourceWrapper, Object t, int count, boolean prioritized, Object... args)
+            throws Throwable {
+            super.fireEntry(context, resourceWrapper, t, count, prioritized, args);
+        }
+
+        @Override
+        public void exit(Context context, ResourceWrapper resourceWrapper, int count, Object... args) {
+            super.fireExit(context, resourceWrapper, count, args);
+        }
+
+    };
+    AbstractLinkedProcessorSlot<?> end = first;
+```
+
 责任链包含多个节点，整体结构如下。每个slot分别执行不同的功能，进行不同的规则校验。
 
 [picture2]: https://github.com/Consck/gitbook/raw/master/picture/slot%E7%BB%93%E6%9E%84.jpg
