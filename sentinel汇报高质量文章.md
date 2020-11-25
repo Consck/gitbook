@@ -54,17 +54,13 @@ public class AopConfiguration implements InitializingBean {
         rule.setCount(5);
         rule.setControlBehavior(2);
         rules.add(rule);
-        /**
-         *GatewayRuleManager.loadRules(rules)手动加载网关规则，
-         *GatewayRuleManager.register2Property(property)注册动态规则源动态推送（推荐方式）
-         *FlowRuleManager.register2Property();
-         */
         FlowRuleManager.loadRules(rules);
     }
 }
 ```
 
 通过注解的方式进行限流：
+
 `@SentinelResource(value="Query", blockHandler = "blockHandlerMethod", blockHandlerClass = BlockHandler.class)`
 
 
@@ -138,12 +134,66 @@ public class AopConfiguration implements InitializingBean {
 
 调用方法`ctSph.lookProcessChain(r1)`获取责任链，结果如下：
 
-[picture]: https://github.com/Consck/gitbook/raw/master/picture/slot.jpg
+[picture1]: https://github.com/Consck/gitbook/raw/master/picture/slot.jpg
 
-![picture]
+![picture1]
 
 
+## 3.3 限流规则
 
+所有规则的基本接口，仅包含getResource方法待实现，获取此规则的目标资源
+
+### AbstractRule类实现Rule接口
+
+抽象类包含resource、limitApp变量和equals、limitAppEquals、hashCode方法
+
+equals方法作用：主要用来对比两个限流规则是否一样，对resource、limitApp进行对比
+
+limitAppEquals方法作用：对比limitApp参数
+
+hashCode方法作用：计算resource、limitApp的哈希值
+
+### FlowRule类继承AbstractRule类
+
+无参构造函数：默认limitApp为"default"
+
+带资源名构造：设置资源名及limitApp值
+
+流控主要由3个因素组成：grade、strategy、controlBehavior
+
+grade默认取值：1
+
+```
+public static final int FLOW_GRADE_THREAD = 0; 线程数
+public static final int FLOW_GRADE_QPS = 1; QPS
+```
+
+strategy默认取值：0
+
+```
+public static final int STRATEGY_DIRECT = 0; 直接流控
+public static final int STRATEGY_RELATE = 1; 相关流控
+public static final int STRATEGY_CHAIN = 2; 链流控制
+```
+
+controlBehavior默认取值：0
+
+```
+public static final int CONTROL_BEHAVIOR_DEFAULT = 0; 直接拒绝
+public static final int CONTROL_BEHAVIOR_WARM_UP = 1; 冷启动
+public static final int CONTROL_BEHAVIOR_RATE_LIMITER = 2; 均匀等待
+public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; 冷启动+均匀等待
+```
+
+count：阈值
+
+warmUpPeriodSec默认取值： 10，配合冷启动策略使用
+
+maxQueueingTimeMs默认取值： 500，配合均匀等待策略使用
+
+类中还包含equals、hashCode、toString方法
+
+> 限流规则可在Apollo进行配置，当值发生修改时，可以立马被读取到
 
 
 # 四、Sentinel扩展篇

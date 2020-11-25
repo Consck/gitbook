@@ -16,8 +16,8 @@
 
 * [源码解读方法](源码阅读方法.md)
 
-* [sentinel](sentinel学习文档.md)
+* [接入sentinel控制台](接入sentinel控制台.md)
 
 * [Sentinel核心类解析](Sentinel核心类解析.md)
 
-* [Sentinel总结篇](sentinel汇报高质量文章.md)
+* [Sentinel知识点汇总](sentinel汇报高质量文章.md)
