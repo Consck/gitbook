@@ -16,6 +16,14 @@
 - 不允许声明一个与局部变量名同名的参数或者局部变量。
 
 
+## 过滤
+
+```
+List<CourseLessonExt> Taglist=courseLessonExtList.stream()
+    .filter(CourseLessonExt->(CourseLessonExt.getType()==3))
+    .collect(Collectors.toList());
+```
+
 ## 示例
 ```
 public class Java8Tester {

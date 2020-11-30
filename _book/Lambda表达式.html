@@ -306,7 +306,11 @@
 <li>lambda&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x58F0;&#x660E;&#x4E3A;final&#xFF0C;&#x4F46;&#x662F;&#x5FC5;&#x987B;&#x4E0D;&#x53EF;&#x88AB;&#x540E;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x3002;</li>
 <li>&#x4E0D;&#x5141;&#x8BB8;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x4E0E;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x540D;&#x540C;&#x540D;&#x7684;&#x53C2;&#x6570;&#x6216;&#x8005;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</li>
 </ul>
-<h2 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h2>
+<h2 id="&#x8FC7;&#x6EE4;">&#x8FC7;&#x6EE4;</h2>
+<pre><code>List&lt;CourseLessonExt&gt; Taglist=courseLessonExtList.stream()
+    .filter(CourseLessonExt-&gt;(CourseLessonExt.getType()==3))
+    .collect(Collectors.toList());
+</code></pre><h2 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h2>
 <pre><code>public class Java8Tester {
    public static void main(String args[]){
       Java8Tester tester = new Java8Tester();
@@ -404,7 +408,7 @@ Hello Google
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"1.5","depth":1,"next":{"title":"单元测试编写示例","level":"1.6","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"GitHub","level":"1.4","depth":1,"path":"关联github.md","ref":"关联github.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Lambda表达式.md","mtime":"2020-11-25T10:17:49.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-25T10:31:03.205Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lambda","level":"1.5","depth":1,"next":{"title":"单元测试编写示例","level":"1.6","depth":1,"path":"test.md","ref":"test.md","articles":[]},"previous":{"title":"GitHub","level":"1.4","depth":1,"path":"关联github.md","ref":"关联github.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Lambda表达式.md","mtime":"2020-11-30T06:21:12.902Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-30T06:21:24.978Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
