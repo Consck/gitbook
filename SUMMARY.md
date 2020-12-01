@@ -10,6 +10,8 @@
 
 * [单元测试编写示例](test.md)
 
+* [个人故障总结](bug.md)
+
 * [QLExpress规则引擎](QLExpress规则引擎.md)
 
 * [自定义注解](自定义注解.md)
