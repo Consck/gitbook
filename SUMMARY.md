@@ -22,4 +22,4 @@
 
 * [Sentinel核心类解析](Sentinel核心类解析.md)
 
-* [Sentinel知识点汇总](sentinel汇报高质量文章.md)
+* [Sentinel知识点汇总](sentinel汇总.md)

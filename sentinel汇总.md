@@ -164,7 +164,7 @@ AbstractLinkedProcessorSlot<?> first = new AbstractLinkedProcessorSlot<Object>()
 
 ![picture2]
 
-## 4.限流规则
+## 4.限流规则参数
 
 所有规则的基本接口，仅包含getResource方法待实现，获取此规则的目标资源
 
@@ -221,5 +221,5 @@ maxQueueingTimeMs默认取值： 500，配合均匀等待策略使用
 > 限流规则可在Apollo进行配置，当值发生修改时，可以立马被读取到
 
 
-# 四、Sentinel扩展篇
+
 
