@@ -1,7 +1,5 @@
 # Summary
 
-## 笔记
-
 * [笔记](笔记/README.md)
 
 	* [md文件编写格式测试](笔记/md编写学习文档.md)
@@ -22,7 +20,7 @@
 
 	* [源码解读方法](笔记/源码阅读方法.md)
 
-## sentinel
+------
 
 * [sentinel](sentinel/README.md)
 
@@ -33,3 +31,5 @@
 	* [Sentinel知识点](sentinel/sentinel汇总.md)
 
 	* [sentinel限流规则](sentinel/sentinel限流规则.md)
+
+-----
