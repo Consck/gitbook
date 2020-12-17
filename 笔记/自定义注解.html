@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>笔记 · GitBook</title>
+        <title>自定义注解 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="md编写学习文档.html" />
+    <link rel="next" href="源码阅读方法.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="QLExpress规则引擎.html" />
     
 
     </head>
@@ -108,7 +108,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="./">
             
                 <a href="./">
             
@@ -213,7 +213,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.8" data-path="自定义注解.html">
+        <li class="chapter active" data-level="1.2.8" data-path="自定义注解.html">
             
                 <a href="自定义注解.html">
             
@@ -352,7 +352,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >笔记</a>
+        <a href=".." >自定义注解</a>
     </h1>
 </div>
 
@@ -367,27 +367,110 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7B14;&#x8BB0;">&#x7B14;&#x8BB0;</h1>
+                                <h1 id="&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;">&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;</h1>
+<ol>
+<li>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;&#x7C7B;&#xFF0C;&#x793A;&#x4F8B;&#xFF1A;</li>
+</ol>
+<pre><code>package com.project.adapter.annotation;
+
+import java.lang.annotation.*;
+
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface KthLog {
+    String value() default &quot;&quot;;
+}
+</code></pre><p>&#x6CE8;&#x89E3;&#x7C7B;&#x4E2D;&#x7684;&#x4E09;&#x4E2A;&#x6CE8;&#x89E3;&#x79F0;&#x4E3A;&#x5143;&#x6CE8;&#x89E3;&#xFF0C;&#x5206;&#x522B;&#x4EE3;&#x8868;&#x542B;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
 <ul>
-<li><p><a href="md&#x7F16;&#x5199;&#x5B66;&#x4E60;&#x6587;&#x6863;.html">md&#x6587;&#x4EF6;&#x7F16;&#x5199;&#x683C;&#x5F0F;&#x6D4B;&#x8BD5;</a></p>
+<li>@Documented:&#x6CE8;&#x89E3;&#x4FE1;&#x606F;&#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x5230;Java&#x6587;&#x6863;&#x4E2D;</li>
+<li>@Retention:&#x6CE8;&#x89E3;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x8868;&#x793A;&#x6CE8;&#x89E3;&#x4F1A;&#x88AB;&#x4FDD;&#x7559;&#x5230;&#x4EC0;&#x4E48;&#x9636;&#x6BB5;</li>
+<li><p>@Target:&#x6CE8;&#x89E3;&#x4F5C;&#x7528;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;ElementType.METHOD&#x8868;&#x793A;&#x8BE5;&#x6CE8;&#x89E3;&#x4EC5;&#x80FD;&#x4F5C;&#x7528;&#x4E8E;&#x65B9;&#x6CD5;&#x4E0A;</p>
 </li>
-<li><p><a href="gitbook.html">gitbook</a></p>
-</li>
-<li><p><a href="&#x5173;&#x8054;github.html">GitHub</a></p>
-</li>
-<li><p><a href="Lambda&#x8868;&#x8FBE;&#x5F0F;.html">Lambda</a></p>
-</li>
-<li><p><a href="test.html">&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7F16;&#x5199;&#x793A;&#x4F8B;</a></p>
-</li>
-<li><p><a href="bug.html">&#x4E2A;&#x4EBA;&#x6545;&#x969C;&#x603B;&#x7ED3;</a></p>
-</li>
-<li><p><a href="QLExpress&#x89C4;&#x5219;&#x5F15;&#x64CE;.html">QLExpress&#x89C4;&#x5219;&#x5F15;&#x64CE;</a></p>
-</li>
-<li><p><a href="&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;.html">&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;</a></p>
-</li>
-<li><p><a href="&#x6E90;&#x7801;&#x9605;&#x8BFB;&#x65B9;&#x6CD5;.html">&#x6E90;&#x7801;&#x89E3;&#x8BFB;&#x65B9;&#x6CD5;</a></p>
+<li><p>&#x5C06;&#x6CE8;&#x89E3;&#x6DFB;&#x52A0;&#x5230;&#x65B9;&#x6CD5;&#x4E0A;&#xFF0C;&#x793A;&#x4F8B;&#xFF1A;</p>
 </li>
 </ul>
+<pre><code>@RequestMapping(value={&quot;/again/{id}&quot;})
+@KthLog(value = &quot;&#x8FD9;&#x662F;&#x6CE8;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7;&quot;)
+public Map&lt;String,Object&gt; get(@PathVariable(&quot;id&quot;) int id) {
+     Map&lt;String, Object&gt; result = new HashMap&lt;&gt;();
+     result.put(&quot;code&quot;, id);
+     return result;
+}
+</code></pre><p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;&#x662F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4F5C;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x662F;&#x5BF9;&#x6CE8;&#x89E3;&#x8FDB;&#x884C;&#x4E86;&#x58F0;&#x660E;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x6765;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;&#xFF0C;&#x6CE8;&#x89E3;&#x7684;&#x672C;&#x8D28;&#x662F;&#x4E00;&#x79CD;&#x5E7F;&#x4E49;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x6700;&#x7EC8;&#x8FD8;&#x662F;&#x8981;&#x5229;&#x7528;Java&#x7684;&#x53CD;&#x5C04;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5207;&#x9762;&#x7C7B;&#xFF0C;&#x793A;&#x4F8B;&#xFF1A;</li>
+</ol>
+<pre><code>package com.project.adapter.annotation;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import java.lang.reflect.Modifier;
+
+@Component
+@Aspect
+public class KthLogAspect {
+    @Pointcut(&quot;@annotation(com.project.adapter.annotation.KthLog)&quot;)
+    private void pointcut(){}
+
+    @Before(&quot;pointcut() &amp;&amp; @annotation(logger)&quot;)
+    public void advice(JoinPoint joinPoint, KthLog logger){
+        System.out.println(&quot;&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; &quot; + joinPoint.getSignature().getName());
+        System.out.println(&quot;&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: &quot; + joinPoint.getSignature().getDeclaringType().getSimpleName());
+        System.out.println(&quot;&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: &quot; + joinPoint.getSignature().getDeclaringType());
+        System.out.println(&quot;&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: &quot; + Modifier.toString(joinPoint.getSignature().getModifiers()));
+        System.out.println(&quot;before &quot; + logger.value() + &quot; &#x6D4B;&#x8BD5; &#xFF01;&quot;);
+    }
+
+    @Around(&quot;pointcut() &amp;&amp; @annotation(logger)&quot;)
+    public Object advice(ProceedingJoinPoint joinPoint, KthLog logger){
+        Object result = null;
+        Object[] args = joinPoint.getArgs();
+        for(int i = 0;i&lt;args.length;i++){
+            args[i] = (int)args[i] - 1;
+            System.out.println(&quot;&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;&quot; + i + &quot;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&quot;);
+        }
+        try{
+            System.out.println(&quot;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;&quot;);
+            result = joinPoint.proceed(args);
+            System.out.println(&quot;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;&quot;);
+        }catch (Throwable throwable){
+            /**
+             * &#x4F7F;&#x7528;proceed&#x9700;&#x8981;&#x6355;&#x83B7;Throwable&#x5F02;&#x5E38;
+             */
+            throwable.printStackTrace();
+        }
+        System.out.println(&quot;&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&quot;);
+        return result;
+    }
+}
+</code></pre><p><em>&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;</em></p>
+<pre><code>&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;&#x53C2;&#x6570;0&#x8FDB;&#x884C;&#x64CD;&#x4F5C;
+
+&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x524D;
+
+&#x6CE8;&#x89E3;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#xFF1A; get
+
+&#x6240;&#x5728;&#x7C7B;&#x7684;&#x7B80;&#x5355;&#x7C7B;&#x540D;: Sentinel
+
+&#x6240;&#x5728;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x7C7B;&#x540D;: class com.project.controller.Sentinel
+
+&#x76EE;&#x6807;&#x65B9;&#x6CD5;&#x7684;&#x58F0;&#x660E;&#x7C7B;&#x578B;: public
+
+before &#x8FD9;&#x662F;&#x6CE8;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x65E5;&#x5FD7; &#x6D4B;&#x8BD5; &#xFF01;
+
+&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x540E;
+
+&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x5BF9;result&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;
+</code></pre><p>&#x5176;&#x4E2D;<code>@Pointcut</code>&#x58F0;&#x660E;&#x4E86;&#x5207;&#x70B9;&#xFF08;&#x8FD9;&#x91CC;&#x7684;&#x5207;&#x70B9;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x7C7B;&#xFF09;&#xFF0C;<code>@Before</code>&#x58F0;&#x660E;&#x4E86;&#x901A;&#x77E5;&#x5185;&#x5BB9;&#xFF0C;&#x5728;&#x5177;&#x4F53;&#x7684;&#x901A;&#x77E5;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;<code>@annotation(logger)</code>&#x62FF;&#x5230;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x65F6;&#x8D4B;&#x4E88;&#x7684;&#x503C;&#x4E86;&#x3002;</p>
+<p><code>@Around</code>&#x73AF;&#x7ED5;&#x6CE8;&#x89E3;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x793A;&#x4F8B;&#x770B;&#x51FA;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x3002;</p>
 
                                 
                                 </section>
@@ -415,12 +498,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="QLExpress规则引擎.html" class="navigation navigation-prev " aria-label="Previous page: QLExpress规则引擎">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="md编写学习文档.html" class="navigation navigation-next " aria-label="Next page: md文件编写格式测试">
+                <a href="源码阅读方法.html" class="navigation navigation-next " aria-label="Next page: 源码解读方法">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -431,7 +514,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"笔记","level":"1.2","depth":1,"next":{"title":"md文件编写格式测试","level":"1.2.1","depth":2,"path":"笔记/md编写学习文档.md","ref":"笔记/md编写学习文档.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/README.md","mtime":"2020-12-17T08:20:49.234Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-17T08:25:11.892Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"自定义注解","level":"1.2.8","depth":2,"next":{"title":"源码解读方法","level":"1.2.9","depth":2,"path":"笔记/源码阅读方法.md","ref":"笔记/源码阅读方法.md","articles":[]},"previous":{"title":"QLExpress规则引擎","level":"1.2.7","depth":2,"path":"笔记/QLExpress规则引擎.md","ref":"笔记/QLExpress规则引擎.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/自定义注解.md","mtime":"2020-12-17T08:20:42.250Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-17T08:25:11.892Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
