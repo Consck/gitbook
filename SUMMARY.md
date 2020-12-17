@@ -1,7 +1,5 @@
 # Summary
 
-## [Introduction](README.md)
-
 ## 笔记
 
 * [md文件编写格式测试](笔记/md编写学习文档.md)
