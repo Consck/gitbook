@@ -15,7 +15,7 @@
 ]
 ```
 
-1. 读取限流规则：
+2. 读取限流规则：
 
 ```
 ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new ApolloDataSource<>("application", "sentinel.flow", "",
