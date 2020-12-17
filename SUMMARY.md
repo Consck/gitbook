@@ -22,4 +22,6 @@
 
 * [Sentinel核心类解析](Sentinel核心类解析.md)
 
-* [Sentinel知识点汇总](sentinel汇总.md)
+* [Sentinel知识点](sentinel汇总.md)
+
+* [sentinel限流规则](sentinel限流规则.md)
