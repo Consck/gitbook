@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>笔记 · GitBook</title>
+        <title>md文件编写格式测试 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="md编写学习文档.html" />
+    <link rel="next" href="gitbook.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -108,7 +108,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="./">
             
                 <a href="./">
             
@@ -122,7 +122,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="md编写学习文档.html">
+        <li class="chapter active" data-level="1.2.1" data-path="md编写学习文档.html">
             
                 <a href="md编写学习文档.html">
             
@@ -352,7 +352,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >笔记</a>
+        <a href=".." >md文件编写格式测试</a>
     </h1>
 </div>
 
@@ -367,27 +367,85 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7B14;&#x8BB0;">&#x7B14;&#x8BB0;</h1>
+                                <h1 id="&#x6D4B;&#x8BD5;">&#x6D4B;&#x8BD5;</h1>
+<pre><code>@RestController
+public class Sentinel {
+    @SentinelResource(value=&quot;Query&quot;)
+    @RequestMapping(value={&quot;/again&quot;})
+    public Map&lt;String,Object&gt; get() {
+        Map&lt;String, Object&gt; result = new HashMap&lt;&gt;();
+        result.put(&quot;code&quot;, &quot;success&quot;);
+        return result;
+    }
+}
+</code></pre><h1 id="md&#x6587;&#x4EF6;&#x7F16;&#x5199;&#x5B66;&#x4E60;&#x5BF9;&#x5E94;&#x4E00;&#x7EA7;&#x6807;&#x9898;">md&#x6587;&#x4EF6;&#x7F16;&#x5199;&#x5B66;&#x4E60;(&#x5BF9;&#x5E94;&#x4E00;&#x7EA7;&#x6807;&#x9898;)</h1>
+<h2 id="&#x4E8C;&#x7EA7;&#x6807;&#x9898;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;">&#x4E8C;&#x7EA7;&#x6807;&#x9898;(&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;)</h2>
+<h3 id="&#x4E09;&#x7EA7;&#x6807;&#x9898;&#x4F7F;&#x7528;&#x51FA;&#x73B0;&#x5206;&#x5272;&#x7EBF;">&#x4E09;&#x7EA7;&#x6807;&#x9898;(&#x4F7F;&#x7528;==&#x51FA;&#x73B0;&#x5206;&#x5272;&#x7EBF;)</h3>
+<p>=== </p>
+<h3 id="&#x6709;&#x5E8F;&#x5217;&#x8868;">&#x6709;&#x5E8F;&#x5217;&#x8868;</h3>
+<ol>
+<li>&#x5217;&#x8868;1</li>
+<li><p>&#x6570;&#x5B57;&#x540E;&#x7684;&#x70B9;&#x5FC5;&#x987B;&#x662F;&#x82F1;&#x6587;&#x70B9;</p>
+</li>
+<li><p>&#x5F15;&#x7528;&#x793A;&#x4F8B;</p>
+<blockquote>
+<p>&#x6B64;&#x4E3A;&#x4E00;&#x7EA7;&#x5F15;&#x7528;&#x5185;&#x5BB9;</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>&#x6B64;&#x4E3A;&#x4E8C;&#x7EA7;&#x5F15;&#x7528;&#x5185;&#x5BB9;</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>&#x534E;&#x4E3D;&#x7684;&#x5206;&#x5272;&#x7EBF;&#xFF0C;&#x5206;&#x5272;&#x7EBF;&#x53EF;&#x4EE5;&#x7531;* - _&#xFF08;&#x661F;&#x53F7;&#xFF0C;&#x51CF;&#x53F7;&#xFF0C;&#x5E95;&#x7EBF;&#xFF09;&#x8FD9;3&#x4E2A;&#x7B26;&#x53F7;&#x7684;&#x81F3;&#x5C11;3&#x4E2A;&#x7B26;&#x53F7;&#x8868;&#x793A;&#xFF0C;&#x6CE8;&#x610F;&#x81F3;&#x5C11;&#x8981;3&#x4E2A;&#xFF0C;&#x4E14;&#x4E0D;&#x9700;&#x8981;&#x8FDE;&#x7EED;&#xFF0C;&#x6709;&#x7A7A;&#x683C;&#x4E5F;&#x53EF;&#x4EE5;</p>
 <ul>
-<li><p><a href="md&#x7F16;&#x5199;&#x5B66;&#x4E60;&#x6587;&#x6863;.html">md&#x6587;&#x4EF6;&#x7F16;&#x5199;&#x683C;&#x5F0F;&#x6D4B;&#x8BD5;</a></p>
-</li>
-<li><p><a href="gitbook.html">gitbook</a></p>
-</li>
-<li><p><a href="&#x5173;&#x8054;github.html">GitHub</a></p>
-</li>
-<li><p><a href="Lambda&#x8868;&#x8FBE;&#x5F0F;.html">Lambda</a></p>
-</li>
-<li><p><a href="test.html">&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7F16;&#x5199;&#x793A;&#x4F8B;</a></p>
-</li>
-<li><p><a href="bug.html">&#x4E2A;&#x4EBA;&#x6545;&#x969C;&#x603B;&#x7ED3;</a></p>
-</li>
-<li><p><a href="QLExpress&#x89C4;&#x5219;&#x5F15;&#x64CE;.html">QLExpress&#x89C4;&#x5219;&#x5F15;&#x64CE;</a></p>
-</li>
-<li><p><a href="&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;.html">&#x81EA;&#x5B9A;&#x4E49;&#x6CE8;&#x89E3;</a></p>
-</li>
-<li><p><a href="&#x6E90;&#x7801;&#x9605;&#x8BFB;&#x65B9;&#x6CD5;.html">&#x6E90;&#x7801;&#x89E3;&#x8BFB;&#x65B9;&#x6CD5;</a></p>
-</li>
+<li>&#x94FE;&#x63A5;&#x793A;&#x4F8B;</li>
 </ul>
+<p><a href="https://blog.csdn.net/qq_36838191/article/details/80579047" target="_blank">&#x6D4B;&#x8BD5;&#x94FE;&#x63A5;</a></p>
+<ul>
+<li>&#x53C2;&#x6570;&#x5F0F;&#x94FE;&#x63A5;&#x793A;&#x4F8B;</li>
+</ul>
+<blockquote>
+<p>&#x9700;&#x8981;&#x5C06;&#x94FE;&#x63A5;&#x5730;&#x5740;&#x4E2D;blob&#x6362;&#x6210;raw&#x5373;&#x53EF;&#x663E;&#x793A;&#x51FA;&#x56FE;&#x7247;</p>
+</blockquote>
+<p><img src="https://github.com/Consck/project/raw/master/images/1598854823247.jpg" alt="picture"></p>
+<p>&#x8FD9;&#x91CC;&#x662F;<a href="https://blog.csdn.net/qq_36838191/article/details/80579047" target="_blank">home</a>,&#x6D4B;&#x8BD5;<a href="https://blog.csdn.net/qq_36838191/article/details/80579047" target="_blank">name</a>&#x94FE;&#x63A5;</p>
+<h3 id="&#x4EE3;&#x7801;&#x6846;">&#x4EE3;&#x7801;&#x6846;</h3>
+<h4 id="&#x7B2C;&#x4E00;&#x79CD;-&#x5355;&#x884C;&#x7528;">&#x7B2C;&#x4E00;&#x79CD; &#x5355;&#x884C;&#x7528;`</h4>
+<p><code>public void dan hang code</code></p>
+<h4 id="&#x7B2C;&#x4E8C;&#x79CD;-&#x591A;&#x884C;&#x7528;3&#x4E2A;">&#x7B2C;&#x4E8C;&#x79CD; &#x591A;&#x884C;&#x7528;3&#x4E2A;`</h4>
+<pre><code>&#x53EF;&#x4EE5;&#x5199;&#x6CE8;&#x91CA;
+</code></pre><h3 id="&#x8868;&#x683C;&#x793A;&#x4F8B;">&#x8868;&#x683C;&#x793A;&#x4F8B;</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:center">&#x4F5C;&#x7528;</th>
+<th style="text-align:right">&#x9644;&#x52A0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>Dcsp.sentinel</code></td>
+<td style="text-align:center">&#x5411; Sentinel &#x63A5;&#x5165;&#x7AEF;&#x6307;&#x5B9A;&#x63A7;&#x5236;&#x53F0;&#x7684;&#x5730;&#x5740;</td>
+<td style="text-align:right">&#x9644;&#x52A0;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5DE6;&#x5BF9;&#x9F50;</td>
+<td style="text-align:center">&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;</td>
+<td style="text-align:right">&#x53F3;&#x5BF9;&#x9F50;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x5F3A;&#x8C03;">&#x5F3A;&#x8C03;</h3>
+<p>&#x5B57;&#x4F53;&#x52A0;&#x7C97;</p>
+<p><em>&#x5B57;&#x4F53;&#x503E;&#x659C;</em></p>
+<p> <strong>&#x5B57;&#x4F53;&#x52A0;&#x7C97;</strong></p>
+<p> <strong>&#x5B57;&#x4F53;&#x52A0;&#x7C97;</strong></p>
+<h3 id="&#x5220;&#x9664;&#x7EBF;">&#x5220;&#x9664;&#x7EBF;</h3>
+<p><del>&#x5220;&#x9664;&#x7EBF;</del></p>
 
                                 
                                 </section>
@@ -415,12 +473,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 笔记">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="md编写学习文档.html" class="navigation navigation-next " aria-label="Next page: md文件编写格式测试">
+                <a href="gitbook.html" class="navigation navigation-next " aria-label="Next page: gitbook">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -431,7 +489,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"笔记","level":"1.2","depth":1,"next":{"title":"md文件编写格式测试","level":"1.2.1","depth":2,"path":"笔记/md编写学习文档.md","ref":"笔记/md编写学习文档.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/README.md","mtime":"2020-12-17T08:20:49.234Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-17T08:25:11.892Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"md文件编写格式测试","level":"1.2.1","depth":2,"next":{"title":"gitbook","level":"1.2.2","depth":2,"path":"笔记/gitbook.md","ref":"笔记/gitbook.md","articles":[]},"previous":{"title":"笔记","level":"1.2","depth":1,"path":"笔记/README.md","ref":"笔记/README.md","articles":[{"title":"md文件编写格式测试","level":"1.2.1","depth":2,"path":"笔记/md编写学习文档.md","ref":"笔记/md编写学习文档.md","articles":[]},{"title":"gitbook","level":"1.2.2","depth":2,"path":"笔记/gitbook.md","ref":"笔记/gitbook.md","articles":[]},{"title":"GitHub","level":"1.2.3","depth":2,"path":"笔记/关联github.md","ref":"笔记/关联github.md","articles":[]},{"title":"Lambda","level":"1.2.4","depth":2,"path":"笔记/Lambda表达式.md","ref":"笔记/Lambda表达式.md","articles":[]},{"title":"单元测试编写示例","level":"1.2.5","depth":2,"path":"笔记/test.md","ref":"笔记/test.md","articles":[]},{"title":"个人故障总结","level":"1.2.6","depth":2,"path":"笔记/bug.md","ref":"笔记/bug.md","articles":[]},{"title":"QLExpress规则引擎","level":"1.2.7","depth":2,"path":"笔记/QLExpress规则引擎.md","ref":"笔记/QLExpress规则引擎.md","articles":[]},{"title":"自定义注解","level":"1.2.8","depth":2,"path":"笔记/自定义注解.md","ref":"笔记/自定义注解.md","articles":[]},{"title":"源码解读方法","level":"1.2.9","depth":2,"path":"笔记/源码阅读方法.md","ref":"笔记/源码阅读方法.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/md编写学习文档.md","mtime":"2020-12-17T08:20:42.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-17T08:25:11.892Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
