@@ -85,4 +85,11 @@ _字体倾斜_
 ### 删除线
 ~~删除线~~
 
+<font face="微软雅黑" size=6 color=#FF0000 >微软雅黑字体</font>
+
+<table><tr><td bgcolor=orange> 背景色是 1 orange</td></tr></table>
+
+<table><tr><td bgcolor= BlueViolet > 背景色2 BlueViolet </td></tr></table>
+
+
 
