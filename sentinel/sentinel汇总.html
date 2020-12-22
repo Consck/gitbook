@@ -365,11 +365,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="sentinel&#x4ECB;&#x7ECD;&#x7BC7;">Sentinel&#x4ECB;&#x7ECD;&#x7BC7;</h1>
-<p><a href="https://github.com/alibaba/Sentinel" target="_blank">&#x6E90;&#x7801;</a></p>
-<h2 id="&#x4E00;&#x3001;&#x6E90;&#x7801;&#x7ED3;&#x6784;&#x7B80;&#x4ECB;">&#x4E00;&#x3001;&#x6E90;&#x7801;&#x7ED3;&#x6784;&#x7B80;&#x4ECB;</h2>
+                                <p><a href="https://github.com/alibaba/Sentinel" target="_blank">&#x6E90;&#x7801;</a></p>
+<h1 id="&#x4E00;&#x3001;&#x6E90;&#x7801;&#x7ED3;&#x6784;&#x7B80;&#x4ECB;">&#x4E00;&#x3001;&#x6E90;&#x7801;&#x7ED3;&#x6784;&#x7B80;&#x4ECB;</h1>
 <ol>
-<li>sentinel-core &#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;&#x9650;&#x6D41;&#x3001;&#x964D;&#x7EA7;&#x3001;&#x7CFB;&#x7EDF;&#x4FDD;&#x62A4;&#x7B49;&#x90FD;&#x5728;&#x8FD9;&#x91CC;&#x5B9E;&#x73B0;</li>
+<li><font color="#FF0000">sentinel-core &#x6838;&#x5FC3;&#x6A21;&#x5757;&#xFF0C;&#x9650;&#x6D41;</font>&#x3001;&#x964D;&#x7EA7;&#x3001;&#x7CFB;&#x7EDF;&#x4FDD;&#x62A4;&#x7B49;&#x90FD;&#x5728;&#x8FD9;&#x91CC;&#x5B9E;&#x73B0;</li>
 <li>sentinel-dashboard &#x63A7;&#x5236;&#x53F0;&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x8FDE;&#x63A5;&#x4E0A;&#x7684;sentinel&#x5BA2;&#x6237;&#x7AEF;&#x5B9E;&#x73B0;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x7BA1;&#x7406;</li>
 <li>sentinel-transport &#x4F20;&#x8F93;&#x6A21;&#x5757;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x76D1;&#x63A7;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;API&#x63A5;&#x53E3;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x57FA;&#x4E8E;&#x4E0D;&#x540C;&#x5E93;&#x7684;&#x5B9E;&#x73B0;</li>
 <li>sentinel-extension &#x6269;&#x5C55;&#x6A21;&#x5757;&#xFF0C;&#x4E3B;&#x8981;&#x5BF9;DataSource&#x8FDB;&#x884C;&#x4E86;&#x90E8;&#x5206;&#x6269;&#x5C55;&#x5B9E;&#x73B0;</li>
@@ -378,18 +377,6 @@
 <li>sentinel-benchmark &#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x6A21;&#x5757;&#xFF0C;&#x5BF9;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x7684;&#x7CBE;&#x786E;&#x6027;&#x63D0;&#x4F9B;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;</li>
 </ol>
 <h1 id="&#x4E8C;&#x3001;sentinel&#x4F7F;&#x7528;&#x7BC7;">&#x4E8C;&#x3001;Sentinel&#x4F7F;&#x7528;&#x7BC7;</h1>
-<p>&#x4E00;&#x6761;&#x9650;&#x6D41;&#x89C4;&#x5219;&#x4E3B;&#x8981;&#x7531;&#x4E0B;&#x9762;&#x51E0;&#x4E2A;&#x56E0;&#x7D20;&#x7EC4;&#x6210;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7EC4;&#x5408;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x6765;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7684;&#x9650;&#x6D41;&#x6548;&#x679C;&#xFF1A;</p>
-<ul>
-<li>resource&#xFF1A;&#x8D44;&#x6E90;&#x540D;&#xFF0C;&#x5373;&#x9650;&#x6D41;&#x89C4;&#x5219;&#x7684;&#x4F5C;&#x7528;&#x5BF9;&#x8C61;</li>
-<li>count: &#x9650;&#x6D41;&#x9608;&#x503C;</li>
-<li>grade: &#x9650;&#x6D41;&#x9608;&#x503C;&#x7C7B;&#x578B;&#xFF1A;0 &#x4EE3;&#x8868;&#x6839;&#x636E;&#x5E76;&#x53D1;&#x6570;&#x91CF;&#x6765;&#x9650;&#x6D41;&#xFF0C;1 &#x4EE3;&#x8868;&#x6839;&#x636E; QPS &#x6765;&#x8FDB;&#x884C;&#x6D41;&#x91CF;&#x63A7;&#x5236;</li>
-<li>limitApp: &#x6D41;&#x63A7;&#x9488;&#x5BF9;&#x7684;&#x8C03;&#x7528;&#x6765;&#x6E90;&#xFF0C;&#x82E5;&#x4E3A; default &#x5219;&#x4E0D;&#x533A;&#x5206;&#x8C03;&#x7528;&#x6765;&#x6E90;</li>
-<li>strategy: &#x8C03;&#x7528;&#x5173;&#x7CFB;&#x9650;&#x6D41;&#x7B56;&#x7565;</li>
-<li>controlBehavior: &#x6D41;&#x91CF;&#x63A7;&#x5236;&#x6548;&#x679C;&#xFF08;&#x76F4;&#x63A5;&#x62D2;&#x7EDD;&#x3001;Warm Up&#x3001;&#x5300;&#x901F;&#x6392;&#x961F;&#xFF09;<blockquote>
-<p>&#x6CE8;&#x610F;&#xFF1A;&#x5300;&#x901F;&#x6392;&#x961F;&#x6A21;&#x5F0F;&#x6682;&#x65F6;&#x4E0D;&#x652F;&#x6301; QPS &gt; 1000 &#x7684;&#x573A;&#x666F;&#x3002;</p>
-</blockquote>
-</li>
-</ul>
 <p>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#xFF1A;</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
@@ -539,7 +526,7 @@ public class AopConfiguration implements InitializingBean {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sentinel知识点","level":"2.1.3","depth":2,"next":{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]},"previous":{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel/sentinel汇总.md","mtime":"2020-12-17T08:39:39.631Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-17T08:40:16.915Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sentinel知识点","level":"2.1.3","depth":2,"next":{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]},"previous":{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel/sentinel汇总.md","mtime":"2020-12-22T02:02:15.021Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-22T02:02:41.723Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
