@@ -1,10 +1,8 @@
-# Sentinel介绍篇
-
 [源码](https://github.com/alibaba/Sentinel)
 
-## 一、源码结构简介
+# 一、源码结构简介
 
-1. sentinel-core 核心模块，限流、降级、系统保护等都在这里实现
+1. <font color=#FF0000 >sentinel-core 核心模块，限流</font>、降级、系统保护等都在这里实现
 1. sentinel-dashboard 控制台模块，可以对连接上的sentinel客户端实现可视化的管理
 1. sentinel-transport 传输模块，提供了基本的监控服务端和客户端的API接口以及一些基于不同库的实现
 1. sentinel-extension 扩展模块，主要对DataSource进行了部分扩展实现
@@ -13,16 +11,6 @@
 1. sentinel-benchmark 基准测试模块，对核心代码的精确性提供基准测试
 
 # 二、Sentinel使用篇
-
-一条限流规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：
-
-- resource：资源名，即限流规则的作用对象
-- count: 限流阈值
-- grade: 限流阈值类型：0 代表根据并发数量来限流，1 代表根据 QPS 来进行流量控制
-- limitApp: 流控针对的调用来源，若为 default 则不区分调用来源
-- strategy: 调用关系限流策略
-- controlBehavior: 流量控制效果（直接拒绝、Warm Up、匀速排队）
-> 注意：匀速排队模式暂时不支持 QPS > 1000 的场景。
 
 添加依赖：
 

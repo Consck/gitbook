@@ -1,4 +1,8 @@
-# 限流规则
+# 限流规则FlowSlot
+
+使用Apollo持久化限流规则后，服务请求限流生效逻辑流程
+
+## 服务启动即读入限流信息
 
 1. 将限流规则持久化到Apollo配置(随时可配置)，也可以直接写在代码中(不可配置)
 
@@ -29,7 +33,7 @@ FlowRuleManager.register2Property(flowRuleDataSource.getProperty());
 - String defaultRuleValue：默认value，一般设置"[]"
 - Converter<String, T> parser：限流参数配置，将字符串配置转换为实际流规则的解析器
 
-ApolloDataSource类中完成两个主要操作
+ApolloDataSource类中完成两个主要操作：
 - initializeConfigChangeListener(): 初始化Apollo，添加监听`config.addChangeListener(configChangeListener, Sets.newHashSet(ruleKey))`，当配置值修改立马生效。
 - loadAndUpdateRules(): 保存限流规则
 
@@ -37,7 +41,7 @@ ApolloDataSource类中完成两个主要操作
 
 ![picture]
 
-
+在程序启动时，会将配置的规则信息读入flowRules。
 
 ```
 //当SentinelProperty updateValue需要通知监听器时，该类将保存回调方法
@@ -66,11 +70,11 @@ private static final class FlowPropertyListener implements PropertyListener<List
 
 ```
 
-# FlowSlot节点
+## 当请求到达FlowSlot节点，判断是否限流
 
 chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规则判断
 
-第一步：遍历所有流控规则FlowRule
+第一步：遍历所有流控规则FlowRule，读取flowRules值
 
 第二步：针对每个规则，调用canPassCheck进行校验
 
@@ -79,22 +83,19 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 
 
 
+----
 
-## 4.限流规则参数
+### 限流规则参数
 
-所有规则的基本接口，仅包含getResource方法待实现，获取此规则的目标资源
+一条限流规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：
 
-### AbstractRule类实现Rule接口
-
-抽象类包含resource、limitApp变量和equals、limitAppEquals、hashCode方法
-
-equals方法作用：主要用来对比两个限流规则是否一样，对resource、limitApp进行对比
-
-limitAppEquals方法作用：对比limitApp参数
-
-hashCode方法作用：计算resource、limitApp的哈希值
-
-### FlowRule类继承AbstractRule类
+- resource：资源名，即限流规则的作用对象
+- count: 限流阈值
+- grade: 限流阈值类型：0 代表根据并发数量来限流，1 代表根据 QPS 来进行流量控制
+- limitApp: 流控针对的调用来源，若为 default 则不区分调用来源
+- strategy: 调用关系限流策略
+- controlBehavior: 流量控制效果（直接拒绝、Warm Up、匀速排队）
+> 注意：匀速排队模式暂时不支持 QPS > 1000 的场景。
 
 无参构造函数：默认limitApp为"default"
 
