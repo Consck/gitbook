@@ -126,6 +126,25 @@ public class AopConfiguration implements InitializingBean {
 
 ![picture1]
 
+通过`ServiceLoader.load(clazz, clazz.getClassLoader())`获取出Slot实现类，每个实现类通过`@SpiOrder(-6000)`注解带入一个value，通过value的值进行排序，最终加载出已排序的实例列表。
+
+
+| ProcessorSlot实现类  | value值  |
+|:----------|:----------|
+| NodeSelectorSlot    | @SpiOrder(-10000)    |
+| AuthoritySlot    | @SpiOrder(-6000)    |
+| ClusterBuilderSlot    | @SpiOrder(-9000)    |
+| DegradeSlot    | @SpiOrder(-1000)   |
+| DemoSlot    | @SpiOrder(-3500)    |
+| FlowSlot    | @SpiOrder(-2000)    |
+| GatewayFlowSlot    | @SpiOrder(-4000)   |
+| LogSlot    | @SpiOrder(-8000)    |
+| NodeSelectorSlot   | @SpiOrder(-10000)    |
+| ParamFlowSlot    | @SpiOrder(-3000)    |
+| StatisticSlot   | @SpiOrder(-7000)  |
+| SystemSlot  | @SpiOrder(-5000)    |
+
+
 责任链初始化为DefaultProcessorSlotChain实例，包含first节点和end节点，指向同一个节点。通过`SpiLoader.loadPrototypeInstanceListSorted(ProcessorSlot.class)`加载出所有的slot类，并依次加入链尾，构造出完整的责任链。
 
 ```

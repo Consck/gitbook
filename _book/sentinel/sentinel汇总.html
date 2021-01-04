@@ -237,6 +237,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.10" data-path="../笔记/SPI机制.html">
+            
+                <a href="../笔记/SPI机制.html">
+            
+                    
+                    SPI机制
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -465,6 +478,65 @@ public class AopConfiguration implements InitializingBean {
 <p><code>ResourceWrapper r1 = new StringResourceWrapper(&quot;firstRes&quot;, EntryType.IN);</code></p>
 <p>&#x8C03;&#x7528;&#x65B9;&#x6CD5;<code>ctSph.lookProcessChain(r1)</code>&#x83B7;&#x53D6;&#x8D23;&#x4EFB;&#x94FE;&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <p><img src="https://github.com/Consck/gitbook/raw/master/picture/slot.jpg" alt="picture1"></p>
+<p>&#x901A;&#x8FC7;<code>ServiceLoader.load(clazz, clazz.getClassLoader())</code>&#x83B7;&#x53D6;&#x51FA;Slot&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x6BCF;&#x4E2A;&#x5B9E;&#x73B0;&#x7C7B;&#x901A;&#x8FC7;<code>@SpiOrder(-6000)</code>&#x6CE8;&#x89E3;&#x5E26;&#x5165;&#x4E00;&#x4E2A;value&#xFF0C;&#x901A;&#x8FC7;value&#x7684;&#x503C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x6700;&#x7EC8;&#x52A0;&#x8F7D;&#x51FA;&#x5DF2;&#x6392;&#x5E8F;&#x7684;&#x5B9E;&#x4F8B;&#x5217;&#x8868;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ProcessorSlot&#x5B9E;&#x73B0;&#x7C7B;</th>
+<th style="text-align:left">value&#x503C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">NodeSelectorSlot</td>
+<td style="text-align:left">@SpiOrder(-10000)</td>
+</tr>
+<tr>
+<td style="text-align:left">AuthoritySlot</td>
+<td style="text-align:left">@SpiOrder(-6000)</td>
+</tr>
+<tr>
+<td style="text-align:left">ClusterBuilderSlot</td>
+<td style="text-align:left">@SpiOrder(-9000)</td>
+</tr>
+<tr>
+<td style="text-align:left">DegradeSlot</td>
+<td style="text-align:left">@SpiOrder(-1000)</td>
+</tr>
+<tr>
+<td style="text-align:left">DemoSlot</td>
+<td style="text-align:left">@SpiOrder(-3500)</td>
+</tr>
+<tr>
+<td style="text-align:left">FlowSlot</td>
+<td style="text-align:left">@SpiOrder(-2000)</td>
+</tr>
+<tr>
+<td style="text-align:left">GatewayFlowSlot</td>
+<td style="text-align:left">@SpiOrder(-4000)</td>
+</tr>
+<tr>
+<td style="text-align:left">LogSlot</td>
+<td style="text-align:left">@SpiOrder(-8000)</td>
+</tr>
+<tr>
+<td style="text-align:left">NodeSelectorSlot</td>
+<td style="text-align:left">@SpiOrder(-10000)</td>
+</tr>
+<tr>
+<td style="text-align:left">ParamFlowSlot</td>
+<td style="text-align:left">@SpiOrder(-3000)</td>
+</tr>
+<tr>
+<td style="text-align:left">StatisticSlot</td>
+<td style="text-align:left">@SpiOrder(-7000)</td>
+</tr>
+<tr>
+<td style="text-align:left">SystemSlot</td>
+<td style="text-align:left">@SpiOrder(-5000)</td>
+</tr>
+</tbody>
+</table>
 <p>&#x8D23;&#x4EFB;&#x94FE;&#x521D;&#x59CB;&#x5316;&#x4E3A;DefaultProcessorSlotChain&#x5B9E;&#x4F8B;&#xFF0C;&#x5305;&#x542B;first&#x8282;&#x70B9;&#x548C;end&#x8282;&#x70B9;&#xFF0C;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;&#x901A;&#x8FC7;<code>SpiLoader.loadPrototypeInstanceListSorted(ProcessorSlot.class)</code>&#x52A0;&#x8F7D;&#x51FA;&#x6240;&#x6709;&#x7684;slot&#x7C7B;&#xFF0C;&#x5E76;&#x4F9D;&#x6B21;&#x52A0;&#x5165;&#x94FE;&#x5C3E;&#xFF0C;&#x6784;&#x9020;&#x51FA;&#x5B8C;&#x6574;&#x7684;&#x8D23;&#x4EFB;&#x94FE;&#x3002;</p>
 <pre><code>AbstractLinkedProcessorSlot&lt;?&gt; first = new AbstractLinkedProcessorSlot&lt;Object&gt;() {
 
@@ -526,7 +598,7 @@ public class AopConfiguration implements InitializingBean {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sentinel知识点","level":"2.1.3","depth":2,"next":{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]},"previous":{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel/sentinel汇总.md","mtime":"2020-12-22T02:03:00.013Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-22T02:04:37.789Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sentinel知识点","level":"2.1.3","depth":2,"next":{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]},"previous":{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel/sentinel汇总.md","mtime":"2020-12-22T09:51:49.730Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-04T01:30:16.173Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

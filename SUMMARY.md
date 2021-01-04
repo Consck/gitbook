@@ -20,6 +20,8 @@
 
 	* [源码解读方法](笔记/源码阅读方法.md)
 
+	* [SPI机制](笔记/SPI机制.md)
+
 ------
 
 * [sentinel](sentinel/README.md)
