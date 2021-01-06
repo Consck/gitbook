@@ -41,7 +41,7 @@ ApolloDataSource类中完成两个主要操作：
 
 ![picture]
 
-在程序启动时，会将配置的规则信息读入flowRules。
+在程序启动时，会将配置的规则信息读入flowRules，并根据流控规则通过`FlowRuleUtil.buildFlowRuleMap(conf)`初始化TrafficShapingController实现类，共包含四个DefaultController、RateLimiterController、WarmUpController、WarmUpRateLimiterController。
 
 ```
 //当SentinelProperty updateValue需要通知监听器时，该类将保存回调方法
@@ -74,13 +74,43 @@ private static final class FlowPropertyListener implements PropertyListener<List
 
 chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规则判断
 
-第一步：遍历所有流控规则FlowRule，读取flowRules值
+第一步：遍历所有流控规则FlowRule，获取`flowRules.get(resource)`对应的限流配置参数
 
-第二步：针对每个规则，调用canPassCheck进行校验
+第二步：调用canPassCheck进行校验。根据来源和策略获取Node,从而拿到统计的runtime信息；使用流量控制器检查是否让流量通过。
 
-xi
+1.获取不同处理策略的Node
 
+- 当前上下文context中调用来源为limitApp配置值，且不为default或者other：
+	
+	strategy设定为直接流控：`context.getOriginNode();`
 
+- limitApp配置值为default：
+	
+	strategy设定为直接流控：`node.getClusterNode();`
+
+- limitApp配置值为other，且调用来源不为other：
+	
+	strategy设定为直接流控：`context.getOriginNode();`
+
+> strategy设定为相关流控：`ClusterBuilderSlot.getClusterNode(refResource);`
+
+> strategy设定为链流控制：DefaultNode实例
+
+假设我们对接口UseService配置限流1000QPS，这3种场景分别如下。
+* 第一种：目的是优先保障重要来源的流量，我们需要区分调用来源，将限流规则细化。
+* 对A应用配置500QPS，对B应用配置200QPS，此时会产生两条规则：A应用请求的流量限制在500，B应用请求的流量限制在200
+* 第二种：没有特别重要来源的配置。我们不想区分调用来源，所有入口调用UserService共享一个规则，所有client加起来总流量只能通过1000QPS
+* 第三种：配合第一种场景使用，在长尾应用多的情况下不想对每个应用进行设置，没有具体设置的应用都将命中。
+
+2.通过`rule.getRater()`获取controlBehavior配置值，判断canPass
+
+> 例如CONTROL_BEHAVIOR_DEFAULT直接拒绝
+
+[picture1]: https://github.com/Consck/gitbook/raw/master/picture/sentinel%20rule.jpg
+
+![picture1]
+
+过程中有可能抛出两种异常，在StatisticSlot文件的entry中有捕获处理。
 
 
 ----

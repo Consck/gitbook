@@ -126,12 +126,11 @@ public class AopConfiguration implements InitializingBean {
 
 ![picture1]
 
-通过`ServiceLoader.load(clazz, clazz.getClassLoader())`获取出Slot实现类，每个实现类通过`@SpiOrder(-6000)`注解带入一个value，通过value的值进行排序，最终加载出已排序的实例列表。
+通过`ServiceLoader.load(clazz, clazz.getClassLoader())`获取出Slot实现类，每个实现类通过`@SpiOrder(-6000)`注解带入一个value，通过value的值进行排序，最终加载出已排序的实例列表。通过Java SPI机制加载以下几个实例，并按照从小到大构造调用链，顺序为：NodeSelectorSlot > ClusterBuilderSlot > LogSlot > StatisticSlot > AuthoritySlot > SystemSlot > FlowSlot > DegradeSlot
 
 
 | ProcessorSlot实现类  | value值  |
 |:----------|:----------|
-| NodeSelectorSlot    | @SpiOrder(-10000)    |
 | AuthoritySlot    | @SpiOrder(-6000)    |
 | ClusterBuilderSlot    | @SpiOrder(-9000)    |
 | DegradeSlot    | @SpiOrder(-1000)   |
