@@ -106,7 +106,7 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 
 > 例如CONTROL_BEHAVIOR_DEFAULT直接拒绝
 
-[picture1]: https://github.com/Consck/gitbook/raw/master/picture/sentinel%20rule.jpg
+[picture1]: https://github.com/Consck/gitbook/raw/master/picture/%E7%9B%B4%E6%8E%A5%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86.jpg
 
 ![picture1]
 
