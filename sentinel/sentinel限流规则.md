@@ -35,7 +35,7 @@ FlowRuleManager.register2Property(flowRuleDataSource.getProperty());
 | Converter<String, T> parser    | 限流参数配置，将字符串配置转换为实际流规则的解析器    |
 
 ApolloDataSource类中完成两个主要操作：
-- initializeConfigChangeListener(): 初始化Apollo，添加监听`config.addChangeListener(configChangeListener, Sets.newHashSet(ruleKey))`，当配置值修改立马生效。
+- initializeConfigChangeListener(): 初始化Apollo，添加监听，当配置值修改立马生效。
 - loadAndUpdateRules(): 保存限流规则
 
 [picture1]: https://github.com/Consck/gitbook/raw/master/picture/sentinel%20rule.jpg
@@ -46,7 +46,8 @@ ApolloDataSource类中完成两个主要操作：
 
 ```java
 //当SentinelProperty updateValue需要通知监听器时，该类将保存回调方法
-private static final class FlowPropertyListener implements PropertyListener<List<FlowRule>> {
+private static final class FlowPropertyListener 
+      implements PropertyListener<List<FlowRule>> {
         //更新Apollo规则配置
         @Override
         public void configUpdate(List<FlowRule> value) {
@@ -91,7 +92,7 @@ private static final class FlowPropertyListener implements PropertyListener<List
 - 若为NullContext，则表示上下文的数量已经超过了阈值。不执行任何规则检查。
 - 若为null，则进行调用链初始化。
 
-      `defaultContextName`值为`sentinel_default_context`，创建调用入口节点`DefaultNode`类实例，其中默认名为`defaultContextName`，流量方向为IN，用于保存特定上下文中特定资源名的统计信息。
+> `defaultContextName`值为`sentinel_default_context`，创建调用入口节点`DefaultNode`类实例，其中默认名为`defaultContextName`，流量方向为IN，用于保存特定上下文中特定资源名的统计信息。
 
 - 若全局开关关闭，不进行规则检查。一般情况下均设定为true。
 
@@ -129,13 +130,15 @@ private static final class FlowPropertyListener implements PropertyListener<List
 AbstractLinkedProcessorSlot<?> first = new AbstractLinkedProcessorSlot<Object>() {
 
         @Override
-        public void entry(Context context, ResourceWrapper resourceWrapper, Object t, int count, boolean prioritized, Object... args)
+        public void entry(Context context, ResourceWrapper resourceWrapper, Object t, 
+   int count, boolean prioritized, Object... args)
             throws Throwable {
             super.fireEntry(context, resourceWrapper, t, count, prioritized, args);
         }
 
         @Override
-        public void exit(Context context, ResourceWrapper resourceWrapper, int count, Object... args) {
+        public void exit(Context context, ResourceWrapper resourceWrapper, int count, 
+    Object... args) {
             super.fireExit(context, resourceWrapper, count, args);
         }
 
