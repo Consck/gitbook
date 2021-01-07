@@ -38,9 +38,9 @@ ApolloDataSource类中完成两个主要操作：
 - initializeConfigChangeListener(): 初始化Apollo，添加监听`config.addChangeListener(configChangeListener, Sets.newHashSet(ruleKey))`，当配置值修改立马生效。
 - loadAndUpdateRules(): 保存限流规则
 
-[picture]: https://github.com/Consck/gitbook/raw/master/picture/sentinel%20rule.jpg
+[picture1]: https://github.com/Consck/gitbook/raw/master/picture/sentinel%20rule.jpg
 
-![picture]
+![picture1]
 
 在程序启动时，会将配置的规则信息读入flowRules，并根据流控规则通过`FlowRuleUtil.buildFlowRuleMap(conf)`初始化TrafficShapingController实现类，共包含四个DefaultController、RateLimiterController、WarmUpController、WarmUpRateLimiterController。
 
@@ -81,9 +81,9 @@ private static final class FlowPropertyListener implements PropertyListener<List
 
 流程如下：
 
-[picture]: https://github.com/Consck/gitbook/raw/master/picture/%E6%B3%A8%E8%A7%A3%E9%99%90%E6%B5%81%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91.png
+[picture2]: https://github.com/Consck/gitbook/raw/master/picture/%E6%B3%A8%E8%A7%A3%E9%99%90%E6%B5%81%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91.png
 
-![picture]
+![picture2]
 
 ###  entryWithPriority方法详解
 #### - 校验全局上下文
@@ -101,9 +101,9 @@ private static final class FlowPropertyListener implements PropertyListener<List
 
 调用方法`ctSph.lookProcessChain(r1)`获取责任链，结果如下：
 
-[picture1]: https://github.com/Consck/gitbook/raw/master/picture/slot.jpg
+[picture3]: https://github.com/Consck/gitbook/raw/master/picture/slot.jpg
 
-![picture1]
+![picture3]
 
 通过`ServiceLoader.load(clazz, clazz.getClassLoader())`获取出Slot实现类，每个实现类通过`@SpiOrder(-6000)`注解带入一个value，通过value的值进行排序，最终加载出已排序的实例列表。通过Java SPI机制加载以下几个实例，并按照从小到大构造调用链，顺序为：NodeSelectorSlot > ClusterBuilderSlot > LogSlot > StatisticSlot > AuthoritySlot > SystemSlot > FlowSlot > DegradeSlot
 
@@ -145,9 +145,9 @@ AbstractLinkedProcessorSlot<?> first = new AbstractLinkedProcessorSlot<Object>()
 
 责任链包含多个节点，整体结构如下。每个slot分别执行不同的功能，进行不同的规则校验。
 
-[picture2]: https://github.com/Consck/gitbook/raw/master/picture/slot%E7%BB%93%E6%9E%84.jpg
+[picture4]: https://github.com/Consck/gitbook/raw/master/picture/slot%E7%BB%93%E6%9E%84.jpg
 
-![picture2]
+![picture4]
 
 ## 3.当请求到达FlowSlot节点时判断是否pass
 
@@ -185,8 +185,8 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 
 > 例如CONTROL_BEHAVIOR_DEFAULT直接拒绝
 
-[picture1]: https://github.com/Consck/gitbook/raw/master/picture/%E7%9B%B4%E6%8E%A5%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86.jpg
+[picture5]: https://github.com/Consck/gitbook/raw/master/picture/%E7%9B%B4%E6%8E%A5%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86.jpg
 
-![picture1]
+![picture5]
 
 过程中有可能抛出两种异常，在StatisticSlot文件的entry中有捕获处理。
