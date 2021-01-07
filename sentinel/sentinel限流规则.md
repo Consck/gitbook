@@ -1,10 +1,8 @@
-# 限流规则FlowSlot
+# 通过Apollo配置限流规则后sentinel都做了什么
 
-使用Apollo持久化限流规则后，服务请求限流生效逻辑流程
+## 1. 在服务启动时加载配置的限流信息
 
-## 服务启动即读入限流信息
-
-1. 将限流规则持久化到Apollo配置(随时可配置)，也可以直接写在代码中(不可配置)
+- 将限流规则持久化到Apollo配置(随时可配置)，也可以直接写在代码中(不可配置)
 
 ```
 [
@@ -19,19 +17,22 @@
 ]
 ```
 
-2. 读取限流规则：
+- 读取限流规则：
 
 ```java
-ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new ApolloDataSource<>("application", "sentinel.flow", "",
-                source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>() {
-                }));
+ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = 
+ new ApolloDataSource<>("application", "sentinel.flow", "",
+ source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>(){}));
 //Listen to the SentinelProperty for FlowRules.
 FlowRuleManager.register2Property(flowRuleDataSource.getProperty());
 ```
-- String namespaceName：命名空间，could not be null or empty
-- String ruleKey：Apollo中对应的key，could not be null or empty
-- String defaultRuleValue：默认value，一般设置"[]"
-- Converter<String, T> parser：限流参数配置，将字符串配置转换为实际流规则的解析器
+
+| 参数  | 含义  |
+|:----------|:----------|
+| namespaceName    | 命名空间，could not be null or empty    |
+| ruleKey    | Apollo中对应的key，could not be null or empty    |
+| defaultRuleValue    | 默认value，一般设置"[]"    |
+| Converter<String, T> parser    | 限流参数配置，将字符串配置转换为实际流规则的解析器    |
 
 ApolloDataSource类中完成两个主要操作：
 - initializeConfigChangeListener(): 初始化Apollo，添加监听`config.addChangeListener(configChangeListener, Sets.newHashSet(ruleKey))`，当配置值修改立马生效。
@@ -46,7 +47,7 @@ ApolloDataSource类中完成两个主要操作：
 ```java
 //当SentinelProperty updateValue需要通知监听器时，该类将保存回调方法
 private static final class FlowPropertyListener implements PropertyListener<List<FlowRule>> {
-
+        //更新Apollo规则配置
         @Override
         public void configUpdate(List<FlowRule> value) {
             Map<String, List<FlowRule>> rules = FlowRuleUtil.buildFlowRuleMap(value);
@@ -56,7 +57,7 @@ private static final class FlowPropertyListener implements PropertyListener<List
             }
             RecordLog.info("[FlowRuleManager] Flow rules received: " + flowRules);
         }
-
+        //初始化读取Apollo规则配置
         @Override
         public void configLoad(List<FlowRule> conf) {
             Map<String, List<FlowRule>> rules = FlowRuleUtil.buildFlowRuleMap(conf);
@@ -70,7 +71,85 @@ private static final class FlowPropertyListener implements PropertyListener<List
 
 ```
 
-## 当请求到达FlowSlot节点，判断是否限流
+## 2. 通过SentinelResource注解使用限流
+
+通过`SentinelResourceAspect`类定义注解运行逻辑。`@Pointcut`注解定义切入点，匹配当前执行方法持有指定注解的方法；`@Around`注解定义在调用具体方法前和调用后来完成一些具体的任务。具体执行逻辑如下：
+
+1. 根据方法入参获取出注解所在的类、方法等信息创建Method实例
+1. 获取注解信息，包含资源名、流量方向、资源类型。资源名若为空，则默认为方法名。
+1. 判断达到被限流条件，执行对应的处理逻辑。
+
+流程如下：
+
+[picture]: https://github.com/Consck/gitbook/raw/master/picture/%E6%B3%A8%E8%A7%A3%E9%99%90%E6%B5%81%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91.png
+
+![picture]
+
+###  entryWithPriority方法详解
+#### - 校验全局上下文
+从`ThreadLocal<Context>`实例中`contextHolder.get()`校验以下几点：
+- 若为NullContext，则表示上下文的数量已经超过了阈值。不执行任何规则检查。
+- 若为null，则进行调用链初始化。
+
+      `defaultContextName`值为`sentinel_default_context`，创建调用入口节点`DefaultNode`类实例，其中默认名为`defaultContextName`，流量方向为IN，用于保存特定上下文中特定资源名的统计信息。
+
+- 若全局开关关闭，不进行规则检查。一般情况下均设定为true。
+
+#### - 构造ProcessorSlot链及slot结构
+
+`ResourceWrapper r1 = new StringResourceWrapper("firstRes", EntryType.IN);`
+
+调用方法`ctSph.lookProcessChain(r1)`获取责任链，结果如下：
+
+[picture1]: https://github.com/Consck/gitbook/raw/master/picture/slot.jpg
+
+![picture1]
+
+通过`ServiceLoader.load(clazz, clazz.getClassLoader())`获取出Slot实现类，每个实现类通过`@SpiOrder(-6000)`注解带入一个value，通过value的值进行排序，最终加载出已排序的实例列表。通过Java SPI机制加载以下几个实例，并按照从小到大构造调用链，顺序为：NodeSelectorSlot > ClusterBuilderSlot > LogSlot > StatisticSlot > AuthoritySlot > SystemSlot > FlowSlot > DegradeSlot
+
+
+| ProcessorSlot实现类  | value值  |
+|:----------|:----------|
+| AuthoritySlot    | @SpiOrder(-6000)    |
+| ClusterBuilderSlot    | @SpiOrder(-9000)    |
+| DegradeSlot    | @SpiOrder(-1000)   |
+| DemoSlot    | @SpiOrder(-3500)    |
+| FlowSlot    | @SpiOrder(-2000)    |
+| GatewayFlowSlot    | @SpiOrder(-4000)   |
+| LogSlot    | @SpiOrder(-8000)    |
+| NodeSelectorSlot   | @SpiOrder(-10000)    |
+| ParamFlowSlot    | @SpiOrder(-3000)    |
+| StatisticSlot   | @SpiOrder(-7000)  |
+| SystemSlot  | @SpiOrder(-5000)    |
+
+
+责任链初始化为DefaultProcessorSlotChain实例，包含first节点和end节点，指向同一个节点。通过`SpiLoader.loadPrototypeInstanceListSorted(ProcessorSlot.class)`加载出所有的slot类，并依次加入链尾，构造出完整的责任链。
+
+```java
+AbstractLinkedProcessorSlot<?> first = new AbstractLinkedProcessorSlot<Object>() {
+
+        @Override
+        public void entry(Context context, ResourceWrapper resourceWrapper, Object t, int count, boolean prioritized, Object... args)
+            throws Throwable {
+            super.fireEntry(context, resourceWrapper, t, count, prioritized, args);
+        }
+
+        @Override
+        public void exit(Context context, ResourceWrapper resourceWrapper, int count, Object... args) {
+            super.fireExit(context, resourceWrapper, count, args);
+        }
+
+    };
+    AbstractLinkedProcessorSlot<?> end = first;
+```
+
+责任链包含多个节点，整体结构如下。每个slot分别执行不同的功能，进行不同的规则校验。
+
+[picture2]: https://github.com/Consck/gitbook/raw/master/picture/slot%E7%BB%93%E6%9E%84.jpg
+
+![picture2]
+
+## 3.当请求到达FlowSlot节点时判断是否pass
 
 chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规则判断
 
@@ -111,63 +190,3 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 ![picture1]
 
 过程中有可能抛出两种异常，在StatisticSlot文件的entry中有捕获处理。
-
-
-----
-
-### 限流规则参数
-
-一条限流规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：
-
-- resource：资源名，即限流规则的作用对象
-- count: 限流阈值
-- grade: 限流阈值类型：0 代表根据并发数量来限流，1 代表根据 QPS 来进行流量控制
-- limitApp: 流控针对的调用来源，若为 default 则不区分调用来源
-- strategy: 调用关系限流策略
-- controlBehavior: 流量控制效果（直接拒绝、Warm Up、匀速排队）
-> 注意：匀速排队模式暂时不支持 QPS > 1000 的场景。
-
-无参构造函数：默认limitApp为"default"
-
-带资源名构造：设置资源名及limitApp值
-
-流控主要由3个因素组成：grade、strategy、controlBehavior
-
-grade默认取值：1
-
-```
-public static final int FLOW_GRADE_THREAD = 0; 线程数
-public static final int FLOW_GRADE_QPS = 1; QPS
-```
-
-strategy默认取值：0
-
-```
-public static final int STRATEGY_DIRECT = 0; 直接流控
-public static final int STRATEGY_RELATE = 1; 相关流控
-public static final int STRATEGY_CHAIN = 2; 链流控制
-```
-
-controlBehavior默认取值：0
-
-```
-public static final int CONTROL_BEHAVIOR_DEFAULT = 0; 直接拒绝
-public static final int CONTROL_BEHAVIOR_WARM_UP = 1; 冷启动
-public static final int CONTROL_BEHAVIOR_RATE_LIMITER = 2; 均匀等待
-public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3; 冷启动+均匀等待
-```
-
-count：阈值
-
-warmUpPeriodSec默认取值： 10，配合冷启动策略使用
-
-maxQueueingTimeMs默认取值： 500，配合均匀等待策略使用
-
-类中还包含equals、hashCode、toString方法
-
-> 限流规则可在Apollo进行配置，当值发生修改时，可以立马被读取到
-
-
-
-
-
