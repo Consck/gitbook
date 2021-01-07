@@ -1,6 +1,6 @@
 [源码](https://github.com/alibaba/Sentinel)
 
-# 一、Sentinel块
+# 一、Sentinel模块
 
 1. <font color=#FF0000 >sentinel-core 核心模块，限流</font>、降级、系统保护等都在这里实现
 1. sentinel-dashboard 控制台模块，可以对连接上的sentinel客户端实现可视化的管理
