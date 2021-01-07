@@ -14,7 +14,7 @@
 
 添加依赖：
 
-```
+```xml
 <dependency>
     <groupId>com.alibaba.csp</groupId>
     <artifactId>sentinel-annotation-aspectj</artifactId>
@@ -24,7 +24,7 @@
 
 创建限流规则代码示例(也可将数据持久化到Apollo或数据库)：
 
-```
+```java
 @Configuration
 public class AopConfiguration implements InitializingBean {
     @Bean
@@ -146,7 +146,7 @@ public class AopConfiguration implements InitializingBean {
 
 责任链初始化为DefaultProcessorSlotChain实例，包含first节点和end节点，指向同一个节点。通过`SpiLoader.loadPrototypeInstanceListSorted(ProcessorSlot.class)`加载出所有的slot类，并依次加入链尾，构造出完整的责任链。
 
-```
+```java
 AbstractLinkedProcessorSlot<?> first = new AbstractLinkedProcessorSlot<Object>() {
 
         @Override

@@ -21,7 +21,7 @@
 
 2. 读取限流规则：
 
-```
+```java
 ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new ApolloDataSource<>("application", "sentinel.flow", "",
                 source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>() {
                 }));
@@ -43,7 +43,7 @@ ApolloDataSource类中完成两个主要操作：
 
 在程序启动时，会将配置的规则信息读入flowRules，并根据流控规则通过`FlowRuleUtil.buildFlowRuleMap(conf)`初始化TrafficShapingController实现类，共包含四个DefaultController、RateLimiterController、WarmUpController、WarmUpRateLimiterController。
 
-```
+```java
 //当SentinelProperty updateValue需要通知监听器时，该类将保存回调方法
 private static final class FlowPropertyListener implements PropertyListener<List<FlowRule>> {
 
