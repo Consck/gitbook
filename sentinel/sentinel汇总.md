@@ -60,7 +60,7 @@ public class AopConfiguration implements InitializingBean {
 
 `@SentinelResource(value="Query", blockHandler = "blockHandlerMethod", blockHandlerClass = BlockHandler.class)`
 
-## 1. SentinelResource注解
+## 1. SentinelResource注解参数
 
 该注解可作用于方法和接口、类、枚举;会在class字节码文件中存在，在运行时可以通过反射获取到。共包含以下字段信息，可赋值：
 
@@ -78,7 +78,7 @@ public class AopConfiguration implements InitializingBean {
 | exceptionsToIgnore    | 指定排除掉哪些异常    | 默认为{} <br> 排除的异常不会计入异常统计，也不会进入fallback逻辑，而是原样抛出 |
 
 
-## 2. Sentinel配置限流规则参数
+## 2. Sentinel限流规则参数
 
 一条限流规则主要由下面几个因素组成，我们可以组合这些元素来实现不同的限流效果：
 
