@@ -46,7 +46,7 @@ public class AopConfiguration implements InitializingBean {
         rule.setCount(5);
         //流量控制效果，2代表均匀等待
         rule.setControlBehavior(2);
-        //将限流规则假如list，可配置多条限流规则
+        //将限流规则加入list，可配置多条限流规则
         rules.add(rule);
         FlowRuleManager.loadRules(rules);
     }
