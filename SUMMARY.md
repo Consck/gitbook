@@ -22,6 +22,8 @@
 
 	* [SPI机制](笔记/SPI机制.md)
 
+	* [算法合集](笔记/算法合集.md)
+
 ------
 
 * [sentinel](sentinel/README.md)
