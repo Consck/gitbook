@@ -192,5 +192,12 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 
 ![picture5]
 
+| 字段  | 含义  | 
+|:--------|:------------|
+| curCount    | 已通过请求量  | 
+| acquireCount    | 当前请求量    | 
+| prioritized    | 请求是否有优先级false   | 
+| FlowException   | 请求被限流    | 
+| PriorityWaitException    | 请求被降级等待    | 
 过程中有可能抛出两种异常，在StatisticSlot文件的entry中有捕获处理。
 
