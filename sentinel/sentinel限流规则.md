@@ -196,10 +196,46 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 |:--------|:------------|
 | curCount    | 已通过请求量  | 
 | acquireCount    | 当前请求量    | 
-| prioritized    | 请求是否有优先级false   | 
+| prioritized    | 请求是否有优先级,值定为false   | 
 | FlowException   | 请求被限流    | 
 | PriorityWaitException    | 请求被降级等待    | 
 过程中有可能抛出两种异常，在StatisticSlot文件的entry中有捕获处理。
+
+### 请求等待(滑动窗口算法)
+
+```Java
+public long tryOccupyNext(long currentTime, int acquireCount, double threshold) {
+        double maxCount = threshold * IntervalProperty.INTERVAL / 1000;
+        long currentBorrow = rollingCounterInSecond.waiting();
+        if (currentBorrow >= maxCount) {
+            //返回最长等待时间
+            return OccupyTimeoutProperty.getOccupyTimeout();
+        }
+
+        int windowLength = IntervalProperty.INTERVAL / SampleCountProperty.SAMPLE_COUNT;
+        long earliestTime = currentTime - currentTime % windowLength + windowLength - IntervalProperty.INTERVAL;
+
+        int idx = 0;
+        long currentPass = rollingCounterInSecond.pass();
+        while (earliestTime < currentTime) {
+            long waitInMs = idx * windowLength + windowLength - currentTime % windowLength;
+            if (waitInMs >= OccupyTimeoutProperty.getOccupyTimeout()) {
+                break;
+            }
+            long windowPass = rollingCounterInSecond.getWindowPass(earliestTime);
+            if (currentPass + currentBorrow + acquireCount - windowPass <= maxCount) {
+                return waitInMs;
+            }
+            earliestTime += windowLength;
+            currentPass -= windowPass;
+            idx++;
+        }
+
+        return OccupyTimeoutProperty.getOccupyTimeout();
+    }
+```
+
+若返回请求等待时间<最大时间长度(默认500ms，可通过Apollo配置)，则进行请求等待。
 
 
 ### 限流日志
