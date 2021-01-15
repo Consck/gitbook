@@ -107,8 +107,6 @@ public  class  Env{
 
 `-Dcsp.sentinel.log.dir=/app/log/xx`
 
-具体可参考：[wiki](https://confluence.wosai-inc.com/pages/viewpage.action?pageId=213352508)
-
 
 
 
