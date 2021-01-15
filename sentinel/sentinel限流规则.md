@@ -201,3 +201,22 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 | PriorityWaitException    | 请求被降级等待    | 
 过程中有可能抛出两种异常，在StatisticSlot文件的entry中有捕获处理。
 
+
+### 限流日志
+日志存放文件路径：`-Dcsp.sentinel.log.dir=/app/log`
+
+格式：`|--timestamp-|------date time----|-resource-|p |block|s |e|rt`
+
+| 参数  | 含义  |
+|:----------|:----------|
+| p    | 通过的请求    |
+| block    | 被阻止的请求    |
+| s    | 成功执行完成的请求个数    |
+| e    | 用户自定义的异常    |
+| rt    | 平均响应时长    |
+
+样例：
+
+[picture6]: https://github.com/Consck/gitbook/raw/master/picture/%E7%9B%B4%E6%8E%A5%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86.jpg
+
+![picture6]
