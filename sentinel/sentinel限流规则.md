@@ -201,7 +201,7 @@ chain.entry方法会经过FlowSlot中的entry(),调用checkFlow进行流控规�
 | PriorityWaitException    | 请求被降级等待    | 
 过程中有可能抛出两种异常，在StatisticSlot文件的entry中有捕获处理。
 
-### 请求等待(滑动窗口算法)
+### 请求等待
 
 ```Java
 public long tryOccupyNext(long currentTime, int acquireCount, double threshold) {
