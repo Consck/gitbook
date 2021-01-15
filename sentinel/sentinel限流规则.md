@@ -89,8 +89,8 @@ private static final class FlowPropertyListener
 ###  entryWithPriority方法详解
 #### - 校验全局上下文
 从`ThreadLocal<Context>`实例中`contextHolder.get()`校验以下几点：
-- 若为NullContext，则表示上下文的数量已经超过了阈值。不执行任何规则检查。
-- 若为null，则进行调用链初始化。
+- 若为NullContext，表示上下文的数量已经超过了阈值，所以这里只初始化条目。不会进行规则检查。
+- 若为null，则进行调用链初始化,该类用于跳过上下文名称检查。
 
 > `defaultContextName`值为`sentinel_default_context`，创建调用入口节点`DefaultNode`类实例，其中默认名为`defaultContextName`，流量方向为IN，用于保存特定上下文中特定资源名的统计信息。
 
