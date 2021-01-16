@@ -46,14 +46,6 @@ Sentinel里面的各种种类的统计节点：
 - EntranceNode的维度是Context，存在ContextUtil类的contextNameNodeMap里面
 - 来源节点(类型为StatisticNode)的维度是resource * origin，存在每个ClusterNode的originCountMap里面
 
-## StatisticSlot
-
-StatisticSlot是Sentinel最为重要的类之一，用于根据规则判断结果进行相应的统计操作。
-
-- entry的时候：依次执行后面的判断slot。每个slot触发流控的话会抛出异常(BlockException的子类)。若有BlockException抛出，则记录block数据；若无异常抛出则算作可通过，记录pass数据。
-- exit的时候：若无error(无论是业务异常还是流控异常)。记录complete(success)以及RT，线程数-1.
-- 记录数据的维度：线程数+1、记录当前DefaultNode数据、记录对应的originNode数据(若存在origin)、累计IN统计数据(若流量类型为IN)。
-
 # Sentinel工作流程
 
 在Sentinel里面，所有的资源都对应一个资源名称(resourceName)，每次资源调用都会创建一个Entry对象。Entry可以通过对主流框架的适配自动创建，也可以通过注解的方式或调用SphU API显示创建。Entry创建的时候，同时也会创建一系列功能插槽(slot chain)，这些插槽有不同的职责：
@@ -129,13 +121,15 @@ ContextUtil.enter("entrance1", "appA");
 
 ## StatisticSlot
 
-
 StatisticSlot 是Sentinel的核心功能插槽之一，用于统计实时的调用数据。
 
 - clusterNode：资源唯一标识的ClusterNode的实时统计
 - origin：根据来自不同调用者的统计信息
 - defaultnode：根据入口上下文区分的资源ID的runtime统计
 - 入口流量的统计
+- entry的时候：依次执行后面的判断slot。每个slot触发流控的话会抛出异常(BlockException的子类)。若有BlockException抛出，则记录block数据；若无异常抛出则算作可通过，记录pass数据。
+- exit的时候：若无error(无论是业务异常还是流控异常)。记录complete(success)以及RT，线程数-1.
+- 记录数据的维度：线程数+1、记录当前DefaultNode数据、记录对应的originNode数据(若存在origin)、累计IN统计数据(若流量类型为IN)。
 
 sentinel底层采用高性能的滑动窗口数据结构LeapArray来统计实时的秒级指标数据，可以很好地支撑写多于读的高并发场景。
 
