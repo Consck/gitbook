@@ -92,6 +92,7 @@ _字体倾斜_
 <table><tr><td bgcolor= BlueViolet > 背景色2 BlueViolet </td></tr></table>
 
 可以渲染序列图：
+
 ```mermaid
 sequenceDiagram
 张三->>李四: 嘿，小四儿, 写博客了没?
