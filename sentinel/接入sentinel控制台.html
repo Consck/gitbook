@@ -1,0 +1,590 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>接入sentinel控制台 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Sentinel核心类解析.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../笔记/">
+            
+                <a href="../笔记/">
+            
+                    
+                    笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../笔记/md编写学习文档.html">
+            
+                <a href="../笔记/md编写学习文档.html">
+            
+                    
+                    md文件编写格式测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../笔记/gitbook.html">
+            
+                <a href="../笔记/gitbook.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../笔记/关联github.html">
+            
+                <a href="../笔记/关联github.html">
+            
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../笔记/Lambda表达式.html">
+            
+                <a href="../笔记/Lambda表达式.html">
+            
+                    
+                    Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../笔记/test.html">
+            
+                <a href="../笔记/test.html">
+            
+                    
+                    单元测试编写示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../笔记/bug.html">
+            
+                <a href="../笔记/bug.html">
+            
+                    
+                    个人故障总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../笔记/QLExpress规则引擎.html">
+            
+                <a href="../笔记/QLExpress规则引擎.html">
+            
+                    
+                    QLExpress规则引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../笔记/自定义注解.html">
+            
+                <a href="../笔记/自定义注解.html">
+            
+                    
+                    自定义注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../笔记/源码阅读方法.html">
+            
+                <a href="../笔记/源码阅读方法.html">
+            
+                    
+                    源码解读方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../笔记/SPI机制.html">
+            
+                <a href="../笔记/SPI机制.html">
+            
+                    
+                    SPI机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../笔记/算法合集.html">
+            
+                <a href="../笔记/算法合集.html">
+            
+                    
+                    算法合集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../笔记/SLF4J.html">
+            
+                <a href="../笔记/SLF4J.html">
+            
+                    
+                    SLF4J
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../笔记/Linux.html">
+            
+                <a href="../笔记/Linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    sentinel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1.1" data-path="接入sentinel控制台.html">
+            
+                <a href="接入sentinel控制台.html">
+            
+                    
+                    接入sentinel控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="Sentinel核心类解析.html">
+            
+                <a href="Sentinel核心类解析.html">
+            
+                    
+                    Sentinel核心类解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="sentinel汇总.html">
+            
+                <a href="sentinel汇总.html">
+            
+                    
+                    Sentinel知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="sentinel限流规则.html">
+            
+                <a href="sentinel限流规则.html">
+            
+                    
+                    sentinel限流规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >接入sentinel控制台</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sentinel&#x5B66;&#x4E60;&#x6587;&#x6863;">sentinel&#x5B66;&#x4E60;&#x6587;&#x6863;</h1>
+<p><a href="https://gitee.com/nilera/Sentinel/wikis/Home" target="_blank">gitee</a></p>
+<p><a href="https://github.com/alibaba/Sentinel" target="_blank">sentinel</a>&#xFF1A;(&#x9762;&#x5411;&#x4E91;&#x539F;&#x751F;&#x5FAE;&#x670D;&#x52A1;&#x7684;&#x9AD8;&#x53EF;&#x7528;&#x6D41;&#x63A7;&#x9632;&#x62A4;&#x7EC4;&#x4EF6;)</p>
+<p>Sentinel&#x4EE5;&#x6D41;&#x91CF;&#x4E3A;&#x5207;&#x5165;&#x70B9;&#xFF0C;&#x4ECE;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#x3001;&#x7194;&#x65AD;&#x964D;&#x7EA7;&#x3001;&#x7CFB;&#x7EDF;&#x8D1F;&#x8F7D;&#x4FDD;&#x62A4;&#x7B49;&#x591A;&#x4E2A;&#x7EF4;&#x5EA6;&#x4FDD;&#x62A4;&#x670D;&#x52A1;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x3002;</p>
+<ul>
+<li><strong>&#x4E30;&#x5BCC;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;</strong>&#xFF1A;Sentinel &#x627F;&#x63A5;&#x4E86;&#x963F;&#x91CC;&#x5DF4;&#x5DF4;&#x8FD1; 10 &#x5E74;&#x7684;&#x53CC;&#x5341;&#x4E00;&#x5927;&#x4FC3;&#x6D41;&#x91CF;&#x7684;&#x6838;&#x5FC3;&#x573A;&#x666F;&#xFF0C;&#x4F8B;&#x5982;&#x79D2;&#x6740;&#xFF08;&#x5373;&#x7A81;&#x53D1;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#x5728;&#x7CFB;&#x7EDF;&#x5BB9;&#x91CF;&#x53EF;&#x4EE5;&#x627F;&#x53D7;&#x7684;&#x8303;&#x56F4;&#xFF09;&#x3001;&#x6D88;&#x606F;&#x524A;&#x5CF0;&#x586B;&#x8C37;&#x3001;&#x96C6;&#x7FA4;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#x3001;&#x5B9E;&#x65F6;&#x7194;&#x65AD;&#x4E0B;&#x6E38;&#x4E0D;&#x53EF;&#x7528;&#x5E94;&#x7528;&#x7B49;&#x3002;</li>
+<li><strong>&#x5B8C;&#x5907;&#x7684;&#x5B9E;&#x65F6;&#x76D1;&#x63A7;</strong>&#xFF1A;Sentinel &#x540C;&#x65F6;&#x63D0;&#x4F9B;&#x5B9E;&#x65F6;&#x7684;&#x76D1;&#x63A7;&#x529F;&#x80FD;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x770B;&#x5230;&#x63A5;&#x5165;&#x5E94;&#x7528;&#x7684;&#x5355;&#x53F0;&#x673A;&#x5668;&#x79D2;&#x7EA7;&#x6570;&#x636E;&#xFF0C;&#x751A;&#x81F3; 500 &#x53F0;&#x4EE5;&#x4E0B;&#x89C4;&#x6A21;&#x7684;&#x96C6;&#x7FA4;&#x7684;&#x6C47;&#x603B;&#x8FD0;&#x884C;&#x60C5;&#x51B5;&#x3002;</li>
+<li><strong>&#x5E7F;&#x6CDB;&#x7684;&#x5F00;&#x6E90;&#x751F;&#x6001;</strong>&#xFF1A;Sentinel &#x63D0;&#x4F9B;&#x5F00;&#x7BB1;&#x5373;&#x7528;&#x7684;&#x4E0E;&#x5176;&#x5B83;&#x5F00;&#x6E90;&#x6846;&#x67B6;/&#x5E93;&#x7684;&#x6574;&#x5408;&#x6A21;&#x5757;&#xFF0C;&#x4F8B;&#x5982;&#x4E0E; Spring Cloud&#x3001;Dubbo&#x3001;gRPC &#x7684;&#x6574;&#x5408;&#x3002;&#x60A8;&#x53EA;&#x9700;&#x8981;&#x5F15;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x4F9D;&#x8D56;&#x5E76;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7684;&#x914D;&#x7F6E;&#x5373;&#x53EF;&#x5FEB;&#x901F;&#x5730;&#x63A5;&#x5165; Sentinel&#x3002;</li>
+<li><strong>&#x5B8C;&#x5584;&#x7684; SPI &#x6269;&#x5C55;&#x70B9;</strong>&#xFF1A;Sentinel &#x63D0;&#x4F9B;&#x7B80;&#x5355;&#x6613;&#x7528;&#x3001;&#x5B8C;&#x5584;&#x7684; SPI &#x6269;&#x5C55;&#x63A5;&#x53E3;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B9E;&#x73B0;&#x6269;&#x5C55;&#x63A5;&#x53E3;&#x6765;&#x5FEB;&#x901F;&#x5730;&#x5B9A;&#x5236;&#x903B;&#x8F91;&#x3002;&#x4F8B;&#x5982;&#x5B9A;&#x5236;&#x89C4;&#x5219;&#x7BA1;&#x7406;&#x3001;&#x9002;&#x914D;&#x52A8;&#x6001;&#x6570;&#x636E;&#x6E90;&#x7B49;&#x3002;</li>
+</ul>
+<h2 id="sentinel-dashboard&#x63A7;&#x5236;&#x53F0;&#x63A5;&#x5165;">sentinel-dashboard&#x63A7;&#x5236;&#x53F0;&#x63A5;&#x5165;</h2>
+<ul>
+<li>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-transport-simple-http&lt;/artifactId&gt;
+    &lt;version&gt;1.7.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>&#x89E6;&#x53D1;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x63A7;&#x5236;&#x53F0;</li>
+</ul>
+<pre><code>@Configuration
+public  class  Env{
+    static{
+        InitExecutor.doInit();
+    }
+}
+</code></pre><ul>
+<li>&#x589E;&#x52A0;JVM&#x542F;&#x52A8;&#x53C2;&#x6570;</li>
+</ul>
+<p><code>-Dproject.name=project -Dcsp.sentinel.dashboard.server=127.0.0.1:8080</code></p>
+<h3 id="&#x76F8;&#x5173;&#x95EE;&#x9898;">&#x76F8;&#x5173;&#x95EE;&#x9898;</h3>
+<ol>
+<li>&#x9879;&#x76EE;&#x542F;&#x52A8;&#x62A5;&#x9519;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ol>
+<blockquote>
+<p><code>Circular view path [again]: would dispatch back to the current handler URL [/again] again. Check you. .....</code></p>
+</blockquote>
+<p>&#x5206;&#x6790;&#x539F;&#x56E0;&#xFF1A;&#x4F9D;&#x8D56;&#x5305;&#x7248;&#x672C;&#x51B2;&#x7A81;&#x95EE;&#x9898;</p>
+<p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>&#x9650;&#x6D41;&#x4F9D;&#x8D56;&#x5305;&#xFF0C;&#x7248;&#x672C;&#x9700;&#x5927;&#x4E8E;&#x89E6;&#x53D1;&#x63A7;&#x5236;&#x53F0;&#x4F9D;&#x8D56;&#x5305;</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-annotation-aspectj&lt;/artifactId&gt;
+    &lt;version&gt;1.8.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>&#x89E6;&#x53D1;&#x63A7;&#x5236;&#x53F0;&#x4F9D;&#x8D56;&#x5305;</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.csp&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-transport-simple-http&lt;/artifactId&gt;
+    &lt;version&gt;1.7.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="sentinel&#x63A5;&#x5165;&#x8BF4;&#x660E;">sentinel&#x63A5;&#x5165;&#x8BF4;&#x660E;</h3>
+<ul>
+<li>&#x5F15;&#x5165;&#x4F9D;&#x8D56;&#x5305;</li>
+</ul>
+<p>&#x8BE5;sdk&#x5DF2;&#x7ECF;&#x5C06;&#x4E0A;&#x8FF0;&#x63A5;&#x5165;&#x65B9;&#x5F0F;&#x5168;&#x90E8;&#x5C01;&#x88C5;</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;***&lt;/groupId&gt;
+    &lt;artifactId&gt;sentinel-sdk-starter&lt;/artifactId&gt;
+    &lt;version&gt;1.0.9-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>&#x5347;&#x7EA7;jsonrpc&#x7248;&#x672C;&#x4E3A;1.5.4</li>
+</ul>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;***&lt;/groupId&gt;
+    &lt;artifactId&gt;jsonrpc4j&lt;/artifactId&gt;
+    &lt;version&gt;1.5.4&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><ul>
+<li>&#x62E6;&#x622A;&#x5668;&#x914D;&#x7F6E;</li>
+</ul>
+<pre><code>&lt;bean class=&quot;com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImplExporter&quot;&gt;
+    &lt;property name=&quot;interceptorList&quot; ref=&quot;jsonRpcSentinelInterceptor&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;jsonRpcSentinelInterceptor&quot; class=&quot;com.wosai.sentinel.sdk.listener.SentinelInterceptor&quot;/&gt;
+</code></pre><ul>
+<li>&#x9650;&#x6D41;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x914D;&#x7F6E;</li>
+</ul>
+<p><code>-Dcsp.sentinel.log.dir=/app/log/xx</code></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: sentinel">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Sentinel核心类解析.html" class="navigation navigation-next " aria-label="Next page: Sentinel核心类解析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"接入sentinel控制台","level":"2.1.1","depth":2,"next":{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},"previous":{"title":"sentinel","level":"2.1","depth":1,"path":"sentinel/README.md","ref":"sentinel/README.md","articles":[{"title":"接入sentinel控制台","level":"2.1.1","depth":2,"path":"sentinel/接入sentinel控制台.md","ref":"sentinel/接入sentinel控制台.md","articles":[]},{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},{"title":"Sentinel知识点","level":"2.1.3","depth":2,"path":"sentinel/sentinel汇总.md","ref":"sentinel/sentinel汇总.md","articles":[]},{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel/接入sentinel控制台.md","mtime":"2021-02-09T03:59:27.412Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-09T04:01:06.485Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

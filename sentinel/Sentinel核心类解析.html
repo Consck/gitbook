@@ -1,0 +1,610 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Sentinel核心类解析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sentinel汇总.html" />
+    
+    
+    <link rel="prev" href="接入sentinel控制台.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../笔记/">
+            
+                <a href="../笔记/">
+            
+                    
+                    笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../笔记/md编写学习文档.html">
+            
+                <a href="../笔记/md编写学习文档.html">
+            
+                    
+                    md文件编写格式测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../笔记/gitbook.html">
+            
+                <a href="../笔记/gitbook.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../笔记/关联github.html">
+            
+                <a href="../笔记/关联github.html">
+            
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../笔记/Lambda表达式.html">
+            
+                <a href="../笔记/Lambda表达式.html">
+            
+                    
+                    Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../笔记/test.html">
+            
+                <a href="../笔记/test.html">
+            
+                    
+                    单元测试编写示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../笔记/bug.html">
+            
+                <a href="../笔记/bug.html">
+            
+                    
+                    个人故障总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../笔记/QLExpress规则引擎.html">
+            
+                <a href="../笔记/QLExpress规则引擎.html">
+            
+                    
+                    QLExpress规则引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../笔记/自定义注解.html">
+            
+                <a href="../笔记/自定义注解.html">
+            
+                    
+                    自定义注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../笔记/源码阅读方法.html">
+            
+                <a href="../笔记/源码阅读方法.html">
+            
+                    
+                    源码解读方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../笔记/SPI机制.html">
+            
+                <a href="../笔记/SPI机制.html">
+            
+                    
+                    SPI机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../笔记/算法合集.html">
+            
+                <a href="../笔记/算法合集.html">
+            
+                    
+                    算法合集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../笔记/SLF4J.html">
+            
+                <a href="../笔记/SLF4J.html">
+            
+                    
+                    SLF4J
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../笔记/Linux.html">
+            
+                <a href="../笔记/Linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    sentinel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="接入sentinel控制台.html">
+            
+                <a href="接入sentinel控制台.html">
+            
+                    
+                    接入sentinel控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.2" data-path="Sentinel核心类解析.html">
+            
+                <a href="Sentinel核心类解析.html">
+            
+                    
+                    Sentinel核心类解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="sentinel汇总.html">
+            
+                <a href="sentinel汇总.html">
+            
+                    
+                    Sentinel知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="sentinel限流规则.html">
+            
+                <a href="sentinel限流规则.html">
+            
+                    
+                    sentinel限流规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Sentinel核心类解析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sentinel-&#x6838;&#x5FC3;&#x7C7B;&#x89E3;&#x6790;">Sentinel-&#x6838;&#x5FC3;&#x7C7B;&#x89E3;&#x6790;</h1>
+<p>Sentinel&#x7684;&#x6838;&#x5FC3;&#x9AA8;&#x67B6;&#xFF0C;&#x5C06;&#x4E0D;&#x540C;&#x7684;Slot&#x6309;&#x7167;&#x987A;&#x5E8F;&#x4E32;&#x5728;&#x4E00;&#x8D77;(&#x8D23;&#x4EFB;&#x94FE;&#x6A21;&#x5F0F;)&#xFF0C;&#x4ECE;&#x800C;&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;(&#x9650;&#x6D41;&#x3001;&#x964D;&#x7EA7;&#x3001;&#x7CFB;&#x7EDF;&#x4FDD;&#x62A4;)&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x3002;slot chain&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206;&#xFF1A;&#x7EDF;&#x8BA1;&#x6570;&#x636E;&#x6784;&#x5EFA;&#x90E8;&#x5206;(statistic)&#x548C;&#x5224;&#x65AD;&#x90E8;&#x5206;(rule checking)&#x3002;</p>
+<p><img src="https://github.com/Consck/gitbook/raw/master/sentinel-slot-chain-architecture.png" alt="picture"></p>
+<h2 id="context">context</h2>
+<p>Context&#x4EE3;&#x8868;&#x8C03;&#x7528;&#x94FE;&#x8DEF;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x8D2F;&#x7A7F;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x94FE;&#x4E2D;&#x7684;&#x6240;&#x6709;Entry&#x3002;Context&#x7EF4;&#x6301;&#x7740;&#x5165;&#x53E3;&#x8282;&#x70B9;(entranceNode)&#x3001;&#x672C;&#x6B21;&#x8C03;&#x7528;&#x94FE;&#x8DEF;&#x7684;curNode&#x3001;&#x8C03;&#x7528;&#x6765;&#x6E90;(origin)&#x7B49;&#x4FE1;&#x606F;&#x3002;Context&#x540D;&#x79F0;&#x5373;&#x4E3A;&#x8C03;&#x7528;&#x94FE;&#x8DEF;&#x5165;&#x53E3;&#x540D;&#x79F0;&#x3002;</p>
+<p>Context&#x7EF4;&#x6301;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x901A;&#x8FC7;ThreadLocal&#x4F20;&#x9012;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x5165;&#x53E3;enter&#x7684;&#x65F6;&#x5019;&#x751F;&#x6548;&#x3002;&#x7531;&#x4E8E;Context&#x662F;&#x901A;&#x8FC7;ThreadLocal&#x4F20;&#x9012;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5BF9;&#x4E8E;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x94FE;&#x8DEF;&#xFF0C;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4E22;&#x6389;Context&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x624B;&#x52A8;&#x901A;&#x8FC7;ContextUtil.runOnContext(context, f)&#x6765;&#x53D8;&#x6362;context&#x3002;</p>
+<h2 id="entry">Entry</h2>
+<p>&#x6BCF;&#x4E00;&#x6B21;&#x8D44;&#x6E90;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Entry&#x3002;Entry&#x5305;&#x542B;&#x4E86;&#x8D44;&#x6E90;&#x540D;&#x3001;curNode(&#x5F53;&#x524D;&#x7EDF;&#x8BA1;&#x8282;&#x70B9;)&#x3001;originNode(&#x6765;&#x6E90;&#x7EDF;&#x8BA1;&#x8282;&#x70B9;)&#x7B49;&#x4FE1;&#x606F;&#x3002;</p>
+<p>CtEntry&#x4E3A;&#x666E;&#x901A;&#x7684;Entry&#xFF0C;&#x5728;&#x8C03;&#x7528;SphU.entry(xxx)&#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x3002;&#x7279;&#x6027;&#xFF1A;Linked entry within current context(&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x8005;parent&#x548C;child)</p>
+<p><strong>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E00;&#x70B9;</strong>&#xFF1A;CtEntry&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x4F1A;&#x505A;&#x8C03;&#x7528;&#x94FE;&#x7684;&#x53D8;&#x6362;&#xFF0C;&#x5373;&#x5C06;&#x5F53;&#x524D;Entry&#x63A5;&#x5230;&#x4F20;&#x5165;Context&#x7684;&#x8C03;&#x7528;&#x94FE;&#x8DEF;&#x4E0A;(setUpEntryFor)&#x3002;</p>
+<p>&#x8D44;&#x6E90;&#x8C03;&#x7528;&#x7ED3;&#x675F;&#x65F6;&#x9700;&#x8981;entry.exit()&#x3002;exit&#x64CD;&#x4F5C;&#x4F1A;&#x8FC7;&#x4E00;&#x904D;slot chain exit&#xFF0C;&#x6062;&#x590D;&#x8C03;&#x7528;&#x6808;&#xFF0C;exit context&#x7136;&#x540E;&#x6E05;&#x7A7A;entry&#x4E2D;&#x7684;context&#x9632;&#x6B62;&#x91CD;&#x590D;&#x8C03;&#x7528;&#x3002;</p>
+<h2 id="node">Node</h2>
+<p>Sentinel&#x91CC;&#x9762;&#x7684;&#x5404;&#x79CD;&#x79CD;&#x7C7B;&#x7684;&#x7EDF;&#x8BA1;&#x8282;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>StatisticNode&#xFF1A;&#x6700;&#x4E3A;&#x57FA;&#x7840;&#x7684;&#x7EDF;&#x8BA1;&#x8282;&#x70B9;&#xFF0C;&#x5305;&#x542B;&#x79D2;&#x7EA7;&#x548C;&#x5206;&#x949F;&#x7EA7;&#x4E24;&#x4E2A;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x7ED3;&#x6784;&#x3002;</li>
+<li>DefaultNode&#xFF1A;&#x94FE;&#x8DEF;&#x8282;&#x70B9;&#xFF0C;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x8C03;&#x7528;&#x94FE;&#x8DEF;&#x4E0A;&#x67D0;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7EF4;&#x6301;&#x6811;&#x72B6;&#x7ED3;&#x6784;&#x3002;</li>
+<li>ClusterNode&#xFF1A;&#x7C07;&#x70B9;&#xFF0C;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x6BCF;&#x4E2A;&#x8D44;&#x6E90;&#x5168;&#x5C40;&#x7684;&#x6570;&#x636E;(&#x4E0D;&#x533A;&#x5206;&#x8C03;&#x7528;&#x94FE;&#x8DEF;)&#xFF0C;&#x4EE5;&#x53CA;&#x5B58;&#x653E;&#x8BE5;&#x8D44;&#x6E90;&#x7684;&#x6309;&#x6765;&#x6E90;&#x533A;&#x5206;&#x7684;&#x8C03;&#x7528;&#x6570;&#x636E;(&#x7C7B;&#x578B;&#x4E3A;StatisticNode)&#x3002;&#x7279;&#x522B;&#x5730;&#xFF0C;Constants.ENTRY_NODE&#x8282;&#x70B9;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x5168;&#x5C40;&#x7684;&#x5165;&#x53E3;&#x8D44;&#x6E90;&#x6570;&#x636E;&#x3002;</li>
+<li>EntranceNode&#xFF1A;&#x5165;&#x53E3;&#x8282;&#x70B9;&#xFF0C;&#x7279;&#x6B8A;&#x7684;&#x94FE;&#x8DEF;&#x8282;&#x70B9;&#xFF0C;&#x5BF9;&#x5E94;&#x67D0;&#x4E2A;Context&#x5165;&#x53E3;&#x7684;&#x6240;&#x6709;&#x8C03;&#x7528;&#x6570;&#x636E;&#x3002;Constants.ROOT&#x8282;&#x70B9;&#x4E5F;&#x662F;&#x5165;&#x53E3;&#x8282;&#x70B9;&#x3002;</li>
+</ul>
+<p>&#x6784;&#x5EFA;&#x7684;&#x65F6;&#x673A;&#xFF1A;</p>
+<ul>
+<li>EntranceNode&#x5728;ContextUtil.enter(xxx)&#x7684;&#x65F6;&#x5019;&#x5C31;&#x521B;&#x5EFA;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x585E;&#x5230;Context&#x91CC;&#x9762;&#x3002;</li>
+<li>NodeSelectorSlot&#xFF1A;&#x6839;&#x636E;context&#x521B;&#x5EFA;DefaultNode&#xFF0C;&#x7136;&#x540E;set CurNode to Context&#x3002;</li>
+<li>ClusterBuilderSlot&#xFF1A;&#x9996;&#x5148;&#x6839;&#x636E;resourceName&#x521B;&#x5EFA;ClusterNode&#xFF0C;&#x5E76;&#x4E14;set clusterNode to defaultNode&#xFF1B;&#x7136;&#x540E;&#x518D;&#x6839;&#x636E;origin&#x521B;&#x5EFA;&#x6765;&#x6E90;&#x8282;&#x70B9;(&#x7C7B;&#x578B;&#x4E3A;StatisticNode)&#xFF0C;&#x5E76;&#x4E14;set originNode to curEntry &#x3002;</li>
+</ul>
+<p>&#x51E0;&#x79CD;Node&#x7684;&#x7EF4;&#x5EA6;(&#x6570;&#x76EE;)&#xFF1A;</p>
+<ul>
+<li>ClusterNode&#x7684;&#x7EF4;&#x5EA6;&#x662F;resource</li>
+<li>DefaultNode&#x7684;&#x7EF4;&#x5EA6;&#x662F;resource * Context&#xFF0C;&#x5B58;&#x5728;&#x6BCF;&#x4E2A;NodeSelectorSlot&#x7684;map&#x91CC;&#x9762;</li>
+<li>EntranceNode&#x7684;&#x7EF4;&#x5EA6;&#x662F;Context&#xFF0C;&#x5B58;&#x5728;ContextUtil&#x7C7B;&#x7684;contextNameNodeMap&#x91CC;&#x9762;</li>
+<li>&#x6765;&#x6E90;&#x8282;&#x70B9;(&#x7C7B;&#x578B;&#x4E3A;StatisticNode)&#x7684;&#x7EF4;&#x5EA6;&#x662F;resource * origin&#xFF0C;&#x5B58;&#x5728;&#x6BCF;&#x4E2A;ClusterNode&#x7684;originCountMap&#x91CC;&#x9762;</li>
+</ul>
+<h1 id="sentinel&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;">Sentinel&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;</h1>
+<p>&#x5728;Sentinel&#x91CC;&#x9762;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x8D44;&#x6E90;&#x90FD;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x540D;&#x79F0;(resourceName)&#xFF0C;&#x6BCF;&#x6B21;&#x8D44;&#x6E90;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Entry&#x5BF9;&#x8C61;&#x3002;Entry&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x4E3B;&#x6D41;&#x6846;&#x67B6;&#x7684;&#x9002;&#x914D;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x6216;&#x8C03;&#x7528;SphU API&#x663E;&#x793A;&#x521B;&#x5EFA;&#x3002;Entry&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x7CFB;&#x5217;&#x529F;&#x80FD;&#x63D2;&#x69FD;(slot chain)&#xFF0C;&#x8FD9;&#x4E9B;&#x63D2;&#x69FD;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x804C;&#x8D23;&#xFF1A;</p>
+<ul>
+<li>NodeSelectorSlot &#x8D1F;&#x8D23;&#x6536;&#x96C6;&#x8D44;&#x6E90;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5E76;&#x5C06;&#x8FD9;&#x4E9B;&#x8D44;&#x6E90;&#x7684;&#x8C03;&#x7528;&#x8DEF;&#x5F84;&#xFF0C;&#x4EE5;&#x6811;&#x72B6;&#x7ED3;&#x6784;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#xFF0C;&#x7528;&#x4E8E;&#x6839;&#x636E;&#x8C03;&#x7528;&#x8DEF;&#x5F84;&#x6765;&#x9650;&#x6D41;&#x964D;&#x7EA7;&#xFF1B;</li>
+<li>ClusterBuilderSlot &#x5219;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x8D44;&#x6E90;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x4EE5;&#x53CA;&#x8C03;&#x7528;&#x8005;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x8BE5;&#x8D44;&#x6E90;&#x7684; RT, QPS, thread count &#x7B49;&#x7B49;&#xFF0C;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x5C06;&#x7528;&#x4F5C;&#x4E3A;&#x591A;&#x7EF4;&#x5EA6;&#x9650;&#x6D41;&#xFF0C;&#x964D;&#x7EA7;&#x7684;&#x4F9D;&#x636E;&#xFF1B;</li>
+<li>StatistcSlot &#x5219;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#xFF0C;&#x7EDF;&#x8BA1;&#x4E0D;&#x540C;&#x7EAC;&#x5EA6;&#x7684; runtime &#x4FE1;&#x606F;&#xFF1B;</li>
+<li>FlowSlot &#x5219;&#x7528;&#x4E8E;&#x6839;&#x636E;&#x9884;&#x8BBE;&#x7684;&#x9650;&#x6D41;&#x89C4;&#x5219;&#xFF0C;&#x4EE5;&#x53CA;&#x524D;&#x9762; slot &#x7EDF;&#x8BA1;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6765;&#x8FDB;&#x884C;&#x9650;&#x6D41;&#xFF1B;</li>
+<li>AuthorizationSlot &#x5219;&#x6839;&#x636E;&#x9ED1;&#x767D;&#x540D;&#x5355;&#xFF0C;&#x6765;&#x505A;&#x9ED1;&#x767D;&#x540D;&#x5355;&#x63A7;&#x5236;&#xFF1B;</li>
+<li>DegradeSlot &#x5219;&#x901A;&#x8FC7;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#xFF0C;&#x4EE5;&#x53CA;&#x9884;&#x8BBE;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x6765;&#x505A;&#x7194;&#x65AD;&#x964D;&#x7EA7;&#xFF1B;</li>
+<li>SystemSlot &#x5219;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4F8B;&#x5982; load1 &#x7B49;&#xFF0C;&#x6765;&#x63A7;&#x5236;&#x603B;&#x7684;&#x5165;&#x53E3;&#x6D41;&#x91CF;&#xFF1B;</li>
+</ul>
+<h2 id="nodeselectorslot">NodeSelectorSlot</h2>
+<p>&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x6536;&#x96C6;&#x8D44;&#x6E90;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5E76;&#x5C06;&#x8FD9;&#x4E9B;&#x8D44;&#x6E90;&#x7684;&#x8C03;&#x7528;&#x8DEF;&#x5F84;&#x4EE5;&#x6811;&#x72B6;&#x7ED3;&#x6784;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#xFF0C;&#x7528;&#x4E8E;&#x6839;&#x636E;&#x8C03;&#x7528;&#x8DEF;&#x5F84;&#x8FDB;&#x884C;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#x3002;</p>
+<pre><code>ContextUtil.enter(&quot;entrance1&quot;, &quot;appA&quot;);
+ Entry nodeA = SphU.entry(&quot;nodeA&quot;);
+ if (nodeA != null) {
+    nodeA.exit();
+ }
+ ContextUtil.exit();
+</code></pre><p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x901A;&#x8FC7;<code>ContextUtil.enter()</code> &#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>entrance1</code> &#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x8C03;&#x7528;&#x53D1;&#x8D77;&#x8005;&#x4E3A; <code>appA</code>&#xFF1B;&#x63A5;&#x7740;&#x901A;&#x8FC7; <code>SphU.entry()</code>&#x8BF7;&#x6C42;&#x4E00;&#x4E2A; <code>token</code>&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x65B9;&#x6CD5;&#x987A;&#x5229;&#x6267;&#x884C;&#x6CA1;&#x6709;&#x629B; BlockException&#xFF0C;&#x8868;&#x660E; <code>token</code> &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x3002;</p>
+<p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x751F;&#x6210;&#x4EE5;&#x4E0B;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code>    machine-root
+             /     
+            /
+     EntranceNode1
+          /
+         /   
+  DefaultNode(nodeA)
+</code></pre><p>&#x6CE8;&#x610F;&#xFF1A;&#x6BCF;&#x4E2A; DefaultNode &#x7531;&#x8D44;&#x6E90; ID &#x548C;&#x8F93;&#x5165;&#x540D;&#x79F0;&#x6765;&#x6807;&#x8BC6;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90; ID &#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x5165;&#x53E3;&#x7684; DefaultNode&#x3002;</p>
+<pre><code>ContextUtil.enter(&quot;entrance1&quot;, &quot;appA&quot;);
+  Entry nodeA = SphU.entry(&quot;nodeA&quot;);
+  if (nodeA != null) {
+    nodeA.exit();
+  }
+  ContextUtil.exit();
+
+  ContextUtil.enter(&quot;entrance2&quot;, &quot;appA&quot;);
+  nodeA = SphU.entry(&quot;nodeA&quot;);
+  if (nodeA != null) {
+    nodeA.exit();
+  }
+  ContextUtil.exit();
+</code></pre><p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x5C06;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x751F;&#x6210;&#x4EE5;&#x4E0B;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code>        machine-root
+               /         \
+              /           \
+      EntranceNode1   EntranceNode2
+            /               \
+           /                 \
+   DefaultNode(nodeA)   DefaultNode(nodeA)
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x7ED3;&#x6784;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x7528; <code>curl http://localhost:8719/tree?type=root</code> &#x6765;&#x663E;&#x793A;</p>
+<h2 id="clusterbuilderslot">ClusterBuilderSlot</h2>
+<p>&#x4ECE;&#x63D2;&#x69FD;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#x8D44;&#x6E90;ClusterNode&#x4EE5;&#x53CA;&#x8C03;&#x7528;&#x6765;&#x6E90;&#x8282;&#x70B9;&#x3002;ClusterNode&#x4FDD;&#x6301;&#x67D0;&#x4E2A;&#x8D44;&#x6E90;&#x8FD0;&#x884C;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;(&#x54CD;&#x5E94;&#x65F6;&#x95F4;&#x3001;QPS&#x3001;block&#x6570;&#x76EE;&#x3001;&#x7EBF;&#x7A0B;&#x6570;&#x3001;&#x5F02;&#x5E38;&#x6570;&#x7B49;)&#x4EE5;&#x53CA;&#x8C03;&#x7528;&#x6765;&#x6E90;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x5217;&#x8868;&#x3002;&#x8C03;&#x7528;&#x6765;&#x6E90;&#x7684;&#x540D;&#x79F0;&#x7531;ContextUtil.enter(contextName, origin)&#x4E2D;&#x7684;origin&#x6807;&#x8BB0;&#x3002;&#x53EF;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x67D0;&#x4E2A;&#x8D44;&#x6E90;&#x4E0D;&#x540C;&#x8C03;&#x7528;&#x8005;&#x7684;&#x8BBF;&#x95EE;&#x60C5;&#x51B5;&#xFF1A;<code>curl http://localhost:8719/origin?id=caller&#xFF1A;</code></p>
+<h2 id="statisticslot">StatisticSlot</h2>
+<p>StatisticSlot &#x662F;Sentinel&#x7684;&#x6838;&#x5FC3;&#x529F;&#x80FD;&#x63D2;&#x69FD;&#x4E4B;&#x4E00;&#xFF0C;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x5B9E;&#x65F6;&#x7684;&#x8C03;&#x7528;&#x6570;&#x636E;&#x3002;</p>
+<ul>
+<li>clusterNode&#xFF1A;&#x8D44;&#x6E90;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x7684;ClusterNode&#x7684;&#x5B9E;&#x65F6;&#x7EDF;&#x8BA1;</li>
+<li>origin&#xFF1A;&#x6839;&#x636E;&#x6765;&#x81EA;&#x4E0D;&#x540C;&#x8C03;&#x7528;&#x8005;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;</li>
+<li>defaultnode&#xFF1A;&#x6839;&#x636E;&#x5165;&#x53E3;&#x4E0A;&#x4E0B;&#x6587;&#x533A;&#x5206;&#x7684;&#x8D44;&#x6E90;ID&#x7684;runtime&#x7EDF;&#x8BA1;</li>
+<li>&#x5165;&#x53E3;&#x6D41;&#x91CF;&#x7684;&#x7EDF;&#x8BA1;</li>
+<li>entry&#x7684;&#x65F6;&#x5019;&#xFF1A;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x5224;&#x65AD;slot&#x3002;&#x6BCF;&#x4E2A;slot&#x89E6;&#x53D1;&#x6D41;&#x63A7;&#x7684;&#x8BDD;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;(BlockException&#x7684;&#x5B50;&#x7C7B;)&#x3002;&#x82E5;&#x6709;BlockException&#x629B;&#x51FA;&#xFF0C;&#x5219;&#x8BB0;&#x5F55;block&#x6570;&#x636E;&#xFF1B;&#x82E5;&#x65E0;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#x5219;&#x7B97;&#x4F5C;&#x53EF;&#x901A;&#x8FC7;&#xFF0C;&#x8BB0;&#x5F55;pass&#x6570;&#x636E;&#x3002;</li>
+<li>exit&#x7684;&#x65F6;&#x5019;&#xFF1A;&#x82E5;&#x65E0;error(&#x65E0;&#x8BBA;&#x662F;&#x4E1A;&#x52A1;&#x5F02;&#x5E38;&#x8FD8;&#x662F;&#x6D41;&#x63A7;&#x5F02;&#x5E38;)&#x3002;&#x8BB0;&#x5F55;complete(success)&#x4EE5;&#x53CA;RT&#xFF0C;&#x7EBF;&#x7A0B;&#x6570;-1.</li>
+<li>&#x8BB0;&#x5F55;&#x6570;&#x636E;&#x7684;&#x7EF4;&#x5EA6;&#xFF1A;&#x7EBF;&#x7A0B;&#x6570;+1&#x3001;&#x8BB0;&#x5F55;&#x5F53;&#x524D;DefaultNode&#x6570;&#x636E;&#x3001;&#x8BB0;&#x5F55;&#x5BF9;&#x5E94;&#x7684;originNode&#x6570;&#x636E;(&#x82E5;&#x5B58;&#x5728;origin)&#x3001;&#x7D2F;&#x8BA1;IN&#x7EDF;&#x8BA1;&#x6570;&#x636E;(&#x82E5;&#x6D41;&#x91CF;&#x7C7B;&#x578B;&#x4E3A;IN)&#x3002;</li>
+</ul>
+<p>sentinel&#x5E95;&#x5C42;&#x91C7;&#x7528;&#x9AD8;&#x6027;&#x80FD;&#x7684;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x6570;&#x636E;&#x7ED3;&#x6784;LeapArray&#x6765;&#x7EDF;&#x8BA1;&#x5B9E;&#x65F6;&#x7684;&#x79D2;&#x7EA7;&#x6307;&#x6807;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5730;&#x652F;&#x6491;&#x5199;&#x591A;&#x4E8E;&#x8BFB;&#x7684;&#x9AD8;&#x5E76;&#x53D1;&#x573A;&#x666F;&#x3002;</p>
+<h2 id="flowslot">FlowSlot</h2>
+<p>&#x8FD9;&#x4E2A;slot&#x4E3B;&#x8981;&#x6839;&#x636E;&#x9884;&#x8BBE;&#x7684;&#x8D44;&#x6E90;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#xFF0C;&#x6309;&#x7167;&#x56FA;&#x5B9A;&#x7684;&#x6B21;&#x5E8F;&#xFF0C;&#x4F9D;&#x6B21;&#x751F;&#x6548;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x5BF9;&#x5E94;&#x4E24;&#x6761;&#x6216;&#x8005;&#x591A;&#x6761;&#x6D41;&#x63A7;&#x89C4;&#x5219;&#xFF0C;&#x5219;&#x4F1A;&#x6839;&#x636E;&#x5982;&#x4E0B;&#x6B21;&#x5E8F;&#x4F9D;&#x6B21;&#x68C0;&#x9A8C;&#xFF0C;&#x76F4;&#x5230;&#x5168;&#x90E8;&#x901A;&#x8FC7;&#x6216;&#x8005;&#x6709;&#x4E00;&#x4E2A;&#x89C4;&#x5219;&#x751F;&#x6548;&#x4E3A;&#x6B62;&#xFF1A;</p>
+<pre><code>&#x6307;&#x5B9A;&#x5E94;&#x7528;&#x751F;&#x6548;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x5373;&#x9488;&#x5BF9;&#x8C03;&#x7528;&#x65B9;&#x9650;&#x6D41;&#x7684;&#xFF1B;
+&#x8C03;&#x7528;&#x65B9;&#x4E3A;other&#x7684;&#x89C4;&#x5219;&#xFF1B;
+&#x8C03;&#x7528;&#x65B9;&#x4E3A;default&#x7684;&#x89C4;&#x5219;&#x3002;
+</code></pre><h2 id="degradeslot">DegradeSlot</h2>
+<p>&#x4E3B;&#x8981;&#x9488;&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x5E73;&#x5747;&#x54CD;&#x5E94;&#x65F6;&#x95F4;(RT)&#x4EE5;&#x53CA;&#x5F02;&#x5E38;&#x6BD4;&#x7387;&#xFF0C;&#x6765;&#x51B3;&#x5B9A;&#x8D44;&#x6E90;&#x662F;&#x5426;&#x5728;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x65F6;&#x95F4;&#x88AB;&#x81EA;&#x52A8;&#x7194;&#x65AD;&#x6389;&#x3002;</p>
+<h2 id="systemslot">SystemSlot</h2>
+<p>&#x6839;&#x636E;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7684;&#x6574;&#x4F53;&#x60C5;&#x51B5;&#xFF0C;&#x5BF9;&#x5165;&#x53E3;&#x8D44;&#x6E90;&#x7684;&#x8C03;&#x7528;&#x8FDB;&#x884C;&#x52A8;&#x6001;&#x8C03;&#x914D;&#x3002;&#x5176;&#x539F;&#x7406;&#x662F;&#x8BA9;&#x5165;&#x53E3;&#x7684;&#x6D41;&#x91CF;&#x548C;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7684;&#x9884;&#x8BA1;&#x5BB9;&#x91CF;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x5E73;&#x8861;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x7CFB;&#x7EDF;&#x89C4;&#x5219;&#x53EA;&#x5BF9;&#x5165;&#x53E3;&#x6D41;&#x91CF;&#x8D77;&#x4F5C;&#x7528;(&#x8C03;&#x7528;&#x7C7B;&#x578B;&#x4E3A;EntryType.IN)&#xFF0C;&#x5BF9;&#x51FA;&#x53E3;&#x6D41;&#x91CF;&#x65E0;&#x6548;&#x3002;&#x53EF;&#x901A;&#x8FC7;SphU.entry(res, entryType)&#x6307;&#x5B9A;&#x8C03;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;EntryType.OUT.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="接入sentinel控制台.html" class="navigation navigation-prev " aria-label="Previous page: 接入sentinel控制台">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sentinel汇总.html" class="navigation navigation-next " aria-label="Next page: Sentinel知识点">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"next":{"title":"Sentinel知识点","level":"2.1.3","depth":2,"path":"sentinel/sentinel汇总.md","ref":"sentinel/sentinel汇总.md","articles":[]},"previous":{"title":"接入sentinel控制台","level":"2.1.1","depth":2,"path":"sentinel/接入sentinel控制台.md","ref":"sentinel/接入sentinel控制台.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sentinel/Sentinel核心类解析.md","mtime":"2021-02-09T03:59:27.409Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-09T04:01:06.485Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
