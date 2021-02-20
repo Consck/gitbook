@@ -474,144 +474,145 @@ mysql -u root -p
 <span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&apos;root&apos;</span>@<span class="hljs-string">&apos;localhost&apos;</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">&apos;newpassword&apos;</span>;
 </code></pre>
 </li>
-<li>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x8868;
-```</li>
+<li>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x8868;</li>
 </ol>
-<pre><code>
-6. &#x670D;&#x52A1;&#x8FDE;&#x63A5;&#x5E76;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;
-* &#x6DFB;&#x52A0;&#x4F9D;&#x8D56;
-```xml
-&lt;parent&gt;    
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
-    &lt;version&gt;1.5.16.RELEASE&lt;/version&gt;
-&lt;/parent&gt;
+<ol>
+<li>&#x670D;&#x52A1;&#x8FDE;&#x63A5;&#x5E76;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;</li>
+<li>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;
+```xml<parent>    
+  <groupid>org.springframework.boot</groupid>
+  <artifactid>spring-boot-starter-parent</artifactid>
+  <version>1.5.16.RELEASE</version>
+</parent>
 
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;
-&lt;/dependency&gt;
-
-&lt;dependency&gt;
-    &lt;groupId&gt;mysql&lt;/groupId&gt;
-    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-    &lt;version&gt;5.1.46&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;1.3.2&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
-    &lt;version&gt;3.4.6&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre><ul>
-<li>&#x6DFB;&#x52A0;config<pre><code class="lang-Java"><span class="hljs-comment">/**pom&#x914D;&#x7F6E;
-spring:
-datasource:
-  driver-class-name: com.mysql.jdbc.Driver
-  username: root
-  password: bianjinyue20191120
-*/</span>
-<span class="hljs-meta">@Configuration</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataSourceConfig</span> </span>{
-  <span class="hljs-meta">@Bean</span>(name = <span class="hljs-string">&quot;dataSourceDevice&quot;</span>)
-  <span class="hljs-meta">@ConfigurationProperties</span>(prefix = <span class="hljs-string">&quot;spring.datasource&quot;</span>)
-  <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">dataSource</span><span class="hljs-params">()</span> </span>{
-      <span class="hljs-keyword">return</span> DataSourceBuilder.create().build();
-  }
-}
-</code></pre>
 </li>
-<li>mybatis&#x81EA;&#x52A8;&#x751F;&#x6210;
-```xml
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE generatorConfiguration<pre><code>  PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
-  &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
-</code></pre></li>
-</ul>
-<p><generatorconfiguration>
-    <!-- 该处需要改动，每个人存放mysql-connector-java位置不同 -->
-    <classpathentry location="/Users/macuser/Documents/mavenRepo/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"></classpathentry></generatorconfiguration></p>
-<pre><code>&lt;context id=&quot;mysqlTables&quot; targetRuntime=&quot;MyBatis3Simple&quot; defaultModelType=&quot;flat&quot; &gt;
+</ol>
+<dependency>
+    <groupid>org.springframework.boot</groupid>
+    <artifactid>spring-boot-starter</artifactid>
+</dependency>
 
-    &lt;!-- TKmybatis&#x914D;&#x7F6E; --&gt;
-    &lt;property name=&quot;javaFileEncoding&quot; value=&quot;UTF-8&quot;/&gt;
-    &lt;property name=&quot;beginningDelimiter&quot; value=&quot;`&quot;/&gt;
-    &lt;property name=&quot;endingDelimiter&quot; value=&quot;`&quot;/&gt;
-    &lt;plugin type=&quot;tk.mybatis.mapper.generator.MapperPlugin&quot;&gt;
-        &lt;property name=&quot;mappers&quot; value=&quot;tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.MySqlMapper&quot;/&gt;
-    &lt;/plugin&gt;
-
-    &lt;commentGenerator&gt;
-        &lt;!-- &#x662F;&#x5426;&#x53BB;&#x9664;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x6CE8;&#x91CA; true&#xFF1A;&#x662F; &#xFF1A; false:&#x5426; --&gt;
-        &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot;/&gt;
-    &lt;/commentGenerator&gt;
-
-
-    &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;
-                    connectionURL=&quot;jdbc:mysql://127.0.0.1:3306/mei-service&quot;
-                    userId=&quot;root&quot; password=&quot;bianjinyue20191120&quot;/&gt;
-
-    &lt;!-- &#x751F;&#x6210;model&#x6A21;&#x578B;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x5305;&#xFF0C;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5177;&#x4F53;&#x7684;&#x8DEF;&#x5F84; --&gt;
-    &lt;javaModelGenerator targetProject=&quot;src/main/java&quot; targetPackage=&quot;com.project.mapper&quot;&gt;
-        &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
-    &lt;/javaModelGenerator&gt;
-
-    &lt;!--&#x5BF9;&#x5E94;&#x7684;xml mapper&#x6587;&#x4EF6;  --&gt;
-    &lt;sqlMapGenerator targetProject=&quot;src/main/java&quot; targetPackage=&quot;com.project.mapper&quot;&gt;
-        &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
-    &lt;/sqlMapGenerator&gt;
-
-    &lt;!-- &#x5BF9;&#x5E94;&#x7684;dao&#x63A5;&#x53E3; --&gt;
-    &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetProject=&quot;src/main/java&quot;
-                         targetPackage=&quot;com.project.mapper&quot;&gt;
-        &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot;/&gt;
-    &lt;/javaClientGenerator&gt;
-
-    &lt;!-- &#x8868;&#x6620;&#x5C04;&#x4E3A;&#x5B9E;&#x4F53; --&gt;
-    &lt;table tableName=&quot;pro_test&quot; domainObjectName=&quot;ProTest&quot;&gt;
-        &lt;!-- &#x4F7F;&#x7528;&#x7ECF;&#x5178;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x6CD5; --&gt;
-        &lt;property name=&quot;useActualColumnNames&quot; value=&quot;false&quot;/&gt;
-        &lt;generatedKey column=&quot;id&quot; sqlStatement=&quot;Mysql&quot; identity=&quot;true&quot;/&gt;
-    &lt;/table&gt;
-
-&lt;/context&gt;
-</code></pre><p>&lt;/generatorConfiguration&gt;</p>
-<pre><code>* &#x6570;&#x636E;&#x8868;&#x4F7F;&#x7528;
+<p><dependency>
+    <groupid>mysql</groupid>
+    <artifactid>mysql-connector-java</artifactid>
+    <version>5.1.46</version>
+</dependency></p>
+<p><dependency>
+    <groupid>org.mybatis.spring.boot</groupid>
+    <artifactid>mybatis-spring-boot-starter</artifactid>
+    <version>1.3.2</version>
+</dependency></p>
+<p><dependency>
+    <groupid>org.springframework.boot</groupid>
+    <artifactid>spring-boot-starter-jdbc</artifactid>
+</dependency></p>
+<p><dependency>
+    <groupid>org.mybatis</groupid>
+    <artifactid>mybatis</artifactid>
+    <version>3.4.6</version>
+</dependency></p>
+<pre><code>* &#x6DFB;&#x52A0;config
 ```Java
+/**pom&#x914D;&#x7F6E;
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: bianjinyue20191120
+*/
 @Configuration
-@MapperScan(basePackages = {&quot;com.project.mapper&quot;},
-        sqlSessionFactoryRef=&quot;sqlDeviceSessionFactory&quot;)
-public class DeviceDBConfig {
+public class DataSourceConfig {
+    @Bean(name = &quot;dataSourceDevice&quot;)
+    @ConfigurationProperties(prefix = &quot;spring.datasource&quot;)
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().build();
+    }
+}
+</code></pre><ul>
+<li>mybatis&#x81EA;&#x52A8;&#x751F;&#x6210;</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE generatorConfiguration
+        PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">generatorConfiguration</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- &#x8BE5;&#x5904;&#x9700;&#x8981;&#x6539;&#x52A8;&#xFF0C;&#x6BCF;&#x4E2A;&#x4EBA;&#x5B58;&#x653E;mysql-connector-java&#x4F4D;&#x7F6E;&#x4E0D;&#x540C; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">classPathEntry</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;/Users/macuser/Documents/mavenRepo/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar&quot;</span>/&gt;</span>
 
-    @Autowired
-    @Qualifier(value = &quot;dataSourceDevice&quot;)
-    private DataSource dataSourceDevice;
+    <span class="hljs-tag">&lt;<span class="hljs-name">context</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mysqlTables&quot;</span> <span class="hljs-attr">targetRuntime</span>=<span class="hljs-string">&quot;MyBatis3Simple&quot;</span> <span class="hljs-attr">defaultModelType</span>=<span class="hljs-string">&quot;flat&quot;</span> &gt;</span>
 
-    @Bean
-    public SqlSessionFactory sqlDeviceSessionFactory() throws Exception {
-        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+        <span class="hljs-comment">&lt;!-- TKmybatis&#x914D;&#x7F6E; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;javaFileEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;beginningDelimiter&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;`&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;endingDelimiter&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;`&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;tk.mybatis.mapper.generator.MapperPlugin&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;mappers&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.MySqlMapper&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">commentGenerator</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- &#x662F;&#x5426;&#x53BB;&#x9664;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x6CE8;&#x91CA; true&#xFF1A;&#x662F; &#xFF1A; false:&#x5426; --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;suppressAllComments&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">commentGenerator</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">jdbcConnection</span> <span class="hljs-attr">driverClass</span>=<span class="hljs-string">&quot;com.mysql.jdbc.Driver&quot;</span>
+                        <span class="hljs-attr">connectionURL</span>=<span class="hljs-string">&quot;jdbc:mysql://127.0.0.1:3306/mei-service&quot;</span>
+                        <span class="hljs-attr">userId</span>=<span class="hljs-string">&quot;root&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;bianjinyue20191120&quot;</span>/&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- &#x751F;&#x6210;model&#x6A21;&#x578B;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x5305;&#xFF0C;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5177;&#x4F53;&#x7684;&#x8DEF;&#x5F84; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">javaModelGenerator</span> <span class="hljs-attr">targetProject</span>=<span class="hljs-string">&quot;src/main/java&quot;</span> <span class="hljs-attr">targetPackage</span>=<span class="hljs-string">&quot;com.project.mapper&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;enableSubPackages&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">javaModelGenerator</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!--&#x5BF9;&#x5E94;&#x7684;xml mapper&#x6587;&#x4EF6;  --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">sqlMapGenerator</span> <span class="hljs-attr">targetProject</span>=<span class="hljs-string">&quot;src/main/java&quot;</span> <span class="hljs-attr">targetPackage</span>=<span class="hljs-string">&quot;com.project.mapper&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;enableSubPackages&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">sqlMapGenerator</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- &#x5BF9;&#x5E94;&#x7684;dao&#x63A5;&#x53E3; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">javaClientGenerator</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;XMLMAPPER&quot;</span> <span class="hljs-attr">targetProject</span>=<span class="hljs-string">&quot;src/main/java&quot;</span>
+                             <span class="hljs-attr">targetPackage</span>=<span class="hljs-string">&quot;com.project.mapper&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;enableSubPackages&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">javaClientGenerator</span>&gt;</span>
+
+        <span class="hljs-comment">&lt;!-- &#x8868;&#x6620;&#x5C04;&#x4E3A;&#x5B9E;&#x4F53; --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">tableName</span>=<span class="hljs-string">&quot;pro_test&quot;</span> <span class="hljs-attr">domainObjectName</span>=<span class="hljs-string">&quot;ProTest&quot;</span>&gt;</span>
+            <span class="hljs-comment">&lt;!-- &#x4F7F;&#x7528;&#x7ECF;&#x5178;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x6CD5; --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;useActualColumnNames&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">generatedKey</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">sqlStatement</span>=<span class="hljs-string">&quot;Mysql&quot;</span> <span class="hljs-attr">identity</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">context</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">generatorConfiguration</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x6570;&#x636E;&#x8868;&#x4F7F;&#x7528;</li>
+</ul>
+<pre><code class="lang-Java"><span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@MapperScan</span>(basePackages = {<span class="hljs-string">&quot;com.project.mapper&quot;</span>},
+        sqlSessionFactoryRef=<span class="hljs-string">&quot;sqlDeviceSessionFactory&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeviceDBConfig</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-meta">@Qualifier</span>(value = <span class="hljs-string">&quot;dataSourceDevice&quot;</span>)
+    <span class="hljs-keyword">private</span> DataSource dataSourceDevice;
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSessionFactory <span class="hljs-title">sqlDeviceSessionFactory</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        SqlSessionFactoryBean factoryBean = <span class="hljs-keyword">new</span> SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSourceDevice);
-        factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources(&quot;classpath:com/project/*Mapper.xml&quot;));
-        return factoryBean.getObject();
+        factoryBean.setMapperLocations(<span class="hljs-keyword">new</span> PathMatchingResourcePatternResolver()
+                .getResources(<span class="hljs-string">&quot;classpath:com/project/*Mapper.xml&quot;</span>));
+        <span class="hljs-keyword">return</span> factoryBean.getObject();
     }
 
-    @Bean
-    public SqlSessionTemplate sqlDeviceSessionTemplate() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(sqlDeviceSessionFactory());
-        return template;
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSessionTemplate <span class="hljs-title">sqlDeviceSessionTemplate</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        SqlSessionTemplate template = <span class="hljs-keyword">new</span> SqlSessionTemplate(sqlDeviceSessionFactory());
+        <span class="hljs-keyword">return</span> template;
     }
 
 }
 </code></pre>
+
                                 
                                 </section>
                             
@@ -650,7 +651,7 @@ public class DeviceDBConfig {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据库篇","level":"3.1.1","depth":2,"previous":{"title":"mei-service","level":"3.1","depth":1,"path":"mei-service/README.md","ref":"mei-service/README.md","articles":[{"title":"数据库篇","level":"3.1.1","depth":2,"path":"mei-service/mysql.md","ref":"mei-service/mysql.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"mei-service/mysql.md","mtime":"2021-02-20T02:19:13.581Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T02:20:20.248Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据库篇","level":"3.1.1","depth":2,"previous":{"title":"mei-service","level":"3.1","depth":1,"path":"mei-service/README.md","ref":"mei-service/README.md","articles":[{"title":"数据库篇","level":"3.1.1","depth":2,"path":"mei-service/mysql.md","ref":"mei-service/mysql.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"mei-service/mysql.md","mtime":"2021-02-20T02:29:58.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T02:30:15.338Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
