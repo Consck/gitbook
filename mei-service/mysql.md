@@ -23,9 +23,7 @@ FLUSH PRIVILEGES;
 alter user 'root'@'localhost' identified by 'newpassword';
 ```
 5. 创建数据表
-```
 
-```
 
 6. 服务连接并使用数据库
 * 添加依赖
@@ -80,12 +78,12 @@ public class DataSourceConfig {
 }
 ```
 * mybatis自动生成
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
-
 <generatorConfiguration>
     <!-- 该处需要改动，每个人存放mysql-connector-java位置不同 -->
     <classPathEntry location="/Users/macuser/Documents/mavenRepo/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>
@@ -104,8 +102,6 @@ public class DataSourceConfig {
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
-
-
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://127.0.0.1:3306/mei-service"
                         userId="root" password="bianjinyue20191120"/>
@@ -136,7 +132,9 @@ public class DataSourceConfig {
     </context>
 </generatorConfiguration>
 ```
+
 * 数据表使用
+
 ```Java
 @Configuration
 @MapperScan(basePackages = {"com.project.mapper"},
