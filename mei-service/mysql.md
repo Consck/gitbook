@@ -1,17 +1,22 @@
 # 安装MySQL及可视化工具
 1. 安装包
 2. 切换至root用户：
+
 ```
 sudo su
 su -
 ```
+
 3. DOS进入MySQL环境：
+
 ```
 cd /usr/local/mysql/bin
 mysql -u root -p
 # 输入数据库密码
 ```
+
 4. 可视化工具连接本地MySQL
+
 ```sql
 #修改加密规则 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER;   
@@ -22,10 +27,10 @@ FLUSH PRIVILEGES;
 #单独重置密码
 alter user 'root'@'localhost' identified by 'newpassword';
 ```
+
 5. 创建数据表
-
-
 6. 服务连接并使用数据库
+
 * 添加依赖
 ```xml
 <parent>    
