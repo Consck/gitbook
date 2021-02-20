@@ -1,14 +1,14 @@
 # 安装MySQL及可视化工具
-1. 安装包
+1、安装包
 
-2. 切换至root用户：
+2、切换至root用户：
 
 ```
 sudo su
 su -
 ```
 
-3. DOS进入MySQL环境：
+3、DOS进入MySQL环境：
 
 ```
 cd /usr/local/mysql/bin
@@ -16,7 +16,7 @@ mysql -u root -p
 # 输入数据库密码
 ```
 
-4. 可视化工具连接本地MySQL无法连接解决办法
+4、可视化工具连接本地MySQL无法连接解决办法
 
 ```sql
 #修改加密规则 
@@ -29,7 +29,7 @@ FLUSH PRIVILEGES;
 alter user 'root'@'localhost' identified by 'newpassword';
 ```
 
-5. 创建数据表
+5、创建数据表
    
 ```sql
 CREATE TABLE `user_info` (
@@ -39,10 +39,10 @@ CREATE TABLE `user_info` (
   `ctime` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='测试数据表';
+) ENGINE=InnoDB DEFAULT COMMENT='测试数据表';
 ```
 
-6. 服务连接并使用数据库
+6、服务连接并使用数据库
 
 * 添加依赖
 
