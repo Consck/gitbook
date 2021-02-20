@@ -481,60 +481,73 @@ mysql -u root -p
 </code></pre>
 <ol>
 <li>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x8868;</li>
+</ol>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`user_info`</span> (
+  <span class="hljs-string">`id`</span> <span class="hljs-built_in">bigint</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x81EA;&#x589E;id&apos;</span>,
+  <span class="hljs-string">`user_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">64</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x7528;&#x6237;&#x540D;&apos;</span>,
+  <span class="hljs-string">`is_active`</span> tinyint(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&apos;1&apos;</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x662F;&#x5426;&#x6709;&#x6548; 0:&#x65E0;&#x6548; 1:&#x6709;&#x6548;&apos;</span>,
+  <span class="hljs-string">`ctime`</span> <span class="hljs-keyword">timestamp</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&apos;</span>,
+  <span class="hljs-string">`mtime`</span> <span class="hljs-keyword">timestamp</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&apos;&#x66F4;&#x65B0;&#x65F6;&#x95F4;&apos;</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8mb4 <span class="hljs-keyword">COLLATE</span>=utf8mb4_0900_ai_ci <span class="hljs-keyword">COMMENT</span>=<span class="hljs-string">&apos;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x8868;&apos;</span>;
+</code></pre>
+<ol>
 <li><p>&#x670D;&#x52A1;&#x8FDE;&#x63A5;&#x5E76;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;</p>
 </li>
-<li><p>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;
-```xml</p>
-<parent>    
-  <groupid>org.springframework.boot</groupid>
-  <artifactid>spring-boot-starter-parent</artifactid>
-  <version>1.5.16.RELEASE</version>
-</parent>
-
+<li><p>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</p>
 </li>
 </ol>
-<dependency>
-    <groupid>org.springframework.boot</groupid>
-    <artifactid>spring-boot-starter</artifactid>
-</dependency>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>    
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.5.16.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span>
 
-<p><dependency>
-    <groupid>mysql</groupid>
-    <artifactid>mysql-connector-java</artifactid>
-    <version>5.1.46</version>
-</dependency></p>
-<p><dependency>
-    <groupid>org.mybatis.spring.boot</groupid>
-    <artifactid>mybatis-spring-boot-starter</artifactid>
-    <version>1.3.2</version>
-</dependency></p>
-<p><dependency>
-    <groupid>org.springframework.boot</groupid>
-    <artifactid>spring-boot-starter-jdbc</artifactid>
-</dependency></p>
-<p><dependency>
-    <groupid>org.mybatis</groupid>
-    <artifactid>mybatis</artifactid>
-    <version>3.4.6</version>
-</dependency></p>
-<pre><code>* &#x6DFB;&#x52A0;config
-```Java
-/**pom&#x914D;&#x7F6E;
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.46<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.3.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.4.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x6DFB;&#x52A0;config</li>
+</ul>
+<pre><code class="lang-Java"><span class="hljs-comment">/**pom&#x914D;&#x7F6E;
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: bianjinyue20191120
-*/
-@Configuration
-public class DataSourceConfig {
-    @Bean(name = &quot;dataSourceDevice&quot;)
-    @ConfigurationProperties(prefix = &quot;spring.datasource&quot;)
-    public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
+*/</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataSourceConfig</span> </span>{
+    <span class="hljs-meta">@Bean</span>(name = <span class="hljs-string">&quot;dataSourceDevice&quot;</span>)
+    <span class="hljs-meta">@ConfigurationProperties</span>(prefix = <span class="hljs-string">&quot;spring.datasource&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">dataSource</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> DataSourceBuilder.create().build();
     }
 }
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>mybatis&#x81EA;&#x52A8;&#x751F;&#x6210;</li>
 </ul>
 <pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
@@ -657,7 +670,7 @@ public class DataSourceConfig {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据库篇","level":"3.1.1","depth":2,"previous":{"title":"mei-service","level":"3.1","depth":1,"path":"mei-service/README.md","ref":"mei-service/README.md","articles":[{"title":"数据库篇","level":"3.1.1","depth":2,"path":"mei-service/mysql.md","ref":"mei-service/mysql.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"mei-service/mysql.md","mtime":"2021-02-20T02:32:56.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T02:33:04.183Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据库篇","level":"3.1.1","depth":2,"previous":{"title":"mei-service","level":"3.1","depth":1,"path":"mei-service/README.md","ref":"mei-service/README.md","articles":[{"title":"数据库篇","level":"3.1.1","depth":2,"path":"mei-service/mysql.md","ref":"mei-service/mysql.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"mei-service/mysql.md","mtime":"2021-02-20T02:38:26.773Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T02:38:34.648Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
