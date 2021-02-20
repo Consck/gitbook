@@ -457,14 +457,20 @@
                                 <h1 id="&#x5B89;&#x88C5;mysql&#x53CA;&#x53EF;&#x89C6;&#x5316;&#x5DE5;&#x5177;">&#x5B89;&#x88C5;MySQL&#x53CA;&#x53EF;&#x89C6;&#x5316;&#x5DE5;&#x5177;</h1>
 <ol>
 <li>&#x5B89;&#x88C5;&#x5305;</li>
-<li>&#x5207;&#x6362;&#x81F3;root&#x7528;&#x6237;&#xFF1A;<pre><code>sudo su
+<li>&#x5207;&#x6362;&#x81F3;root&#x7528;&#x6237;&#xFF1A;</li>
+</ol>
+<pre><code>sudo su
 su -
-</code></pre></li>
-<li>DOS&#x8FDB;&#x5165;MySQL&#x73AF;&#x5883;&#xFF1A;<pre><code>cd /usr/local/mysql/bin
+</code></pre><ol>
+<li>DOS&#x8FDB;&#x5165;MySQL&#x73AF;&#x5883;&#xFF1A;</li>
+</ol>
+<pre><code>cd /usr/local/mysql/bin
 mysql -u root -p
 # &#x8F93;&#x5165;&#x6570;&#x636E;&#x5E93;&#x5BC6;&#x7801;
-</code></pre></li>
-<li>&#x53EF;&#x89C6;&#x5316;&#x5DE5;&#x5177;&#x8FDE;&#x63A5;&#x672C;&#x5730;MySQL<pre><code class="lang-sql">#&#x4FEE;&#x6539;&#x52A0;&#x5BC6;&#x89C4;&#x5219; 
+</code></pre><ol>
+<li>&#x53EF;&#x89C6;&#x5316;&#x5DE5;&#x5177;&#x8FDE;&#x63A5;&#x672C;&#x5730;MySQL</li>
+</ol>
+<pre><code class="lang-sql">#&#x4FEE;&#x6539;&#x52A0;&#x5BC6;&#x89C4;&#x5219; 
 <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">&apos;root&apos;</span>@<span class="hljs-string">&apos;localhost&apos;</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">&apos;password&apos;</span> <span class="hljs-keyword">PASSWORD</span> <span class="hljs-keyword">EXPIRE</span> <span class="hljs-keyword">NEVER</span>;   
 #&#x66F4;&#x65B0;&#x4E00;&#x4E0B;&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801; 
 <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">&apos;root&apos;</span>@<span class="hljs-string">&apos;localhost&apos;</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">WITH</span> mysql_native_password <span class="hljs-keyword">BY</span> <span class="hljs-string">&apos;password&apos;</span>;   
@@ -473,13 +479,13 @@ mysql -u root -p
 #&#x5355;&#x72EC;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;
 <span class="hljs-keyword">alter</span> <span class="hljs-keyword">user</span> <span class="hljs-string">&apos;root&apos;</span>@<span class="hljs-string">&apos;localhost&apos;</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">&apos;newpassword&apos;</span>;
 </code></pre>
-</li>
-<li>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x8868;</li>
-</ol>
 <ol>
-<li>&#x670D;&#x52A1;&#x8FDE;&#x63A5;&#x5E76;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;</li>
-<li>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;
-```xml<parent>    
+<li>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x8868;</li>
+<li><p>&#x670D;&#x52A1;&#x8FDE;&#x63A5;&#x5E76;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x5E93;</p>
+</li>
+<li><p>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;
+```xml</p>
+<parent>    
   <groupid>org.springframework.boot</groupid>
   <artifactid>spring-boot-starter-parent</artifactid>
   <version>1.5.16.RELEASE</version>
@@ -651,7 +657,7 @@ public class DataSourceConfig {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据库篇","level":"3.1.1","depth":2,"previous":{"title":"mei-service","level":"3.1","depth":1,"path":"mei-service/README.md","ref":"mei-service/README.md","articles":[{"title":"数据库篇","level":"3.1.1","depth":2,"path":"mei-service/mysql.md","ref":"mei-service/mysql.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"mei-service/mysql.md","mtime":"2021-02-20T02:29:58.932Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T02:30:15.338Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据库篇","level":"3.1.1","depth":2,"previous":{"title":"mei-service","level":"3.1","depth":1,"path":"mei-service/README.md","ref":"mei-service/README.md","articles":[{"title":"数据库篇","level":"3.1.1","depth":2,"path":"mei-service/mysql.md","ref":"mei-service/mysql.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"mei-service/mysql.md","mtime":"2021-02-20T02:32:56.757Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-20T02:33:04.183Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
