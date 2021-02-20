@@ -29,9 +29,22 @@ alter user 'root'@'localhost' identified by 'newpassword';
 ```
 
 5. 创建数据表
+   
+```sql
+CREATE TABLE `user_info` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `user_name` varchar(64) NOT NULL COMMENT '用户名',
+  `is_active` tinyint(1) DEFAULT '1' COMMENT '是否有效 0:无效 1:有效',
+  `ctime` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='测试数据表';
+```
+
 6. 服务连接并使用数据库
 
 * 添加依赖
+
 ```xml
 <parent>    
     <groupId>org.springframework.boot</groupId>
@@ -64,7 +77,9 @@ alter user 'root'@'localhost' identified by 'newpassword';
     <version>3.4.6</version>
 </dependency>
 ```
+
 * 添加config
+
 ```Java
 /**pom配置
 spring:
@@ -82,6 +97,7 @@ public class DataSourceConfig {
     }
 }
 ```
+
 * mybatis自动生成
 
 ```xml
