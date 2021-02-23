@@ -30,6 +30,8 @@
 	
 	* [Nginx](笔记/nginx.md)
 
+	* [Redis](笔记/redis.md)
+
 ------
 
 * [sentinel](sentinel/README.md)
