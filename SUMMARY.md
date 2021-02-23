@@ -27,6 +27,8 @@
 	* [SLF4J](笔记/SLF4J.md)
   
 	* [Linux](笔记/Linux.md)
+  
+    * [Nginx](笔记/nginx.md)
 
 ------
 

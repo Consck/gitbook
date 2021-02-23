@@ -1,5 +1,0 @@
-[hutool](https://www.hutool.cn/docs/#/)
-[arthas](https://arthas.aliyun.com/doc/en/)
-[mysql命令大全](https://www.cnblogs.com/zhangzhu/p/3172486.html)
-[mysql教程](http://c.biancheng.net/mysql/)
-[maven常用命令](https://www.cnblogs.com/shoshana-kong/p/11031388.html)
