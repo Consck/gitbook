@@ -482,7 +482,95 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <blockquote>
+<p>&#x300A;Redis&#x5165;&#x95E8;&#x6307;&#x5357;&#x300B;&#xFF08;&#x7B2C;2&#x7248;&#xFF09;</p>
+</blockquote>
+<p>&#x4F18;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>redis&#x652F;&#x6301;&#x7684;&#x952E;&#x503C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5982;&#x4E0B;&#xFF1A;<ul>
+<li>&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</li>
+<li>&#x6563;&#x5217;&#x7C7B;&#x578B;</li>
+<li>&#x5217;&#x8868;&#x7C7B;&#x578B;</li>
+<li>&#x96C6;&#x5408;&#x7C7B;&#x578B;</li>
+<li>&#x6709;&#x5E8F;&#x96C6;&#x5408;&#x7C7B;&#x578B;</li>
+</ul>
+</li>
+<li><p>&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x63D0;&#x4F9B;&#x4E86;&#x65B9;&#x4FBF;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;</p>
+<p> eg.&#x4F7F;&#x7528;&#x96C6;&#x5408;&#x7C7B;&#x578B;&#x5B58;&#x50A8;&#x6587;&#x7AE0;&#x6807;&#x7B7E;&#xFF0C;Redis&#x53EF;&#x4EE5;&#x5BF9;&#x6807;&#x7B7E;&#x8FDB;&#x884C;&#x4EA4;&#x96C6;&#x3001;&#x5E76;&#x96C6;&#x7B49;&#x96C6;&#x5408;&#x8FD0;&#x7B97;&#x64CD;&#x4F5C;</p>
+</li>
+</ol>
+<p>Redis &amp; memcached &#x533A;&#x522B;&#xFF1A;</p>
+<ul>
+<li>Redis&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#xFF0C;memcached&#x652F;&#x6301;&#x591A;&#x7EBF;&#x7A0B;</li>
+<li>&#x529F;&#x80FD;&#x4E30;&#x5BCC;&#xFF0C;memcached&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x529F;&#x80FD;&#x90FD;&#x6210;&#x4E3A;&#x4E86;Redis 3.0&#x7684;&#x5B50;&#x96C6;</li>
+</ul>
+<p>Redis&#x529F;&#x80FD;&#xFF1A;</p>
+<ul>
+<li>&#x4E3A;&#x952E;&#x8BBE;&#x7F6E;&#x751F;&#x5B58;&#x65F6;&#x95F4;(Time To Live,TTL),&#x5230;&#x671F;&#x540E;&#x952E;&#x4F1A;&#x81EA;&#x52A8;&#x88AB;&#x5220;&#x9664;</li>
+<li>&#x9650;&#x5B9A;&#x6570;&#x636E;&#x5360;&#x7528;&#x7684;&#x6700;&#x5927;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x8FBE;&#x5230;&#x7A7A;&#x95F4;&#x9650;&#x5236;&#x540E;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x89C4;&#x5219;&#x81EA;&#x52A8;&#x6DD8;&#x6C70;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x952E;</li>
+<li>Redis&#x7684;&#x5217;&#x8868;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#x961F;&#x5217;&#xFF0C;&#x5E76;&#x652F;&#x6301;&#x963B;&#x585E;&#x5F0F;&#x8BFB;&#x53D6;</li>
+<li>&#x652F;&#x6301;&#x201D;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x201C;&#x7684;&#x6D88;&#x606F;&#x6A21;&#x5F0F;</li>
+</ul>
+<h1 id="redis&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x5305;&#x5E76;&#x7F16;&#x8BD1;&#xFF1A;">Redis&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x5305;&#x5E76;&#x7F16;&#x8BD1;&#xFF1A;</h1>
+<h2 id="posix&#x7CFB;&#x7EDF;">POSIX&#x7CFB;&#x7EDF;</h2>
+<pre><code>wget http://download.redis.io/redis-stable.tar.gz
+tar xzf redis-stable.tar.gz
+cd redis-stable
+make
+</code></pre><p>&#x7F16;&#x8BD1;&#x540E;&#x5728;Redis&#x6E90;&#x4EE3;&#x7801;&#x76EE;&#x5F55;&#x7684;src&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x82E5;&#x5E72;&#x4E2A;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#xFF0C;&#x6700;&#x597D;&#x5728;&#x7F16;&#x8BD1;&#x540E;&#x76F4;&#x63A5;&#x6267;&#x884C;make install&#x547D;&#x4EE4;&#x6765;&#x5C06;&#x8FD9;&#x4E9B;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x590D;&#x5236;&#x5230;/usr/local/bin &#x76EE;&#x5F55;&#x4E2D;&#x4EE5;&#x4FBF;&#x4EE5;&#x540E;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x65F6;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8F93;&#x5165;&#x5B8C;&#x6574;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>&#x5728;&#x5B9E;&#x9645;&#x8FD0;&#x884C;Redis&#x524D;&#x63A8;&#x8350;&#x4F7F;&#x7528;make test&#x547D;&#x4EE4;&#x6D4B;&#x8BD5;Redis&#x662F;&#x5426;&#x7F16;&#x8BD1;&#x6B63;&#x786E;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5728;&#x7F16;&#x8BD1;&#x4E00;&#x4E2A;&#x4E0D;&#x7A33;&#x5B9A;&#x7248;&#x672C;&#x7684;Redis&#x65F6;&#x3002;</p>
+<h2 id="os-x&#x7CFB;&#x7EDF;">OS X&#x7CFB;&#x7EDF;</h2>
+<pre><code>&#x5B89;&#x88C5;homebrew
+ruby -e &quot;$(curl -fsSKL raw.github.com/mxcl/homebrew/go)&quot;
+
+&#x82E5;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x8FC7;homebrew&#xFF0C;&#x5219;&#x66F4;&#x65B0;
+brew update
+
+&#x5B89;&#x88C5;Redis
+brew install redis
+</code></pre><p>OS X&#x7CFB;&#x7EDF;&#x4ECE;Tiger&#x7248;&#x672C;&#x5F00;&#x59CB;&#x5F15;&#x5165;&#x4E86;launchd&#x5DE5;&#x5177;&#x6765;&#x7BA1;&#x7406;&#x540E;&#x53F0;&#x7A0B;&#x5E8F;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8BA9;Redis&#x968F;&#x7CFB;&#x7EDF;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x914D;&#x7F6E;launchd&#xFF1A;</p>
+<pre><code>ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+</code></pre><p>&#x901A;&#x8FC7;launchd&#x8FD0;&#x884C;&#x7684;Redis&#x4F1A;&#x52A0;&#x8F7D;&#x4F4D;&#x4E8E;/usr/local/etc/redis.conf&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<h1 id="redis&#x542F;&#x52A8;&#x548C;&#x505C;&#x6B62;">Redis&#x542F;&#x52A8;&#x548C;&#x505C;&#x6B62;</h1>
+<p>&#x5728;&#x7F16;&#x8BD1;&#x540E;&#x6267;&#x884C;make install&#x547D;&#x4EE4;&#xFF0C;&#x8FD9;&#x4E9B;&#x7A0B;&#x5E8F;&#x4F1A;&#x88AB;&#x590D;&#x5236;&#x5230;/usr/local/bin&#x76EE;&#x5F55;&#x5185;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x7A0B;&#x5E8F;&#x540D;&#x79F0;&#x5373;&#x53EF;&#x6267;&#x884C;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x6587;&#x4EF6;&#x540D;</th>
+<th style="text-align:center">&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">redis-server</td>
+<td style="text-align:center">redis&#x670D;&#x52A1;&#x5668;</td>
+</tr>
+<tr>
+<td style="text-align:left">redis-cli</td>
+<td style="text-align:center">redis&#x547D;&#x4EE4;&#x884C;&#x5BA2;&#x6237;&#x7AEF;</td>
+</tr>
+<tr>
+<td style="text-align:left">redis-benchmark</td>
+<td style="text-align:center">redis&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</td>
+</tr>
+<tr>
+<td style="text-align:left">redis-check-aof</td>
+<td style="text-align:center">AOF&#x6587;&#x4EF6;&#x4FEE;&#x590D;&#x5DE5;&#x5177;</td>
+</tr>
+<tr>
+<td style="text-align:left">redis-check-dump</td>
+<td style="text-align:center">RDB&#x6587;&#x4EF6;&#x68C0;&#x67E5;&#x5DE5;&#x5177;</td>
+</tr>
+<tr>
+<td style="text-align:left">redis-sentinel</td>
+<td style="text-align:center">Sentinel&#x670D;&#x52A1;&#x5668;(&#x4EC5;&#x5728;2.8&#x7248;&#x4EE5;&#x540E;)</td>
+</tr>
+</tbody>
+</table>
+<p>redis-server&#x662F;Redis&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x542F;&#x52A8;Redis&#x5373;&#x8FD0;&#x884C;Redis-server&#xFF1B;redis-cli&#x662F;Redis&#x81EA;&#x5E26;&#x7684;Redis&#x547D;&#x4EE4;&#x884C;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x662F;&#x5B66;&#x4E60;redis&#x7684;&#x91CD;&#x8981;&#x5DE5;&#x5177;&#x3002;</p>
+<p>Redis&#x670D;&#x52A1;&#x5668;&#x9ED8;&#x8BA4;&#x4F1A;&#x4F7F;&#x7528;6379&#x7AEF;&#x53E3;&#xFF0C;&#x901A;&#x8FC7;--port&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x7AEF;&#x53E3;&#x53F7;</p>
+
                                 
                                 </section>
                             
@@ -525,7 +613,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Redis","level":"1.2.15","depth":2,"next":{"title":"sentinel","level":"2.1","depth":1,"path":"sentinel/README.md","ref":"sentinel/README.md","articles":[{"title":"接入sentinel控制台","level":"2.1.1","depth":2,"path":"sentinel/接入sentinel控制台.md","ref":"sentinel/接入sentinel控制台.md","articles":[]},{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},{"title":"Sentinel知识点","level":"2.1.3","depth":2,"path":"sentinel/sentinel汇总.md","ref":"sentinel/sentinel汇总.md","articles":[]},{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]}]},"previous":{"title":"Nginx","level":"1.2.14","depth":2,"path":"笔记/nginx.md","ref":"笔记/nginx.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/redis.md","mtime":"2021-02-23T10:31:42.865Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-23T10:33:15.043Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Redis","level":"1.2.15","depth":2,"next":{"title":"sentinel","level":"2.1","depth":1,"path":"sentinel/README.md","ref":"sentinel/README.md","articles":[{"title":"接入sentinel控制台","level":"2.1.1","depth":2,"path":"sentinel/接入sentinel控制台.md","ref":"sentinel/接入sentinel控制台.md","articles":[]},{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},{"title":"Sentinel知识点","level":"2.1.3","depth":2,"path":"sentinel/sentinel汇总.md","ref":"sentinel/sentinel汇总.md","articles":[]},{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]}]},"previous":{"title":"Nginx","level":"1.2.14","depth":2,"path":"笔记/nginx.md","ref":"笔记/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/redis.md","mtime":"2021-02-24T06:51:22.365Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-24T06:51:34.680Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
