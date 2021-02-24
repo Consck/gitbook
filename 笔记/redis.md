@@ -69,7 +69,8 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 |redis-check-dump|RDB文件检查工具|
 |redis-sentinel|Sentinel服务器(仅在2.8版以后)|
 
-redis-server是Redis的服务器，启动Redis即运行Redis-server；redis-cli是Redis自带的Redis命令行客户端，是学习redis的重要工具。
+redis-server是Redis的服务器，启动Redis即运行Redis-server；redis-cli是Redis自带的Redis命令行客户端，是学习redis的重要工具。```redis-cli SHUTDOWN ```
+当Redis收到命令后，会先断开所有客户端连接，然后根据配置执行持久化，最后完成退出。
 
 Redis服务器默认会使用6379端口，通过--port参数可以自定义端口号
 
