@@ -69,8 +69,36 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 |redis-check-dump|RDB文件检查工具|
 |redis-sentinel|Sentinel服务器(仅在2.8版以后)|
 
-redis-server是Redis的服务器，启动Redis即运行Redis-server；redis-cli是Redis自带的Redis命令行客户端，是学习redis的重要工具。```redis-cli SHUTDOWN ```
-当Redis收到命令后，会先断开所有客户端连接，然后根据配置执行持久化，最后完成退出。
+* redis-server是Redis的服务器，启动Redis即运行Redis-server；redis-cli是Redis自带的Redis命令行客户端，是学习redis的重要工具。当Redis收到```redis-cli SHUTDOWN ```命令后，会先断开所有客户端连接，然后根据配置执行持久化，最后完成退出。
 
-Redis服务器默认会使用6379端口，通过--port参数可以自定义端口号
+* Redis服务器默认会使用6379端口，通过--port参数可以自定义端口号。
 
+* Redis可以妥善处理sigterm信号，所以使用kill Redis进程的PID也可以正常结束Redis，效果与```redis-cli SHUTDOWN ```一样。
+  
+# Redis命令行客户端
+
+## 发送命令
+
+通过redis-cli向Redis发送命令有两种方式：
+* 将命令作为redis-cli的参数进行执行
+  - redis-cli SHUTDOWN,redis-cli执行时会自动按照默认配置(服务器地址为127.0.0.1，端口号为6379)连接Redis。通过-h和-p参数可以自定义地址和端口号：```redis-cli -h 127.0.0.1 -p 6379 ```
+  - redis提供ping命令来测试客户端与Redis的连接是否正常。连接正常则回复PONG
+
+* 不附带参数运行redis-cli，进入交互模式
+
+* 命令返回值
+  - 状态回复：OK代表设置成功
+  - 错误回复：“WRONGTYPE”表示类型错误
+  - 整数回复：以integer开头
+  - 字符串回复：以双引号包裹，空结果显示nil
+  - 多行字符串回复：每一行字符串都以序号开头
+
+* 通过配置文件配置Redis，如持久化、日志等级等
+  - 启动时将配置文件的路径作为启动参数传给redis-server
+  ```redis-server /path/to/redis.conf```
+  - 通过启动参数传递同名的配置选项会覆盖配置文件中相应的参数
+  ```redis-server /path/to/redis.conf --loglevel warning```
+  - Redis运行时通过```CONFIG SET```命令动态修改部分配置
+  ```CONFIG SET loglevel warning```
+
+Redis默认16个数据库，可以通过databases来修改这一数字，Redis连接后会默认选择0号数据库，但可以通过select修改选择的数据库。
