@@ -32,6 +32,8 @@
 
 	* [Redis](笔记/redis.md)
 
+	* [线程](笔记/线程.md)
+
 ------
 
 * [sentinel](sentinel/README.md)

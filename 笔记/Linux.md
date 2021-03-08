@@ -14,6 +14,8 @@ $
 * 创建文件夹：mkdir fileName
 * 创建空白文件：touch fileName
 * 删除空白文件：rm fileName [rm --help]
+* 单个命令删除多个目录：rm -rf dir1 dir2 dir3
+  * 递归删除目录，使用选项-r或-R
 * 删除空文件夹：rmdir fileName
 * 复制fileName1文件夹并命名为fileName2：cp -r fileName1 fileName2
   * -r 表示操作目录,如果是文件则不需要加-r.
