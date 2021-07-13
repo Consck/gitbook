@@ -548,13 +548,33 @@ $
 </ul>
 </li>
 <li>&#x89E3;&#x538B;&#x6587;&#x4EF6;&#xFF1A;gunzip fileName</li>
-<li>&#x5B89;&#x88C5;tree&#x8F6F;&#x4EF6;&#xFF1A;sudo yum install tree<ul>
+<li><p>&#x5B89;&#x88C5;tree&#x8F6F;&#x4EF6;&#xFF1A;sudo yum install tree</p>
+<ul>
 <li>sudo &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x6682;&#x65F6;&#x62E5;&#x6709;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x3002;&#x6743;&#x9650;&#x4F1A;&#x5728;&#x8FDB;&#x9636;&#x8BFE;&#x7A0B;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</li>
 <li>yum &#x662F;centos&#x4E0B;&#x7684;&#x5B89;&#x88C5;&#x5DE5;&#x5177;</li>
 <li>&#x5728;&#x5C4F;&#x5E55;&#x8F93;&#x51FA;&#x5BB6;&#x76EE;&#x5F55;&#x7684;&#x6811;&#x5F62;&#x56FE;:tree /home</li>
 </ul>
 </li>
+<li><p>&#x53BB;&#x6389;&#x8868;&#x5934;&#xFF1A;sed 1d test.csv &gt; te.csv</p>
+</li>
+<li>CSV&#x6587;&#x4EF6;&#x53BB;&#x6389;&#x7A7A;&#x884C;&#xFF1A;awk NF te.csv &gt; t.csv</li>
+<li>&#x6392;&#x5E8F;&#x53BB;&#x91CD;&#x5E76;&#x8F93;&#x51FA;CSV: sort t.csv |uniq &gt; re.csv</li>
+<li>&#x5207;&#x5272;CSV&#x6587;&#x4EF6;&#xFF1A;split -a 2 -l 1 re.csv wwwwwww   <ul>
+<li>[-a 2]: &#x6587;&#x4EF6;&#x540E;&#x7F00;&#x957F;&#x5EA6;&#x4E3A;2&#xFF0C;&#x4EE5; aa&#x3001;ab&#x3001;ac &#x8FD9;&#x6837;&#x7684;&#x53CC;&#x5B57;&#x6BCD;&#x683C;&#x5F0F;&#x4F5C;&#x4E3A;&#x540E;&#x7F00;</li>
+<li>[-l 1]&#xFF1A; &#x6BCF;&#x9694;&#x4E00;&#x884C;&#x5207;&#x5272;&#x4E3A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</li>
 </ul>
+</li>
+<li>&#x5BF9;&#x5207;&#x5272;&#x540E;&#x7684;CSV&#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#x9996;&#x884C;&#x8868;&#x5934;&#xFF1A;</li>
+<li>&#x5BF9;$$&#x5207;&#x5272;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x91CD;&#x547D;&#x540D;&#xFF1A;for i in *; do mv $i $i&quot;.csv&quot;; done</li>
+</ul>
+<h1 id="shell&#x811A;&#x672C;&#x7F16;&#x7A0B;">shell&#x811A;&#x672C;&#x7F16;&#x7A0B;</h1>
+<blockquote>
+<h1 id="&#x544A;&#x8BC9;&#x7CFB;&#x7EDF;&#x5176;&#x540E;&#x8DEF;&#x5F84;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x5373;&#x662F;&#x89E3;&#x91CA;&#x6B64;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;-shell-&#x7A0B;&#x5E8F;">! &#x544A;&#x8BC9;&#x7CFB;&#x7EDF;&#x5176;&#x540E;&#x8DEF;&#x5F84;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x5373;&#x662F;&#x89E3;&#x91CA;&#x6B64;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684; Shell &#x7A0B;&#x5E8F;</h1>
+<p>echo &#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x5411;&#x7A97;&#x53E3;&#x8F93;&#x51FA;&#x6587;&#x672C;</p>
+<p>$$</p>
+</blockquote>
+<h1 id="awk">awk</h1>
+<h1 id="perl">perl</h1>
 
                                 
                                 </section>
@@ -598,7 +618,7 @@ $
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.2.13","depth":2,"next":{"title":"Nginx","level":"1.2.14","depth":2,"path":"笔记/nginx.md","ref":"笔记/nginx.md","articles":[]},"previous":{"title":"SLF4J","level":"1.2.12","depth":2,"path":"笔记/SLF4J.md","ref":"笔记/SLF4J.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/Linux.md","mtime":"2021-03-08T08:56:05.718Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-08T10:00:13.917Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.2.13","depth":2,"next":{"title":"Nginx","level":"1.2.14","depth":2,"path":"笔记/nginx.md","ref":"笔记/nginx.md","articles":[]},"previous":{"title":"SLF4J","level":"1.2.12","depth":2,"path":"笔记/SLF4J.md","ref":"笔记/SLF4J.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/Linux.md","mtime":"2021-07-13T08:04:41.004Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-13T08:07:41.631Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

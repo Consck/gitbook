@@ -44,3 +44,23 @@ $
   * sudo 可以理解为暂时拥有管理员权限。权限会在进阶课程详细说明。
   * yum 是centos下的安装工具
   * 在屏幕输出家目录的树形图:tree /home
+
+* 去掉表头：sed 1d test.csv > te.csv
+* CSV文件去掉空行：awk NF te.csv > t.csv
+* 排序去重并输出CSV: sort t.csv |uniq > re.csv
+* 切割CSV文件：split -a 2 -l 1 re.csv wwwwwww   
+	* [-a 2]: 文件后缀长度为2，以 aa、ab、ac 这样的双字母格式作为后缀
+	* [-l 1]： 每隔一行切割为一个文件
+* 对切割后的CSV文件添加首行表头：
+* 对$$切割后的文件进行重命名：for i in *; do mv $i $i".csv"; done
+
+# shell脚本编程
+
+> #! 告诉系统其后路径所指定的程序即是解释此脚本文件的 Shell 程序
+echo 命令用于向窗口输出文本
+$$
+
+
+# awk
+
+# perl 

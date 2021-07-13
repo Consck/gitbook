@@ -87,7 +87,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: bianjinyue20191120
+    password: 123456
 */
 @Configuration
 public class DataSourceConfig {
