@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>GitHub · GitBook</title>
+        <title>mqtt · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Lambda表达式.html" />
+    <link rel="next" href="../sentinel/" />
     
     
-    <link rel="prev" href="gitbook.html" />
+    <link rel="prev" href="设计模式.html" />
     
 
     </head>
@@ -146,7 +146,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="关联github.html">
+        <li class="chapter " data-level="1.2.3" data-path="关联github.html">
             
                 <a href="关联github.html">
             
@@ -354,7 +354,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.19" data-path="mqtt.html">
+        <li class="chapter active" data-level="1.2.19" data-path="mqtt.html">
             
                 <a href="mqtt.html">
             
@@ -519,7 +519,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >GitHub</a>
+        <a href=".." >mqtt</a>
     </h1>
 </div>
 
@@ -534,39 +534,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x4EE5;gitbook&#x65B9;&#x5F0F;&#x663E;&#x793A;github&#x4E2D;&#x7684;md&#x6587;&#x4EF6;">&#x4EE5;gitbook&#x65B9;&#x5F0F;&#x663E;&#x793A;GitHub&#x4E2D;&#x7684;md&#x6587;&#x4EF6;</h2>
-<p>GitHub&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x90FD;&#x5206;&#x914D;&#x4E86;&#x57DF;&#x540D;{&#x7528;&#x6237;&#x540D;}.github.io</p>
-<p>&#x65B0;&#x5EFA;repositories &#x540D;&#x4E3A;&#xFF1A;Consck.github.io</p>
-<p>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x628A;&#x9879;&#x76EE;&#x62C9;&#x53D6;&#x4E0B;&#x6765;&#x5E76;&#x6267;&#x884C;&#xFF1A;</p>
-<pre><code>git clone https://github.com/Consck/Consck.github.io.git
-printf &quot;&lt;h1&gt;Consck&apos;s HomePage&lt;/h1&gt;It works.\n&quot; &gt; index.html
-git add index.html
-git commit -m &quot;Homepage test version.&quot;
-git push origin master
-</code></pre><p>&#x5176;&#x4F59;&#x64CD;&#x4F5C;&#x53EF;&#x6839;&#x636E;<a href="https://blog.csdn.net/ClassmateLin/article/details/104576708" target="_blank">&#x535A;&#x5BA2;</a>&#x8FDB;&#x884C;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5168;&#x90E8;&#x6309;&#x7167;&#x63CF;&#x8FF0;&#x64CD;&#x4F5C;&#x3002;&#x5C06;&#x672C;&#x5730;md&#x6587;&#x4EF6;&#x5939;&#x4E0E;GitHub&#x9879;&#x76EE;&#x5173;&#x8054;&#x540E;&#xFF0C;&#x65B0;&#x5EFA;&#x5206;&#x652F;&#x540D;&#x5B57;&#x4E3A;gh-pages(&#x6211;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x5565;&#x975E;&#x5F97;&#x53EB;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x4E0D;&#x7136;&#x6700;&#x540E;&#x6253;&#x5F00;&#x7684;&#x7F51;&#x5740;&#x6CA1;&#x6709;&#x5DE6;&#x4FA7;&#x76EE;&#x5F55;&#x680F;)&#x3002;&#x4E4B;&#x540E;&#x9700;&#x8981;&#x5C06;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x81F3;master&#x548C;gh-pages&#x5206;&#x652F;&#x3002;</p>
-<h2 id="&#x672C;&#x5730;&#x6587;&#x4EF6;&#x4E0E;github&#x9879;&#x76EE;&#x5173;&#x8054;">&#x672C;&#x5730;&#x6587;&#x4EF6;&#x4E0E;GitHub&#x9879;&#x76EE;&#x5173;&#x8054;</h2>
-<pre><code>git init
-git remote add origin https://github.com/Consck/gitbook.git
-</code></pre><h2 id="&#x4EE5;&#x811A;&#x672C;&#x7684;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x4E0A;&#x4F20;&#x52A8;&#x4F5C;">&#x4EE5;&#x811A;&#x672C;&#x7684;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x4E0A;&#x4F20;&#x52A8;&#x4F5C;</h2>
-<p>gitbook.sh&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF1A;</p>
-<pre><code>cd /Users/macuser/Desktop/gitbook-study
-gitbook build
-git add .
-git commit -m &apos;update gitbook&apos;
-git push -u origin master
-git checkout gh-pages
-rm -rf *
-git checkout master -- _book
-mv _book/* ./
-rm -rf _book
-rm -rf publish.sh
-git add .
-git commit -m &apos;publish gh-pages&apos;
-git push origin gh-pages
-git checkout master
-</code></pre><p>&#x811A;&#x672C;&#x6587;&#x4EF6;&#x4E3A;gitbook.sh&#x6587;&#x4EF6;&#xFF0C;&#x5728;cmd&#x4E2D;&#x6267;&#x884C;&#xFF1A;<code>./gitbook.sh</code>&#x5373;&#x53EF;</p>
-<p><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x4F7F;&#x7528;&#x65F6;&#x4E0D;&#x80FD;&#x5C06;&#x811A;&#x672C;&#x653E;&#x5728;&#x4ED3;&#x5E93;&#x91CC;&#xFF0C;&#x4E0D;&#x7136;&#x5728;&#x5207;&#x6362;&#x5206;&#x652F;&#x65F6;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#xFF0C;&#x6700;&#x597D;&#x4E0E;&#x4ED3;&#x5E93;&#x6587;&#x4EF6;&#x5939;&#x540C;&#x7EA7;&#x3002;</p>
-
+                                <h1 id="mqtt&#x4ECB;&#x7ECD;">MQTT&#x4ECB;&#x7ECD;</h1>
+<p>EMQ X &#x652F;&#x6301;&#x57FA;&#x4E8E; Ekka &#x5E93;&#x7684;&#x96C6;&#x7FA4;&#x81EA;&#x52A8;&#x53D1;&#x73B0; (Autocluster)&#x3002;Ekka &#x662F;&#x4E3A; Erlang/OTP &#x5E94;&#x7528;&#x5F00;&#x53D1;&#x7684;&#x96C6;&#x7FA4;&#x7BA1;&#x7406;&#x5E93;&#xFF0C;&#x652F;&#x6301; Erlang &#x8282;&#x70B9;&#x81EA;&#x52A8;&#x53D1;&#x73B0; (Service Discovery)&#x3001;&#x81EA;&#x52A8;&#x96C6;&#x7FA4; (Autocluster)&#x3001;&#x8111;&#x88C2;&#x81EA;&#x52A8;&#x6108;&#x5408; (Network Partition Autoheal)&#x3001;&#x81EA;&#x52A8;&#x5220;&#x9664;&#x5B95;&#x673A;&#x8282;&#x70B9; (Autoclean)&#x3002;</p>
+<p>MQTT&#x5BA2;&#x6237;&#x7AEF;&#x8BA2;&#x9605;&#x4E3B;&#x9898;&#x65F6;&#xFF0C;&#x6240;&#x5728;&#x8282;&#x70B9;&#x8BA2;&#x9605;&#x6210;&#x529F;&#x540E;&#x5E7F;&#x64AD;&#x901A;&#x77E5;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#xFF1A;&#x67D0;&#x4E2A;&#x4E3B;&#x9898;&#x88AB;&#x672C;&#x8282;&#x70B9;&#x8BA2;&#x9605;
+MQTT&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x5E03;&#x6D88;&#x606F;&#x65F6;&#xFF0C;&#x6240;&#x5728;&#x8282;&#x70B9;&#x4F1A;&#x6839;&#x636E;&#x6D88;&#x606F;&#x4E3B;&#x9898;&#xFF0C;&#x68C0;&#x7D22;&#x8BA2;&#x9605;&#x5E76;&#x8DEF;&#x7531;&#x6D88;&#x606F;&#x5230;&#x76F8;&#x5173;&#x8282;&#x70B9;
+EMQ X&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x540C;&#x4E00;&#x96C6;&#x7FA4;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#xFF0C;&#x90FD;&#x4F1A;&#x590D;&#x5236;&#x4E00;&#x4EFD;&#x4E3B;&#x9898;(topic)-&gt;&#x8282;&#x70B9;(node)&#x6620;&#x5C04;&#x7684;&#x8DEF;&#x7531;&#x8868;
+EMQ X&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x6BCF;&#x4E2A;&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#xFF0C;&#x90FD;&#x4FDD;&#x5B58;&#x4E00;&#x4EFD;&#x4E3B;&#x9898;&#x6811;(Topic Trie)&#x548C;&#x8DEF;&#x7531;&#x8868;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A; &#x8282;&#x70B9;&#x540D;&#x683C;&#x5F0F;&#x4E3A; Name@Host, Host &#x5FC5;&#x987B;&#x662F; IP &#x5730;&#x5740;&#x6216; FQDN (&#x4E3B;&#x673A;&#x540D;&#x3002;&#x57DF;&#x540D;)</p>
+<h2 id="emqxretainer&#x63D2;&#x4EF6;">emqx_retainer&#x63D2;&#x4EF6;</h2>
+<p>&#x914D;&#x7F6E;&#x8DEF;&#x5F84;:etc/plugins/emqx_retainer.conf</p>
+<h2 id="&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#x53D1;&#x73B0;&#x7AEF;&#x53E3;--rpc&#x7AEF;&#x53E3;">&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#x53D1;&#x73B0;&#x7AEF;&#x53E3; &amp; RPC&#x7AEF;&#x53E3;</h2>
+<ul>
+<li>epmd&#x6A21;&#x5F0F;&#xFF1A;&#x82E5;&#x9884;&#x5148;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;WITH_EPMD=1&#xFF0C;&#x542F;&#x52A8;emqx&#x65F6;&#x4F1A;&#x4F7F;&#x7528;&#x542F;&#x52A8;epmd(&#x76D1;&#x542C;&#x7AEF;&#x53E3;4369)&#x505A;&#x8282;&#x70B9;&#x53D1;&#x73B0;
+&#x5982;&#x679C;&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#x95F4;&#x5B58;&#x5728;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x9632;&#x706B;&#x5899;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5F00;&#x901A;TCP 4369&#x7AEF;&#x53E3;&#xFF0C;&#x7528;&#x6765;&#x8BA9;&#x5404;&#x8282;&#x70B9;&#x80FD;&#x4E92;&#x76F8;&#x8BBF;&#x95EE;
+&#x9632;&#x706B;&#x5899;&#x8FD8;&#x9700;&#x8981;&#x5F00;&#x901A;&#x4E00;&#x4E2A; TCP &#x4ECE; node.dist_listen_min(&#x5305;&#x542B;) &#x5230; node.dist_listen_max(&#x5305;&#x542B;) &#x7684;&#x7AEF;&#x53E3;&#x6BB5;&#xFF0C; &#x8FD9;&#x4E24;&#x4E2A;&#x914D;&#x7F6E;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x90FD;&#x662F; 6369&#x3002;</li>
+<li><p>ekka&#x6A21;&#x5F0F;&#xFF1A;&#x82E5;&#x73AF;&#x5883;&#x53D8;&#x91CF;WITH_EPMD&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x542F;&#x52A8;emqx&#x65F6;&#x4E0D;&#x542F;&#x7528;epmd&#xFF0C;&#x800C;&#x4F7F;&#x7528;emqx ekka&#x7684;&#x8282;&#x70B9;&#x53D1;&#x73B0;
+&#x8DDF;empd &#x6A21;&#x5F0F;&#x4E0D;&#x540C;&#xFF0C;&#x5728;ekka &#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x96C6;&#x7FA4;&#x53D1;&#x73B0;&#x7AEF;&#x53E3;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x662F;&#x7EA6;&#x5B9A;&#x597D;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x52A8;&#x6001;&#x7684;&#x3002; node.dist_listen_min and node.dist_listen_max &#x4E24;&#x4E2A;&#x914D;&#x7F6E;&#x5728;ekka &#x6A21;&#x5F0F;&#x4E0B;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;
+&#x5982;&#x679C;&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#x95F4;&#x5B58;&#x5728;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x9632;&#x706B;&#x5899;&#x9700;&#x8981;&#x653E;&#x5F00;&#x8FD9;&#x4E2A;&#x7EA6;&#x5B9A;&#x7684;&#x7AEF;&#x53E3;&#x3002;&#x7EA6;&#x5B9A;&#x7AEF;&#x53E3;&#x7684;&#x89C4;&#x5219;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>  ListeningPort = BasePort + Offset
+</code></pre><p>&#x5176;&#x4E2D; BasePort &#x4E3A; 4370 (&#x4E0D;&#x53EF;&#x914D;&#x7F6E;), Offset &#x4E3A;&#x8282;&#x70B9;&#x540D;&#x7684;&#x6570;&#x5B57;&#x540E;&#x7F00;. &#x5982;&#x679C;&#x8282;&#x70B9;&#x540D;&#x6CA1;&#x6709;&#x6570;&#x5B57;&#x540E;&#x7F00;&#x7684;&#x8BDD;&#xFF0C; Offsset &#x4E3A; 0&#x3002;</p>
+<p>&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;, &#x5982;&#x679C; emqx.conf &#x91CC;&#x914D;&#x7F6E;&#x4E86;&#x8282;&#x70B9;&#x540D;&#xFF1A;node.name = emqx@192.168.0.12&#xFF0C;&#x90A3;&#x4E48;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x4E3A; 4370&#xFF0C; &#x4F46;&#x5BF9;&#x4E8E; emqx1 (&#x6216;&#x8005; emqx-1) &#x7AEF;&#x53E3;&#x5C31;&#x662F; 4371&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x8FD8;&#x9700;&#x8981;&#x76D1;&#x542C;&#x4E00;&#x4E2A; RPC &#x7AEF;&#x53E3;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x88AB;&#x9632;&#x706B;&#x5899;&#x4E5F;&#x653E;&#x5F00;&#x3002;&#x8DDF;&#x4E0A;&#x9762;&#x8BF4;&#x7684;ekka &#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x96C6;&#x7FA4;&#x53D1;&#x73B0;&#x7AEF;&#x53E3;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x4E2A; RPC &#x7AEF;&#x53E3;&#x4E5F;&#x662F;&#x7EA6;&#x5B9A;&#x5F0F;&#x7684;&#x3002;</p>
+<p>RPC &#x7AEF;&#x53E3;&#x7684;&#x89C4;&#x5219;&#x8DDF;ekka &#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x96C6;&#x7FA4;&#x53D1;&#x73B0;&#x7AEF;&#x53E3;&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7; BasePort = 5370&#x3002;</p>
+<p>&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C; emqx.conf &#x91CC;&#x914D;&#x7F6E;&#x4E86;&#x8282;&#x70B9;&#x540D;&#xFF1A;node.name = emqx@192.168.0.12&#xFF0C;&#x90A3;&#x4E48;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x4E3A; 5370&#xFF0C; &#x4F46;&#x5BF9;&#x4E8E; emqx1 (&#x6216;&#x8005; emqx-1) &#x7AEF;&#x53E3;&#x5C31;&#x662F; 5371&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;</p>
+</li>
+</ul>
+<h1 id="mqtt&#x4F7F;&#x7528;">MQTT&#x4F7F;&#x7528;</h1>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.paho&lt;/groupId&gt;
+    &lt;artifactId&gt;org.eclipse.paho.client.mqttv3&lt;/artifactId&gt;
+    &lt;version&gt;1.2.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
                                 
                                 </section>
                             
@@ -593,12 +592,12 @@ git checkout master
 
             
                 
-                <a href="gitbook.html" class="navigation navigation-prev " aria-label="Previous page: gitbook">
+                <a href="设计模式.html" class="navigation navigation-prev " aria-label="Previous page: 设计模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Lambda表达式.html" class="navigation navigation-next " aria-label="Next page: Lambda">
+                <a href="../sentinel/" class="navigation navigation-next " aria-label="Next page: sentinel">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -609,7 +608,7 @@ git checkout master
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GitHub","level":"1.2.3","depth":2,"next":{"title":"Lambda","level":"1.2.4","depth":2,"path":"笔记/Lambda表达式.md","ref":"笔记/Lambda表达式.md","articles":[]},"previous":{"title":"gitbook","level":"1.2.2","depth":2,"path":"笔记/gitbook.md","ref":"笔记/gitbook.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/关联github.md","mtime":"2021-07-16T07:01:02.240Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-16T09:58:58.942Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"mqtt","level":"1.2.19","depth":2,"next":{"title":"sentinel","level":"2.1","depth":1,"path":"sentinel/README.md","ref":"sentinel/README.md","articles":[{"title":"接入sentinel控制台","level":"2.1.1","depth":2,"path":"sentinel/接入sentinel控制台.md","ref":"sentinel/接入sentinel控制台.md","articles":[]},{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},{"title":"Sentinel知识点","level":"2.1.3","depth":2,"path":"sentinel/sentinel汇总.md","ref":"sentinel/sentinel汇总.md","articles":[]},{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]}]},"previous":{"title":"设计模式","level":"1.2.18","depth":2,"path":"笔记/设计模式.md","ref":"笔记/设计模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/mqtt.md","mtime":"2021-07-16T07:00:55.371Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-16T09:58:58.942Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

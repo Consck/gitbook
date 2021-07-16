@@ -34,10 +34,11 @@
 
 	* [线程](笔记/线程.md)
 	  
-    * [spring](spring.md)
+    * [spring](笔记/spring.md)
       
-    * [设计模式](设计模式.md)
+    * [设计模式](笔记/设计模式.md)
 
+	* [mqtt](/笔记/mqtt.md)
 ------
 
 * [sentinel](sentinel/README.md)
