@@ -33,6 +33,10 @@
 	* [Redis](笔记/redis.md)
 
 	* [线程](笔记/线程.md)
+	  
+    * [spring](spring.md)
+      
+    * [设计模式](设计模式.md)
 
 ------
 
