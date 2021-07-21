@@ -38,7 +38,9 @@
       
     * [设计模式](笔记/设计模式.md)
 
-	* [mqtt](/笔记/mqtt.md)
+	* [mqtt](笔记/mqtt.md)
+  
+	* [架构](笔记/架构.md)
 ------
 
 * [sentinel](sentinel/README.md)

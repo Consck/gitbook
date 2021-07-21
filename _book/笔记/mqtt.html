@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../sentinel/" />
+    <link rel="next" href="架构.html" />
     
     
     <link rel="prev" href="设计模式.html" />
@@ -367,6 +367,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.20" data-path="架构.html">
+            
+                <a href="架构.html">
+            
+                    
+                    架构
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -543,6 +556,12 @@ EMQ X&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x6BCF;&#x4E2A;&#x96C6;&#x7FA4;&#x
 <p>&#x6CE8;&#x610F;&#xFF1A; &#x8282;&#x70B9;&#x540D;&#x683C;&#x5F0F;&#x4E3A; Name@Host, Host &#x5FC5;&#x987B;&#x662F; IP &#x5730;&#x5740;&#x6216; FQDN (&#x4E3B;&#x673A;&#x540D;&#x3002;&#x57DF;&#x540D;)</p>
 <h2 id="emqxretainer&#x63D2;&#x4EF6;">emqx_retainer&#x63D2;&#x4EF6;</h2>
 <p>&#x914D;&#x7F6E;&#x8DEF;&#x5F84;:etc/plugins/emqx_retainer.conf</p>
+<h3 id="qos&#x53D6;&#x503C;">Qos&#x53D6;&#x503C;</h3>
+<ul>
+<li>0&#xFF1A;&#x8BA2;&#x9605;&#x8005;&#x6700;&#x591A;&#x6536;&#x5230;&#x4E00;&#x6B21;&#x6D88;&#x606F;</li>
+<li>1&#xFF1A;&#x8BA2;&#x9605;&#x8005;&#x6700;&#x5C11;&#x6536;&#x5230;&#x4E00;&#x6B21;&#x6D88;&#x606F;</li>
+<li>2&#xFF1A;&#x8BA2;&#x9605;&#x8005;&#x6700;&#x5C11;&#x6536;&#x5230;&#x4E00;&#x6B21;&#x6D88;&#x606F;&#xFF0C;&#x4E14;&#x540C;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x4EC5;&#x5141;&#x8BB8;&#x88AB;&#x5904;&#x7406;&#x4E00;&#x6B21;&#xFF0C;&#x9700;&#x8981;&#x5BA2;&#x6237;&#x7AEF;&#x53BB;&#x91CD;</li>
+</ul>
 <h2 id="&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#x53D1;&#x73B0;&#x7AEF;&#x53E3;--rpc&#x7AEF;&#x53E3;">&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#x53D1;&#x73B0;&#x7AEF;&#x53E3; &amp; RPC&#x7AEF;&#x53E3;</h2>
 <ul>
 <li>epmd&#x6A21;&#x5F0F;&#xFF1A;&#x82E5;&#x9884;&#x5148;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;WITH_EPMD=1&#xFF0C;&#x542F;&#x52A8;emqx&#x65F6;&#x4F1A;&#x4F7F;&#x7528;&#x542F;&#x52A8;epmd(&#x76D1;&#x542C;&#x7AEF;&#x53E3;4369)&#x505A;&#x8282;&#x70B9;&#x53D1;&#x73B0;
@@ -597,7 +616,7 @@ EMQ X&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x6BCF;&#x4E2A;&#x96C6;&#x7FA4;&#x
                 </a>
                 
                 
-                <a href="../sentinel/" class="navigation navigation-next " aria-label="Next page: sentinel">
+                <a href="架构.html" class="navigation navigation-next " aria-label="Next page: 架构">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -608,7 +627,7 @@ EMQ X&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x6BCF;&#x4E2A;&#x96C6;&#x7FA4;&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"mqtt","level":"1.2.19","depth":2,"next":{"title":"sentinel","level":"2.1","depth":1,"path":"sentinel/README.md","ref":"sentinel/README.md","articles":[{"title":"接入sentinel控制台","level":"2.1.1","depth":2,"path":"sentinel/接入sentinel控制台.md","ref":"sentinel/接入sentinel控制台.md","articles":[]},{"title":"Sentinel核心类解析","level":"2.1.2","depth":2,"path":"sentinel/Sentinel核心类解析.md","ref":"sentinel/Sentinel核心类解析.md","articles":[]},{"title":"Sentinel知识点","level":"2.1.3","depth":2,"path":"sentinel/sentinel汇总.md","ref":"sentinel/sentinel汇总.md","articles":[]},{"title":"sentinel限流规则","level":"2.1.4","depth":2,"path":"sentinel/sentinel限流规则.md","ref":"sentinel/sentinel限流规则.md","articles":[]}]},"previous":{"title":"设计模式","level":"1.2.18","depth":2,"path":"笔记/设计模式.md","ref":"笔记/设计模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/mqtt.md","mtime":"2021-07-16T07:00:55.371Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-16T09:58:58.942Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"mqtt","level":"1.2.19","depth":2,"next":{"title":"架构","level":"1.2.20","depth":2,"path":"笔记/架构.md","ref":"笔记/架构.md","articles":[]},"previous":{"title":"设计模式","level":"1.2.18","depth":2,"path":"笔记/设计模式.md","ref":"笔记/设计模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"笔记/mqtt.md","mtime":"2021-07-21T07:13:49.270Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-21T08:57:20.460Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

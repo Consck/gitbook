@@ -58,9 +58,14 @@ $
 
 > #! 告诉系统其后路径所指定的程序即是解释此脚本文件的 Shell 程序
 echo 命令用于向窗口输出文本
-$$
+
 
 
 # awk
 
 # perl 
+
+# Mac下查看内存
+* top -l 1 | head -n 10 | grep PhysMem
+
+Linux下使用free命令可以查看内存
