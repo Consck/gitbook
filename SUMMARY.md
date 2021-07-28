@@ -41,6 +41,8 @@
 	* [mqtt](笔记/mqtt.md)
   
 	* [架构](笔记/架构.md)
+  
+    * [钉钉消息发送](笔记/ding-send.md)
 ------
 
 * [sentinel](sentinel/README.md)
