@@ -1,5 +1,5 @@
 ## 将金额转换为大写
-```
+```Java
 public static String digitCapital1(String nStr) {
         String s = "";
         double amount = Double.parseDouble(nStr);
@@ -63,7 +63,7 @@ public static String digitCapital1(String nStr) {
     }
 ```
 ## 验证身份证
-```
+```Java
 public static boolean checkIdCardNum(String idNum) {
         idNum=idNum.toUpperCase();
         String regex="";
@@ -142,4 +142,32 @@ public static boolean checkIdCardNum(String idNum) {
         }
         return ch[res % 11];
     }
+```
+
+## base64编解码
+```Java
+final Base64.Decoder decoder = Base64.getDecoder();
+final Base64.Encoder encoder = Base64.getEncoder();
+final String text = "字串文字";
+final byte[] textByte = text.getBytes("UTF-8");
+//编码
+final String encodedText = encoder.encodeToString(textByte);
+System.out.println(encodedText);
+//解码
+System.out.println(new String(decoder.decode(encodedText), "UTF-8"));
+
+final Base64.Decoder decoder = Base64.getDecoder();
+final Base64.Encoder encoder = Base64.getEncoder();
+final String text = "字串文字";
+final byte[] textByte = text.getBytes("UTF-8");
+//编码
+final String encodedText = encoder.encodeToString(textByte);
+System.out.println(encodedText);
+//解码
+System.out.println(new String(decoder.decode(encodedText), "UTF-8"));
+```
+## 字节数组&字符串
+```Java
+byte [] b =s.getBytes();
+String s = new String(b);
 ```

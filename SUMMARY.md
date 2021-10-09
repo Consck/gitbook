@@ -43,6 +43,10 @@
 	* [架构](笔记/架构.md)
   
     * [钉钉消息发送](笔记/ding-send.md)
+
+    * [安全性登录](笔记/LdapAccount.md)
+
+    * [备忘代码](笔记/文件上传.md)
 ------
 
 * [sentinel](sentinel/README.md)

@@ -52,3 +52,89 @@ ServiceLoader.load(clazz, clazz.getClassLoader());
 ```
 
 
+# 注解值获取
+
+定义一个注解接口，包含value值
+```Java
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE})
+@Documented
+public @interface SpiOrder {
+
+    /**
+     * Represents the lowest precedence.
+     */
+    int LOWEST_PRECEDENCE = Integer.MAX_VALUE;
+    /**
+     * Represents the highest precedence.
+     */
+    int HIGHEST_PRECEDENCE = Integer.MIN_VALUE;
+
+    /**
+     * The SPI precedence value. Lowest precedence by default.
+     *
+     * @return the precedence value
+     */
+    int value() default LOWEST_PRECEDENCE;
+}
+```
+对NetHandler.class类加注解`@SpiOrder(value = -1000)`之后使用命令`NetHandler.class.getAnnotation(com.project.adapter.annotation.SpiOrder.class).value()`即可获取到注解中value的值。
+
+# 自定义注解前后执行逻辑
+## 声明一个注解类
+```Java
+@Target({ElementType.METHOD,ElementType.PARAMETER,ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy=MyAnnotationImpl.class)
+@Documented
+public @interface Annotation{
+	String message() default "value默认值";
+	Class<?>[] groups() default{};
+	Class<?extendsPayload>[] payload() default{};
+	String value();
+}
+```
+其中用的一些含义：
+* @Target：被描述的注解可以用到什么地方
+	1. ElementType.TYPE：用于描述类、接口或enum声明
+	2. ElementType.FIELD：用于描述域
+	3. ElementType.METHOD：用于描述方法
+	4. ElementType.PARAMETER：用于描述参数
+	5. ElementType.CONSTRUCRTOR：用于描述构造器
+* @Retention：被描述的注解在什么范围内有效
+	1. RetentionPolicy.RUNTIME：在运行时有效(运行时保留)
+	2. RetentionPolicy.CLASS：在class文件中有效
+	3. RetentionPolicy.SOURCE：在源文件中有效
+* @Documented：描述其他类型的注解应该被作为被标注的程序成员的公共API
+* @Inherited：某个被标注的类型是被继承的。如果注解用在类上，则注解将被用于该类的子类
+## 切面编程
+注解前后可以增加一些执行逻辑
+```
+@Component
+@Aspect
+public class KthLogAspect {
+    @Pointcut("@annotation(com.project.adapter.annotation.KthLog)")
+    private void pointcut(){}
+    @Around("pointcut() && @annotation(logger)")
+    public Object advice(ProceedingJoinPoint joinPoint, KthLog logger){
+        Object result = null;
+        Object[] args = joinPoint.getArgs();
+        for(int i = 0;i<args.length;i++){
+            args[i] = (int)args[i] - 1;
+            System.out.println("此处可以对参数" + i + "进行操作");
+        }
+        try{
+            System.out.println("执行方法前");
+            result = joinPoint.proceed(args);
+            System.out.println("执行方法后");
+        }catch (Throwable throwable){
+            /**
+             * 使用proceed需要捕获Throwable异常
+             */
+            throwable.printStackTrace();
+        }
+        System.out.println("此处可以对result结果进行操作");
+        return result;
+    }
+}
+```
