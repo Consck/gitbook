@@ -1,5 +1,12 @@
 > 《Redis入门指南》（第2版）
 
+基本命令：
+SELECT 7 : 使用7号数据库 //SELECT index
+GET pageNum : 获取pageNum值
+set pageNum 1：修改变量值
+SET test 0 : 在当前数据库添加一个变量
+
+
 优点：
 1. redis支持的键值数据类型如下：
    * 字符串类型
