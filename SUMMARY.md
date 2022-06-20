@@ -60,5 +60,9 @@
 	* [sentinel限流规则](sentinel/sentinel限流规则.md)
 
 -----
+* [读书](book/README.md)
+  * [SpringBoot2精髓](book/SpringBoot2精髓.md)
+
+-----
 * [mei-service](mei-service/README.md)
   * [数据库篇](mei-service/mysql.md)
